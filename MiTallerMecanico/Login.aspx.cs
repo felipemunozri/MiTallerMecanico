@@ -1,0 +1,42 @@
+﻿using CapaEntidades;
+using CapaNegocio;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace MiTallerMecanico
+{
+    public partial class Login : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnIngresar_Click(object sender, EventArgs e)
+        {
+            string nomUsuario = txtNomUsuario.Text.ToUpper();
+            string passUsuario = txtPassUsuario.Text;
+
+            Usuario usuario = new Usuario(nomUsuario, passUsuario);
+
+            Session["usuarioConectado"] = usuario;
+
+
+
+            NEGUsuario negUsuario = new NEGUsuario();
+
+            if (negUsuario.NEGValidarUsuario(usuario))
+            {
+                Response.Redirect("Inicio.aspx");
+            }
+            else
+            {
+                Response.Write("<script>alert('Nombre de Usuario o Contraseña incorrectos!');</script>");
+            }
+        }
+    }
+}

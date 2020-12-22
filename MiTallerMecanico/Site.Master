@@ -1,0 +1,128 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MiTallerMecanico.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Mi Taller Mecánico</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <%--GOOGLE FONTS--%>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,500&display=swap" rel="stylesheet"> 
+
+    <%--CSS BOOTSTRAP 4.5.3--%>
+   <%-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">--%>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <%-- CUSTOM CSS --%>
+    <link href="Content/style.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav class="navbar navbar-dark navbar-expand-xl shadow p-3">
+                <a class="navbar-brand" href="Inicio.aspx">
+                    <span class="texto-logo shadow-lg">Mi Taller Mecánico</span>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-principal">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse pr-2 shadow-lg" id="navbar-principal">
+                    <ul class="navbar-nav ml-auto ">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dpPresupuestos" data-toggle="dropdown">Presupuestos</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="RegistrarPresupuesto.aspx">Registrar Presupuesto</a>
+                                <a class="dropdown-item" href="ConsultarPresupuesto.aspx">Consultar Presupuesto</a>
+                                <a class="dropdown-item" href="ModificarPresupuesto.aspx">Modificar Presupuesto</a>
+                                <a class="dropdown-item" href="EliminarPresupuesto.aspx">Eliminar Presupuesto</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dpOrdenesTrabajo" data-toggle="dropdown">Ordenes de Trabajo</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="RegistrarOrdenTrabajo.aspx">Registrar Orden de Trabajo</a>
+                                <a class="dropdown-item" href="ConsultarOrdenTrabajo.aspx">Consultar Orden de Trabajo</a>
+                                <a class="dropdown-item" href="ModificarOrdenTrabajo.aspx">Modificar Orden de Trabajo</a>
+                                <a class="dropdown-item" href="EliminarOrdenTrabajo.aspx">Eliminar Orden de Trabajo</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dpVehiculos" data-toggle="dropdown">Vehículos</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="RegistrarVehiculo.aspx">Registrar Vehículo</a>
+                                <a class="dropdown-item" href="ConsultarVehiculo.aspx">Consultar Vehículo</a>
+                                <a class="dropdown-item" href="ModificarVehiculo.aspx">Modificar Vehículo</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dpClientes" data-toggle="dropdown">Clientes</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="RegistrarCliente.aspx">Registrar Cliente</a>
+                                <a class="dropdown-item" href="ConsultarCliente.aspx">Consultar Cliente</a>
+                                <a class="dropdown-item" href="ModificarCliente.aspx">Modificar Cliente</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dpServicios" data-toggle="dropdown">Servicios</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="RegistrarServicio.aspx">Registrar Servicio</a>
+                                <a class="dropdown-item" href="ConsultarServicio.aspx">Consultar Servicio</a>
+                                <a class="dropdown-item" href="ModificarServicio.aspx">Modificar Servicio</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dpRepuestos" data-toggle="dropdown">Repuestos</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="RegistrarRepuesto.aspx">Registrar Repuesto</a>
+                                <a class="dropdown-item" href="ConsultarRepuesto.aspx">Consultar Repuesto</a>
+                                <a class="dropdown-item" href="ModificarRepuesto.aspx">Modificar Repuesto</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dpUsuarios" data-toggle="dropdown">Usuarios</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="RegistrarUsuario.aspx">Registrar Usuario</a>
+                                <a class="dropdown-item" href="ConsultarUsuario.aspx">Consultar Usuario</a>
+                                <a class="dropdown-item" href="ModificarUsuario.aspx">Modificar Usuario</a>
+                                <a class="dropdown-item" href="RegistrarTipoUsuario.aspx">Registrar Tipo Usuario</a>
+                                <a class="dropdown-item" href="ConsultarTipoUsuario.aspx">Consultar Tipo Usuario</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <asp:Button ID="btnLogout" OnClick="btnLogout_Click" formnovalidate class="btn btn-sm btn-outline-light mt-2 shadow-sm rounded" runat="server" Text="Logout" />
+                        </li>
+                    </ul>
+               </div>
+            </nav>
+        </div>
+        <br />
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer class="text-center pt-3">
+                <p>&copy; <%: DateTime.Now.Year %> - Mi Taller Mecánico</p>
+            </footer>
+        </div>
+
+    </form>
+
+     <%--SCRIPTS BOOTSTRAP 4.5.3--%>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

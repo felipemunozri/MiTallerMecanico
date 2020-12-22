@@ -1,0 +1,11 @@
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\bin\Debug\CapaNegocio.dll
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\bin\Debug\CapaNegocio.pdb
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\bin\Debug\CapaEntidades.dll
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\bin\Debug\CapaPersistencia.dll
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\bin\Debug\CapaEntidades.pdb
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\bin\Debug\CapaPersistencia.pdb
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.csprojAssemblyReference.cache
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.dll
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.pdb

@@ -1,0 +1,33 @@
+﻿html {
+    font-size: 12.5px;
+} 
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+    background-color: darkslateblue;
+}
+
+.navbar-collapse {
+    font-size: 1.1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    
+}
+
+h1 {
+    font-weight: 300;
+    color: #6d6e71;
+    font-size: 39px;
+}
+
+h4 {
+    font-weight: lighter;
+}
+
+.texto-logo {
+    font-size: 1.4rem;
+}

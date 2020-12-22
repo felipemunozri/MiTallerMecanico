@@ -1,0 +1,9 @@
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaPersistencia\bin\Debug\CapaPersistencia.dll
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaPersistencia\bin\Debug\CapaPersistencia.pdb
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaPersistencia\bin\Debug\CapaEntidades.dll
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaPersistencia\bin\Debug\CapaEntidades.pdb
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.csprojAssemblyReference.cache
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.csproj.CoreCompileInputs.cache
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.csproj.CopyComplete
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.dll
+E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.pdb
