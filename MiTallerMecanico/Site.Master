@@ -40,66 +40,85 @@
                 </button>
                 <div class="collapse navbar-collapse pr-2 shadow-lg" id="navbar-principal">
                     <ul class="navbar-nav ml-auto ">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dpPresupuestos" data-toggle="dropdown">Presupuestos</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="RegistrarPresupuesto.aspx">Registrar Presupuesto</a>
-                                <a class="dropdown-item" href="ConsultarPresupuesto.aspx">Consultar Presupuesto</a>
-                                <a class="dropdown-item" href="ModificarPresupuesto.aspx">Modificar Presupuesto</a>
-                                <a class="dropdown-item" href="EliminarPresupuesto.aspx">Eliminar Presupuesto</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dpOrdenesTrabajo" data-toggle="dropdown">Ordenes de Trabajo</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="RegistrarOrdenTrabajo.aspx">Registrar Orden de Trabajo</a>
-                                <a class="dropdown-item" href="ConsultarOrdenTrabajo.aspx">Consultar Orden de Trabajo</a>
-                                <a class="dropdown-item" href="ModificarOrdenTrabajo.aspx">Modificar Orden de Trabajo</a>
-                                <a class="dropdown-item" href="EliminarOrdenTrabajo.aspx">Eliminar Orden de Trabajo</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dpVehiculos" data-toggle="dropdown">Vehículos</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="RegistrarVehiculo.aspx">Registrar Vehículo</a>
-                                <a class="dropdown-item" href="ConsultarVehiculo.aspx">Consultar Vehículo</a>
-                                <a class="dropdown-item" href="ModificarVehiculo.aspx">Modificar Vehículo</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dpClientes" data-toggle="dropdown">Clientes</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="RegistrarCliente.aspx">Registrar Cliente</a>
-                                <a class="dropdown-item" href="ConsultarCliente.aspx">Consultar Cliente</a>
-                                <a class="dropdown-item" href="ModificarCliente.aspx">Modificar Cliente</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dpServicios" data-toggle="dropdown">Servicios</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="RegistrarServicio.aspx">Registrar Servicio</a>
-                                <a class="dropdown-item" href="ConsultarServicio.aspx">Consultar Servicio</a>
-                                <a class="dropdown-item" href="ModificarServicio.aspx">Modificar Servicio</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dpRepuestos" data-toggle="dropdown">Repuestos</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="RegistrarRepuesto.aspx">Registrar Repuesto</a>
-                                <a class="dropdown-item" href="ConsultarRepuesto.aspx">Consultar Repuesto</a>
-                                <a class="dropdown-item" href="ModificarRepuesto.aspx">Modificar Repuesto</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dpUsuarios" data-toggle="dropdown">Usuarios</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="RegistrarUsuario.aspx">Registrar Usuario</a>
-                                <a class="dropdown-item" href="ConsultarUsuario.aspx">Consultar Usuario</a>
-                                <a class="dropdown-item" href="ModificarUsuario.aspx">Modificar Usuario</a>
-                                <a class="dropdown-item" href="RegistrarTipoUsuario.aspx">Registrar Tipo Usuario</a>
-                                <a class="dropdown-item" href="ConsultarTipoUsuario.aspx">Consultar Tipo Usuario</a>
-                            </div>
-                        </li>
+                        <% 
+                            if (filtarMenuNavegacionSegunTipoUsuario("menuAdmin"))
+                            {
+                            %>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dpPresupuestos" data-toggle="dropdown">Presupuestos</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="RegistrarPresupuesto.aspx">Registrar Presupuesto</a>
+                                        <a class="dropdown-item" href="ConsultarPresupuesto.aspx">Consultar Presupuesto</a>
+                                        <a class="dropdown-item" href="ModificarPresupuesto.aspx">Modificar Presupuesto</a>
+                                        <a class="dropdown-item" href="EliminarPresupuesto.aspx">Eliminar Presupuesto</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dpOrdenesTrabajo" data-toggle="dropdown">Ordenes de Trabajo</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="RegistrarOrdenTrabajo.aspx">Registrar Orden de Trabajo</a>
+                                        <a class="dropdown-item" href="ConsultarOrdenTrabajo.aspx">Consultar Orden de Trabajo</a>
+                                        <a class="dropdown-item" href="ModificarOrdenTrabajo.aspx">Modificar Orden de Trabajo</a>
+                                        <a class="dropdown-item" href="EliminarOrdenTrabajo.aspx">Eliminar Orden de Trabajo</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dpVehiculos" data-toggle="dropdown">Vehículos</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="RegistrarVehiculo.aspx">Registrar Vehículo</a>
+                                        <a class="dropdown-item" href="ConsultarVehiculo.aspx">Consultar Vehículo</a>
+                                        <a class="dropdown-item" href="ModificarVehiculo.aspx">Modificar Vehículo</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dpClientes" data-toggle="dropdown">Clientes</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="RegistrarCliente.aspx">Registrar Cliente</a>
+                                        <a class="dropdown-item" href="ConsultarCliente.aspx">Consultar Cliente</a>
+                                        <a class="dropdown-item" href="ModificarCliente.aspx">Modificar Cliente</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dpServicios" data-toggle="dropdown">Servicios</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="RegistrarServicio.aspx">Registrar Servicio</a>
+                                        <a class="dropdown-item" href="ConsultarServicio.aspx">Consultar Servicio</a>
+                                        <a class="dropdown-item" href="ModificarServicio.aspx">Modificar Servicio</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dpRepuestos" data-toggle="dropdown">Repuestos</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="RegistrarRepuesto.aspx">Registrar Repuesto</a>
+                                        <a class="dropdown-item" href="ConsultarRepuesto.aspx">Consultar Repuesto</a>
+                                        <a class="dropdown-item" href="ModificarRepuesto.aspx">Modificar Repuesto</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dpUsuarios" data-toggle="dropdown">Usuarios</a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="RegistrarUsuario.aspx">Registrar Usuario</a>
+                                        <a class="dropdown-item" href="ConsultarUsuario.aspx">Consultar Usuario</a>
+                                        <a class="dropdown-item" href="ModificarUsuario.aspx">Modificar Usuario</a>
+                                        <a class="dropdown-item" href="RegistrarTipoUsuario.aspx">Registrar Tipo Usuario</a>
+                                        <a class="dropdown-item" href="ConsultarTipoUsuario.aspx">Consultar Tipo Usuario</a>
+                                    </div>
+                                </li>
+                        <%
+                            } 
+                            %>
+
+                        <%
+                            if (filtarMenuNavegacionSegunTipoUsuario("menuUsuario"))
+                            {
+                            %>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="ConsultarEstadoVehiculo.aspx" id="navlink_consultarEstado">Consultar Estado del Vehículo</a>
+                                </li>
+                        <%
+                            }
+                            %>
+
                         <li class="nav-item dropdown">
                             <asp:Button ID="btnLogout" OnClick="btnLogout_Click" formnovalidate class="btn btn-sm btn-outline-light mt-2 shadow-sm rounded" runat="server" Text="Logout" />
                         </li>

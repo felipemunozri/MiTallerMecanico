@@ -23,14 +23,14 @@ namespace MiTallerMecanico
 
             Usuario usuario = new Usuario(nomUsuario, passUsuario);
 
-            Session["usuarioConectado"] = usuario;
-
-
-
             NEGUsuario negUsuario = new NEGUsuario();
 
             if (negUsuario.NEGValidarUsuario(usuario))
             {
+                usuario = negUsuario.NEGBuscarUsuarioPorId
+
+                Session["usuarioConectado"] = usuario;
+
                 Response.Redirect("Inicio.aspx");
             }
             else

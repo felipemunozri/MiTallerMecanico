@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaEntidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,6 +19,23 @@ namespace MiTallerMecanico
         {
             Session.Abandon();
             Response.Redirect("Login.aspx");
+        }
+
+        public bool filtarMenuNavegacionSegunTipoUsuario(string nombreMenu)
+        {
+            int idTipoUsuario = ((Usuario)Session["usuarioConectado"]).TipoUsuario.IdTipoUsuario;
+
+            if (nombreMenu == "menuAdmin")
+            {
+                if (idTipoUsuario == 3)
+                    return false;
+            }
+            else if (nombreMenu == "menuUsuario")
+            {
+                if (idTipoUsuario == 1 || idTipoUsuario == 2)
+                    return false;
+            }
+            return true;
         }
     }
 }
