@@ -20,17 +20,15 @@ namespace MiTallerMecanico
         {
             string nomUsuario = txtNomUsuario.Text.ToUpper();
             string passUsuario = txtPassUsuario.Text;
+            Usuario usuarioValido;
 
             Usuario usuario = new Usuario(nomUsuario, passUsuario);
 
             NEGUsuario negUsuario = new NEGUsuario();
 
-            if (negUsuario.NEGValidarUsuario(usuario))
+            if (negUsuario.NEGValidarUsuario(usuario, out usuarioValido))
             {
-                usuario = negUsuario.NEGBuscarUsuarioPorId
-
-                Session["usuarioConectado"] = usuario;
-
+                Session["usuarioConectado"] = usuarioValido;
                 Response.Redirect("Inicio.aspx");
             }
             else

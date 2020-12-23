@@ -322,5 +322,64 @@ namespace CapaPersistencia
                 conectaBD.cerrarConexion();
             }
         }
+
+        public OrdenTrabajo buscarOrdenTrabajoPorPatente(string patente)
+        {
+            ConexionBD conectaBD = new ConexionBD();
+
+            try
+            {
+                string querySelect = "SELECT * FROM orden_trabajo WHERE fk_patente = '" + patente + "'";
+                //cambiar por sp 
+
+                conectaBD.abrirConexion();
+
+                SqlDataAdapter sqlAdaptador = new SqlDataAdapter(querySelect, conectaBD.Conexion);
+
+                DataTable tablaOrdenesTrabajo = new DataTable();
+
+                sqlAdaptador.Fill(tablaOrdenesTrabajo);
+
+                conectaBD.cerrarConexion();
+
+                if (tablaOrdenesTrabajo.Rows.Count > 0)
+                {
+                    OrdenTrabajo ordenTrabajo = new OrdenTrabajo();
+
+                    for (int i = 0; i < tablaOrdenesTrabajo.Rows.Count; i++)
+                    {
+                        ordenTrabajo.FolioOrden = int.Parse(tablaOrdenesTrabajo.Rows[i]["folioOrden"].ToString());
+                        ordenTrabajo.Fecha = DateTime.Parse(tablaOrdenesTrabajo.Rows[i]["fecha"].ToString());
+                        ordenTrabajo.FechaEntrega = DateTime.Parse(tablaOrdenesTrabajo.Rows[i]["fechaEntrega"].ToString());
+                        ordenTrabajo.Prioridad = tablaOrdenesTrabajo.Rows[i]["prioridad"].ToString();
+                        ordenTrabajo.Observaciones = tablaOrdenesTrabajo.Rows[i]["observaciones"].ToString();
+                        ordenTrabajo.Estado = tablaOrdenesTrabajo.Rows[i]["estado"].ToString();
+
+                        DAOUsuario daoUsuario = new DAOUsuario();
+                        ordenTrabajo.Encargado = daoUsuario.buscarUsuarioPorId(int.Parse(tablaOrdenesTrabajo.Rows[i]["fk_idUsuario"].ToString()));
+
+                        DAOCliente daoCliente = new DAOCliente();
+                        ordenTrabajo.Cliente = daoCliente.buscarClientePorRut(tablaOrdenesTrabajo.Rows[i]["fk_rutCliente"].ToString());
+
+                        DAOVehiculo daoVehiculo = new DAOVehiculo();
+                        ordenTrabajo.Vehiculo = daoVehiculo.buscarVehiculoPorPatente(tablaOrdenesTrabajo.Rows[i]["fk_patente"].ToString());
+                    }
+
+                    return ordenTrabajo;
+                }
+                else
+                {
+                    return new OrdenTrabajo();
+                }
+            }
+            catch (Exception)
+            {
+                return new OrdenTrabajo();
+            }
+            finally
+            {
+                conectaBD.cerrarConexion();
+            }
+        }
     }
 }

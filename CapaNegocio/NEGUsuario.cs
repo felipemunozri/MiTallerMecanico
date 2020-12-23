@@ -46,10 +46,10 @@ namespace CapaNegocio
             DAOUsuario daoUsuario = new DAOUsuario();
             return daoUsuario.buscarUsuarioPorId(idUsuario);
         }
-        public bool NEGValidarUsuario(Usuario usuario)
+        public bool NEGValidarUsuario(Usuario usuario, out Usuario usuarioValido)
         {
             DAOUsuario daoUsuario = new DAOUsuario();
-            return daoUsuario.validarUsuario(usuario);
+            return daoUsuario.validarUsuario(usuario, out usuarioValido);
         }
     }
 }

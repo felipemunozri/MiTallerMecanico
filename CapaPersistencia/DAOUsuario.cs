@@ -302,7 +302,7 @@ namespace CapaPersistencia
             }
         }
 
-        public bool validarUsuario(Usuario usuario)
+        public bool validarUsuario(Usuario usuario, out Usuario usuarioValido)
         {
             bool flag = false;
 
@@ -313,10 +313,7 @@ namespace CapaPersistencia
                 string querySelect = "SELECT * FROM Usuario WHERE " +
                     "nombreUsuario = '" + usuario.NomUsuario + "' AND " +
                     "passUsuario  = '" + usuario.PassUsuario + "'";
-
-                //string querySelect = "EXEC sp_validar_usuario '" +
-                //    usuario.NomUsuario + "','" +
-                //    usuario.PassUsuario + "'";
+                //cambiar por sp
 
                 conectaBD.abrirConexion();
 
@@ -330,43 +327,35 @@ namespace CapaPersistencia
 
                 if (tablaUsuarios.Rows.Count > 0)
                 {
-                    List<Usuario> listaUsuarios = new List<Usuario>();
+                    usuarioValido = new Usuario();
 
                     for (int i = 0; i < tablaUsuarios.Rows.Count; i++)
                     {
-                        Usuario nuevoUsuario = new Usuario();
-
-                        nuevoUsuario.NomUsuario = tablaUsuarios.Rows[i]["nombreUsuario"].ToString();
-                        nuevoUsuario.PassUsuario = tablaUsuarios.Rows[i]["passUsuario"].ToString();
+                        usuarioValido.IdUsuario = int.Parse(tablaUsuarios.Rows[i]["idUsuario"].ToString());
+                        usuarioValido.NomUsuario = tablaUsuarios.Rows[i]["nombreUsuario"].ToString();
+                        usuarioValido.PassUsuario = tablaUsuarios.Rows[i]["passUsuario"].ToString();
 
                         DAOTipoUsuario daoTipoUsuario = new DAOTipoUsuario();
-                        nuevoUsuario.TipoUsuario = daoTipoUsuario.buscarTipoUsuarioPorId(int.Parse(tablaUsuarios.Rows[i]["fk_idTipoUsuario"].ToString()));
-
-                        listaUsuarios.Add(nuevoUsuario);
+                        usuarioValido.TipoUsuario = daoTipoUsuario.buscarTipoUsuarioPorId(int.Parse(tablaUsuarios.Rows[i]["fk_idTipoUsuario"].ToString()));
                     }
 
-                    for (int i = 0; i < listaUsuarios.Count; i++)
-                    {
-                        if (usuario.NomUsuario.Equals(listaUsuarios[i].NomUsuario) && usuario.PassUsuario.Equals(listaUsuarios[i].PassUsuario))
-                        {
-                            flag = true;
-                        }
-                        else
-                        {
-                            flag = false;
-                        }
-                        break;
-                    }
+                    flag = true;
                     return flag;
                 }
                 else
                 {
-                    return false;
+                    usuarioValido = new Usuario();
+                    return flag;
                 }
             }
             catch (Exception)
             {
-                return false;
+                usuarioValido = new Usuario();
+                return flag;
+            }
+            finally
+            {
+                conectaBD.cerrarConexion();
             }
         }
     }

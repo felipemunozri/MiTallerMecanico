@@ -9,3 +9,14 @@ E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\Cap
 E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
 E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.dll
 E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaNegocio\bin\Debug\CapaEntidades.dll
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaNegocio\bin\Debug\CapaPersistencia.dll
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaNegocio\bin\Debug\CapaEntidades.pdb
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaNegocio\bin\Debug\CapaPersistencia.pdb
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.csprojAssemblyReference.cache
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaNegocio\obj\Debug\CapaNegocio.pdb

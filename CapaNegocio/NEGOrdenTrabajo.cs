@@ -52,5 +52,11 @@ namespace CapaNegocio
             DAOOrdenTrabajo daoOrdenTrabajo = new DAOOrdenTrabajo();
             return daoOrdenTrabajo.buscarOrdenTrabajoPorFolio(folioOrden);
         }
+        
+        public OrdenTrabajo NEGBuscarOrdenTrabajoPorPatente(string patente)
+        {
+            DAOOrdenTrabajo daoOrdenTrabajo = new DAOOrdenTrabajo();
+            return daoOrdenTrabajo.buscarOrdenTrabajoPorPatente(patente);
+        }
     }
 }

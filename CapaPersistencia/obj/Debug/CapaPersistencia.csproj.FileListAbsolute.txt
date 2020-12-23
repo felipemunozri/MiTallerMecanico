@@ -7,3 +7,12 @@ E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\Cap
 E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.csproj.CopyComplete
 E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.dll
 E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.pdb
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaPersistencia\bin\Debug\CapaPersistencia.dll
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaPersistencia\bin\Debug\CapaPersistencia.pdb
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaPersistencia\bin\Debug\CapaEntidades.dll
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaPersistencia\bin\Debug\CapaEntidades.pdb
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.csprojAssemblyReference.cache
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.csproj.CoreCompileInputs.cache
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.csproj.CopyComplete
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.dll
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaPersistencia\obj\Debug\CapaPersistencia.pdb

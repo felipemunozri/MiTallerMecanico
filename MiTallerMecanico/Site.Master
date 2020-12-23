@@ -113,7 +113,7 @@
                             {
                             %>
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="ConsultarEstadoVehiculo.aspx" id="navlink_consultarEstado">Consultar Estado del Vehículo</a>
+                                    <a class="nav-link mr-4" href="ConsultarMiVehiculo.aspx" id="navlink_consultarEstado">Consultar Mi Vehículo</a>
                                 </li>
                         <%
                             }

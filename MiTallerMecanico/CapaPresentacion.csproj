@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ConsultarCliente.aspx" />
+    <Content Include="ConsultarMiVehiculo.aspx" />
     <Content Include="ConsultarOrdenTrabajo.aspx" />
     <Content Include="ConsultarPresupuesto.aspx" />
     <Content Include="ConsultarRepuesto.aspx" />
@@ -619,6 +620,13 @@
     </Compile>
     <Compile Include="ConsultarCliente.aspx.designer.cs">
       <DependentUpon>ConsultarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarMiVehiculo.aspx.cs">
+      <DependentUpon>ConsultarMiVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarMiVehiculo.aspx.designer.cs">
+      <DependentUpon>ConsultarMiVehiculo.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarOrdenTrabajo.aspx.cs">
       <DependentUpon>ConsultarOrdenTrabajo.aspx</DependentUpon>
