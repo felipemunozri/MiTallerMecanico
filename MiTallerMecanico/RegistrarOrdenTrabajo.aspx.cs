@@ -44,11 +44,9 @@ namespace MiTallerMecanico
 
                 tablaSeleccion.Columns.Add("Codigo");
                 tablaSeleccion.Columns.Add("Servicio o Repuesto");
-                /*no se estan ocupando pero creo que deberian
                 tablaSeleccion.Columns.Add("Valor unitario");
                 tablaSeleccion.Columns.Add("Cantidad");
                 tablaSeleccion.Columns.Add("Subtotal");
-                */
                 Session["dtSeleccion"] = tablaSeleccion;
             }
         }
@@ -63,8 +61,20 @@ namespace MiTallerMecanico
 
             if (vehiculo.Cliente != null)
             {
+                txtMarca.Text = vehiculo.Marca;
+                txtModelo.Text = vehiculo.Modelo;
+                txtTipoVehiculo.Text = vehiculo.TipoVehiculo;
+                txtAno.Text = vehiculo.Ano.ToString();
+                txtKilometraje.Text = vehiculo.Kilometraje.ToString();
+
                 txtRutCliente.Text = vehiculo.Cliente.RutCliente;
-                SetFocus(txtFecha);
+                txtNomCliente.Text = vehiculo.Cliente.NomCliente;
+                txtApeCliente.Text = vehiculo.Cliente.ApeCliente;
+                txtDirecCliente.Text = vehiculo.Cliente.DirecCliente;
+                txtTelCliente.Text = vehiculo.Cliente.TelCliente.ToString();
+                txtMailCliente.Text = vehiculo.Cliente.MailCliente;
+
+                SetFocus(dpSelecServicio);
             }
             else
             {
@@ -84,23 +94,22 @@ namespace MiTallerMecanico
             {
                 int idServicio = int.Parse(dpSelecServicio.SelectedValue);
                 string nomServicio = dpSelecServicio.SelectedItem.Text;
-                //int cantServicio = int.Parse(txtCantServicios.Text);
-                //int valorServicio = int.Parse(txtValorServicio.Text);
+                int cantServicio = int.Parse(txtCantServicios.Text);
+                int valorServicio = int.Parse(txtValorServicio.Text);
 
-                //int subTotal = cantServicio * valorServicio;
+                int subTotal = cantServicio * valorServicio;
 
-                ((DataTable)Session["dtSeleccion"]).Rows.Add(idServicio, nomServicio /*, valorServicio, cantServicio, subTotal*/);
+                ((DataTable)Session["dtSeleccion"]).Rows.Add(idServicio, nomServicio, valorServicio, cantServicio, subTotal);
 
                 gvSeleccion.DataSource = (DataTable)Session["dtSeleccion"];
                 gvSeleccion.DataBind();
 
-                /*los montos no se estan insertando en las ordenes de trabajo actualmente, pero creo que deberian!
                 double montoIVA = double.Parse(txtMontoIVA.Text) / 0.19;
                 montoIVA = montoIVA + subTotal;
 
                 txtMontoIVA.Text = (montoIVA * 0.19).ToString();
                 txtMontoTotal.Text = (montoIVA + double.Parse(txtMontoIVA.Text)).ToString();
-                */
+
                 SetFocus(gvSeleccion);
             }
         }
@@ -116,23 +125,22 @@ namespace MiTallerMecanico
             {
                 int idRepuesto = int.Parse(dpSelecRepuesto.SelectedValue);
                 string nomRepuesto = dpSelecRepuesto.SelectedItem.Text;
-                //int cantRepuesto = int.Parse(txtCantRepuestos.Text);
-                //int valorRepuesto = int.Parse(txtValorRepuesto.Text);
+                int cantRepuesto = int.Parse(txtCantRepuestos.Text);
+                int valorRepuesto = int.Parse(txtValorRepuesto.Text);
 
-                //int subTotal = cantRepuesto * valorRepuesto;
+                int subTotal = cantRepuesto * valorRepuesto;
 
-                ((DataTable)Session["dtSeleccion"]).Rows.Add(idRepuesto, nomRepuesto /*, valorRepuesto, cantRepuesto, subTotal*/);
+                ((DataTable)Session["dtSeleccion"]).Rows.Add(idRepuesto, nomRepuesto, valorRepuesto, cantRepuesto, subTotal);
 
                 gvSeleccion.DataSource = (DataTable)Session["dtSeleccion"];
                 gvSeleccion.DataBind();
 
-                /*los montos no se estan insertando en las ordenes de trabajo actualmente, pero creo que deberian!
                 double montoIVA = double.Parse(txtMontoIVA.Text) / 0.19;
                 montoIVA = montoIVA + subTotal;
 
                 txtMontoIVA.Text = (montoIVA * 0.19).ToString();
                 txtMontoTotal.Text = (montoIVA + double.Parse(txtMontoIVA.Text)).ToString();
-                */
+
                 SetFocus(gvSeleccion);
             }
         }
@@ -141,7 +149,6 @@ namespace MiTallerMecanico
         {
             GridViewRow filaSeleccionada = gvSeleccion.SelectedRow;
 
-            /*los montos no se estan insertando en las ordenes de trabajo actualmente, pero creo que deberian!
             string subTotal = filaSeleccionada.Cells[5].Text;
 
             double montoIVA = double.Parse(txtMontoIVA.Text) / 0.19;
@@ -149,7 +156,7 @@ namespace MiTallerMecanico
 
             txtMontoIVA.Text = (montoIVA * 0.19).ToString();
             txtMontoTotal.Text = (montoIVA + double.Parse(txtMontoIVA.Text)).ToString();
-            */
+
             int fila = filaSeleccionada.RowIndex;
             ((DataTable)Session["dtSeleccion"]).Rows.RemoveAt(fila);
 
@@ -165,11 +172,45 @@ namespace MiTallerMecanico
             bool flagRegistroDetalleOrden = false;
             int idOrdenInsertada = 0;
 
+            //CODIGO PARA REGISTRAR CLIENTE
+            Cliente cliente = new Cliente();
+
+            cliente.RutCliente = txtRutCliente.Text;
+            cliente.NomCliente = txtNomCliente.Text;
+            cliente.ApeCliente = txtApeCliente.Text;
+            cliente.DirecCliente = txtDirecCliente.Text;
+            cliente.TelCliente = int.Parse(txtTelCliente.Text);
+            cliente.MailCliente = txtMailCliente.Text;
+
+            NEGCliente negCliente = new NEGCliente();
+
+            if (negCliente.NEGBuscarClientePorRut(txtRutCliente.Text).NomCliente == null)
+            {
+                negCliente.NEGRegistarCliente(cliente);
+            }        
+
+            //CODIGO PARA REGISTRAR VEHICULO
+            Vehiculo vehiculo = new Vehiculo();
+
+            vehiculo.Patente = txtPatente.Text.ToUpper();
+            vehiculo.Cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
+            vehiculo.TipoVehiculo = txtTipoVehiculo.Text.ToUpper();
+            vehiculo.Marca = txtMarca.Text.ToUpper();
+            vehiculo.Modelo = txtModelo.Text.ToUpper();
+            vehiculo.Ano = int.Parse(txtAno.Text);
+            vehiculo.Kilometraje = double.Parse(txtKilometraje.Text);
+
+            NEGVehiculo negVehiculo = new NEGVehiculo();
+
+            if (negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text).Patente == null)
+            {
+                negVehiculo.NEGRegistrarVehiculo(vehiculo);
+            }
+
+            //CODIGO PARA REGISTRAR ORDEN DE TRABAJO
             OrdenTrabajo ordenTrabajo = new OrdenTrabajo();
 
             NEGUsuario negUsuario = new NEGUsuario();
-            NEGCliente negCliente = new NEGCliente();
-            NEGVehiculo negVehiculo = new NEGVehiculo();
 
             ordenTrabajo.Encargado = negUsuario.NEGBuscarUsuarioPorId(int.Parse(dpNomUsuario.SelectedValue));
             ordenTrabajo.Cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
@@ -179,12 +220,13 @@ namespace MiTallerMecanico
             ordenTrabajo.Prioridad = dpPrioridad.SelectedValue; //podria venir de una tabla en bd??
             ordenTrabajo.Observaciones = txtObservaciones.Text;
             ordenTrabajo.Estado = dpEstado.SelectedValue; //podria ser txtbox o el estado podria venir de una tabla en bd??
+            ordenTrabajo.Iva = double.Parse(txtMontoIVA.Text);
+            ordenTrabajo.Total = double.Parse(txtMontoTotal.Text);
 
             NEGOrdenTrabajo negOrdenTrabajo = new NEGOrdenTrabajo();
             flagRegistroOrden = negOrdenTrabajo.NEGRegistrarOrdenTrabajo(ordenTrabajo, out idOrdenInsertada);
 
-            //CODIGO PARA INSERTAR EL DETALLE DE LA ORDEN DE TRABAJO, NO FUNCIONA DE MOMENTO
-            //POR ALGUNA RAZON EL SP NO ESTA INSERTANDO LOS DATOS 
+            //CODIGO PARA INSERTAR EL DETALLE DE LA ORDEN DE TRABAJO
 
             if (gvSeleccion.Rows.Count != 0)
             {
@@ -198,9 +240,9 @@ namespace MiTallerMecanico
                     detalleOrden.OrdenTrabajo = negOrdenTrabajo.NEGBuscarOrdenTrabajoPorFolio(idOrdenInsertada);
                     detalleOrden.Servicio = negServicio.NEGBuscarServicioPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
                     detalleOrden.Repuesto = negRepuesto.NEGBuscarRepuestoPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
-                    //detlleOrden.CantServicio = int.Parse(gvSeleccion.Rows[i].Cells[3].Text);
-                    //detalleOrden.CantRepuesto = int.Parse(gvSeleccion.Rows[i].Cells[3].Text);
-                    //detalleOrden.Subtotal = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
+                    detalleOrden.CantServicio = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
+                    detalleOrden.CantRepuesto = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
+                    detalleOrden.SubTotal = int.Parse(gvSeleccion.Rows[i].Cells[5].Text);
 
                     NEGDetalleOrden negDetalleOrden = new NEGDetalleOrden();
                     flagRegistroDetalleOrden = negDetalleOrden.NEGRegistrarDetOrden(detalleOrden);

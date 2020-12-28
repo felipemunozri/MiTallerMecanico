@@ -4,7 +4,10 @@ USE TALLER_MECANICO
 GO
 CREATE PROCEDURE sp_registrar_detalle_orden @fk_folioOrden INT, 
                                             @fk_idServicio INT, 
-                                            @fk_idRepuesto INT
+                                            @fk_idRepuesto INT,
+											@cantidadServicio INT,
+											@cantidadRepuesto INT,
+											@subTotal         DECIMAL(18, 4)
 AS
     BEGIN
         SET NOCOUNT OFF
@@ -28,16 +31,23 @@ AS
                 )
                     BEGIN
                         SET @fk_idServicio = NULL
+						SET @cantidadServicio = 0
 
                         INSERT INTO detalle_orden
                         (fk_folioOrden, 
                          fk_idServicio, 
-                         fk_idRepuesto
+                         fk_idRepuesto,
+						 cantidadServicio,
+						 cantidadRepuesto,
+						 subTotal
                         )
                         VALUES
                         (@fk_folioOrden, 
                          @fk_idServicio, 
-                         @fk_idRepuesto
+                         @fk_idRepuesto,
+						 @cantidadServicio,
+						 @cantidadRepuesto,
+						 @subTotal
                         )
                 END
                 -- si no existe el idRepuesto pasado al sp lo cambiará a NULL antes de insertar
@@ -49,16 +59,23 @@ AS
                 )
                     BEGIN
                         SET @fk_idRepuesto = NULL
+						SET @cantidadRepuesto = 0
 
                         INSERT INTO detalle_orden
                         (fk_folioOrden, 
                          fk_idServicio, 
-                         fk_idRepuesto
+                         fk_idRepuesto,
+						 cantidadServicio,
+						 cantidadRepuesto,
+						 subTotal
                         )
                         VALUES
                         (@fk_folioOrden, 
                          @fk_idServicio, 
-                         @fk_idRepuesto
+                         @fk_idRepuesto,
+						 @cantidadServicio,
+						 @cantidadRepuesto,
+						 @subTotal
                         )
                 END
                 PRINT 'Confirmación: Orden de Trabajo creada correctamente.'

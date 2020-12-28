@@ -107,18 +107,6 @@
                         <%
                             } 
                             %>
-
-                        <%
-                            if (filtarMenuNavegacionSegunTipoUsuario("menuUsuario"))
-                            {
-                            %>
-                                <li class="nav-item ">
-                                    <a class="nav-link mr-4" href="ConsultarMiVehiculo.aspx" id="navlink_consultarEstado">Consultar Mi Vehículo</a>
-                                </li>
-                        <%
-                            }
-                            %>
-
                         <li class="nav-item dropdown">
                             <asp:Button ID="btnLogout" OnClick="btnLogout_Click" formnovalidate class="btn btn-sm btn-outline-light mt-2 shadow-sm rounded" runat="server" Text="Logout" />
                         </li>

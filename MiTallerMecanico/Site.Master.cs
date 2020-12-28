@@ -30,7 +30,7 @@ namespace MiTallerMecanico
                 if (idTipoUsuario == 3)
                     return false;
             }
-            else if (nombreMenu == "menuUsuario")
+            else if (nombreMenu == "menuMecanico")
             {
                 if (idTipoUsuario == 1 || idTipoUsuario == 2)
                     return false;

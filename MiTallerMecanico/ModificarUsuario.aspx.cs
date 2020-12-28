@@ -42,8 +42,7 @@ namespace MiTallerMecanico
 
                 if (usuario.NomUsuario != null)
                 {
-                    dpTipoUsuario.DataTextField = usuario.TipoUsuario.Cargo;
-                    dpTipoUsuario.DataValueField = usuario.TipoUsuario.IdTipoUsuario.ToString();
+                    dpTipoUsuario.SelectedValue = usuario.TipoUsuario.IdTipoUsuario.ToString();
                     txtNomUsuario.Text = usuario.NomUsuario;
                     txtPassUsuario.Text = usuario.PassUsuario;
                 }

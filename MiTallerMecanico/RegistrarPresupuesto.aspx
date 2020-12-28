@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col col-md-12">
                 <asp:Label ID="lblPatente" runat="server" Text="Patente vehículo:"></asp:Label>
-                <asp:TextBox ID="txtPatente" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtPatente_TextChanged" required runat="server" MaxLength="6"></asp:TextBox><br />
+                <asp:TextBox ID="txtPatente" CssClass="form-control" required runat="server" MaxLength="6"></asp:TextBox><br />
 
                  <asp:Label ID="lblRutCliente" runat="server" Text="Rut cliente:"></asp:Label>
                 <asp:TextBox ID="txtRutCliente" CssClass="form-control" required runat="server"></asp:TextBox><br />

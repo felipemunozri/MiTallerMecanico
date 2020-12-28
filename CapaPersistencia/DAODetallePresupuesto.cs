@@ -259,9 +259,15 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT fk_idServicio, fk_idRepuesto, " +
-                    "cantidadServicio, cantidadRepuesto, CAST(subTotal AS int) " +
-                    "FROM detalle_presupuesto WHERE fk_folioEncabezado = " + folioEncabezado;
+                string querySelect = "SELECT fk_idServicio AS 'Codigo', nombreServicio AS " +
+                    "'Servicio o Repuesto', CAST((subtotal / cantidadServicio) AS INT) AS " +
+                    "'Valor unitario', cantidadServicio AS 'Cantidad', CAST(subTotal AS INT) " +
+                    "AS Subtotal FROM detalle_presupuesto AS dt INNER JOIN servicio AS ser ON " +
+                    "dt.fk_idServicio = ser.idServicio WHERE fk_folioEncabezado = " + folioEncabezado + " UNION SELECT fk_idRepuesto AS " +
+                    "'Codigo', nombreRepuesto AS 'Servicio o Repuesto', CAST((subtotal / cantidadRepuesto) AS INT) " +
+                    "AS 'Valor unitario', cantidadRepuesto AS 'Cantidad', CAST(subTotal AS INT) AS Subtotal FROM " +
+                    "detalle_presupuesto AS dt INNER JOIN repuesto AS rep ON dt.fk_idRepuesto = rep.idRepuesto " +
+                    "WHERE fk_folioEncabezado = " + folioEncabezado;
                 //cambiar por sp
 
                 SqlDataAdapter sqlAdpater = new SqlDataAdapter(querySelect, conectaBD.Conexion);

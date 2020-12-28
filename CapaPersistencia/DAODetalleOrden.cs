@@ -25,6 +25,9 @@ namespace CapaPersistencia
                 cmd.Parameters.Add(new SqlParameter("@fk_folioOrden", detOrden.OrdenTrabajo.FolioOrden));
                 cmd.Parameters.Add(new SqlParameter("@fk_idServicio", detOrden.Servicio.IdServicio));
                 cmd.Parameters.Add(new SqlParameter("@fk_idRepuesto", detOrden.Repuesto.IdRepuesto));
+                cmd.Parameters.Add(new SqlParameter("@cantidadServicio", detOrden.CantServicio));
+                cmd.Parameters.Add(new SqlParameter("@cantidadRepuesto", detOrden.CantRepuesto));
+                cmd.Parameters.Add(new SqlParameter("@subTotal", detOrden.SubTotal));
 
                 int aux = cmd.ExecuteNonQuery();
 
@@ -66,6 +69,9 @@ namespace CapaPersistencia
                 cmd.Parameters.Add(new SqlParameter("@fk_folioOrden", detOrden.OrdenTrabajo.FolioOrden));
                 cmd.Parameters.Add(new SqlParameter("@fk_idServicio", detOrden.Servicio.IdServicio));
                 cmd.Parameters.Add(new SqlParameter("@fk_idRepuesto", detOrden.Repuesto.IdRepuesto));
+                cmd.Parameters.Add(new SqlParameter("@cantidadServicio", detOrden.CantServicio));
+                cmd.Parameters.Add(new SqlParameter("@cantidadRepuesto", detOrden.CantRepuesto));
+                cmd.Parameters.Add(new SqlParameter("@subTotal", detOrden.SubTotal));
 
                 int aux = cmd.ExecuteNonQuery();
 
@@ -162,6 +168,8 @@ namespace CapaPersistencia
                         DetalleOrden detOrden = new DetalleOrden();
 
                         detOrden.FolioDetalleOrden = int.Parse(tablaDetOrden.Rows[i]["folioDetalleOrden"].ToString());
+                        detOrden.CantServicio = int.Parse(tablaDetOrden.Rows[i]["cantidadServicio"].ToString());
+                        detOrden.CantRepuesto = int.Parse(tablaDetOrden.Rows[i]["cantidadRepuesto"].ToString());
 
                         DAOOrdenTrabajo daoOrdenTrabajo = new DAOOrdenTrabajo();
                         detOrden.OrdenTrabajo = daoOrdenTrabajo.buscarOrdenTrabajoPorFolio(int.Parse(tablaDetOrden.Rows[i]["fk_folioOrden"].ToString()));
@@ -219,6 +227,8 @@ namespace CapaPersistencia
                     for (int i = 0; i < tablaDetOrden.Rows.Count; i++)
                     {
                         detOrden.FolioDetalleOrden = int.Parse(tablaDetOrden.Rows[i]["folioDetalleOrden"].ToString());
+                        detOrden.CantServicio = int.Parse(tablaDetOrden.Rows[i]["cantidadServicio"].ToString());
+                        detOrden.CantRepuesto = int.Parse(tablaDetOrden.Rows[i]["cantidadRepuesto"].ToString());
 
                         DAOOrdenTrabajo daoOrdenTrabajo = new DAOOrdenTrabajo();
                         detOrden.OrdenTrabajo = daoOrdenTrabajo.buscarOrdenTrabajoPorFolio(int.Parse(tablaDetOrden.Rows[i]["fk_folioOrden"].ToString()));
@@ -253,15 +263,15 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT fk_idServicio, fk_idRepuesto " +
-                    "FROM detalle_orden WHERE fk_folioOrden = " + folioOrden;
-
-                /* esta es ql query que deberia ser
-                string querySelect = "SELECT fk_idServicio, fk_idRepuesto, " +
-                    "cantidadServicio, cantidadRepuesto, CAST(subTotal AS int) +
-                    "FROM detalle_orden WHERE fk_folioOrden = " + folioOrden;
-                */
-
+                string querySelect = "SELECT fk_idServicio AS 'Codigo', nombreServicio AS " +
+                    "'Servicio o Repuesto', CAST((subtotal / cantidadServicio) AS INT) AS " +
+                    "'Valor unitario', cantidadServicio AS 'Cantidad', CAST(subTotal AS INT) " +
+                    "AS Subtotal FROM detalle_orden AS dt INNER JOIN servicio AS ser ON " +
+                    "dt.fk_idServicio = ser.idServicio WHERE fk_folioOrden = " + folioOrden + " UNION SELECT fk_idRepuesto AS " +
+                    "'Codigo', nombreRepuesto AS 'Servicio o Repuesto', CAST((subtotal / cantidadRepuesto) AS INT) " +
+                    "AS 'Valor unitario', cantidadRepuesto AS 'Cantidad', CAST(subTotal AS INT) AS Subtotal FROM " +
+                    "detalle_orden AS dt INNER JOIN repuesto AS rep ON dt.fk_idRepuesto = rep.idRepuesto " +
+                    "WHERE fk_folioOrden = " + folioOrden;
                 //cambiar por sp
 
                 SqlDataAdapter sqlAdpater = new SqlDataAdapter(querySelect, conectaBD.Conexion);

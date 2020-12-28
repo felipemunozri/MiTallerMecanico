@@ -10,6 +10,8 @@ CREATE PROCEDURE sp_registrar_orden_trabajo @fk_idUsuario  INT,
                                            @prioridad     VARCHAR(50), 
                                            @observaciones VARCHAR(200), 
                                            @estado        VARCHAR(20), 
+										   @iva           DECIMAL(18, 4), 
+                                           @total         DECIMAL(18, 4), 
                                            @new_identity  INT OUTPUT -- aqui se guarda el id del registro que se va a insertar
 AS
     BEGIN
@@ -23,7 +25,9 @@ AS
              fechaEntrega, 
              prioridad, 
              observaciones, 
-             estado
+             estado,
+			 iva,
+			 total
             )
             VALUES
             (@fk_idUsuario, 
@@ -33,7 +37,9 @@ AS
              @fechaEntrega, 
              @prioridad, 
              @observaciones, 
-             @estado
+             @estado,
+			 @iva,
+			 @total
             )
             SET @new_identity = SCOPE_IDENTITY()
             PRINT 'Confirmación: Orden de Trabajo creada correctamente.'

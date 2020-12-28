@@ -17,6 +17,8 @@ namespace CapaEntidades
         private string prioridad;
         private string observaciones;
         private string estado;
+        private double iva;
+        private double total;
 
         public OrdenTrabajo()
         {
@@ -24,7 +26,7 @@ namespace CapaEntidades
         }
 
         // esta sobrecarga se ocupa para listar las ordenes ya que usa el id de documento
-        public OrdenTrabajo(int folioOrden, Usuario encargado, Vehiculo vehiculo, Cliente cliente, DateTime fecha, DateTime fechaEntrega, string prioridad, string observaciones, string estado)
+        public OrdenTrabajo(int folioOrden, Usuario encargado, Vehiculo vehiculo, Cliente cliente, DateTime fecha, DateTime fechaEntrega, string prioridad, string observaciones, string estado, double iva, double subTotal)
         {
             this.FolioOrden = folioOrden;
             this.Encargado = encargado;
@@ -37,7 +39,7 @@ namespace CapaEntidades
         }
 
         // esta sobrecarga se ocupa para crear una orden, ya que no utiliza el id de documento (se crea en BD)
-        public OrdenTrabajo(Usuario encargado, Vehiculo vehiculo, Cliente cliente, DateTime fecha, DateTime fechaEntrega, string prioridad, string observaciones, string estado)
+        public OrdenTrabajo(Usuario encargado, Vehiculo vehiculo, Cliente cliente, DateTime fecha, DateTime fechaEntrega, string prioridad, string observaciones, string estado, double iva, double subTotal)
         {
             this.Encargado = encargado;
             this.Vehiculo = vehiculo;
@@ -58,5 +60,7 @@ namespace CapaEntidades
         public string Prioridad { get => prioridad; set => prioridad = value; }
         public string Observaciones { get => observaciones; set => observaciones = value; }
         public string Estado { get => estado; set => estado = value; }
+        public double Iva { get => iva; set => iva = value; }
+        public double Total { get => total; set => total = value; }
     }
 }

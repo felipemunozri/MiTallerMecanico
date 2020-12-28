@@ -57,10 +57,10 @@ namespace MiTallerMecanico
                 EncabezadoPresupuesto encPresupuesto = new EncabezadoPresupuesto();
                 encPresupuesto = negEncPresupuesto.NEGBuscarEncPresupuestoPorFolio(int.Parse(txtBuscarPresupuesto.Text));
 
-                if (encPresupuesto.Cliente != null)
+                if (encPresupuesto.RutCliente != null)
                 {
-                    txtPatente.Text = encPresupuesto.Vehiculo.Patente;
-                    txtRutCliente.Text = encPresupuesto.Cliente.RutCliente;
+                    txtPatente.Text = encPresupuesto.Patente;
+                    txtRutCliente.Text = encPresupuesto.RutCliente;
                     txtFecha.Text = encPresupuesto.Fecha.ToString("yyyy-MM-dd");
                     txtMontoIVA.Text = encPresupuesto.Iva.ToString("N2");
                     txtMontoTotal.Text = encPresupuesto.Total.ToString("N2");
@@ -189,24 +189,19 @@ namespace MiTallerMecanico
             bool flagRegistroDetPresupuesto = false;
             int idPresupuestoInsertado = 0;
 
+            //CODIGO PARA MODIFICAR EL ENCABEZADO DEL PRESUPUESTO
             EncabezadoPresupuesto encPresupuesto = new EncabezadoPresupuesto();
 
-
-            NEGCliente negCliente = new NEGCliente();
-            NEGVehiculo negVehiculo = new NEGVehiculo();
-
-
-            encPresupuesto.Cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
-            encPresupuesto.Vehiculo = negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text.ToUpper());
+            encPresupuesto.RutCliente = txtRutCliente.Text;
+            encPresupuesto.Patente = txtPatente.Text.ToUpper();
             encPresupuesto.Fecha = DateTime.Parse(txtFecha.Text);
             encPresupuesto.Iva = double.Parse(txtMontoIVA.Text);
             encPresupuesto.Total = double.Parse(txtMontoTotal.Text);
 
             NEGEncabezadoPresupuesto negEncPresupuesto = new NEGEncabezadoPresupuesto();
-            flagRegistroEncPresupuesto = negEncPresupuesto.NEGRegistrarEncPresupuesto(encPresupuesto, out idPresupuestoInsertado);
+            flagRegistroEncPresupuesto = negEncPresupuesto.NEGModificarEncPresupuesto(encPresupuesto);
 
-            //CODIGO PARA INSERTAR EL DETALLE DE PRESUPUESTO, NO FUNCIONA DE MOMENTO
-            //POR ALGUNA RAZON EL SP NO ESTA INSERTANDO LOS DATOS 
+            //CODIGO PARA MODIFICAR EL DETALLE DEL PRESUPUESTO 
 
             if (gvSeleccion.Rows.Count != 0)
             {
@@ -225,7 +220,7 @@ namespace MiTallerMecanico
                     detPresupuesto.SubTotal = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
 
                     NEGDetallePresupuesto negDetpresupuesto = new NEGDetallePresupuesto();
-                    flagRegistroDetPresupuesto = negDetpresupuesto.NEGRegistrarDetPresupuesto(detPresupuesto);
+                    flagRegistroDetPresupuesto = negDetpresupuesto.NEGModificarDetPresupuesto(detPresupuesto);
                 }
             }
             else

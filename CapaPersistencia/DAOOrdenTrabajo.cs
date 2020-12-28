@@ -23,6 +23,7 @@ namespace CapaPersistencia
 
                 SqlCommand cmd = new SqlCommand("sp_registrar_orden_trabajo", conectaBD.Conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 cmd.Parameters.Add(new SqlParameter("@fk_idUsuario", ordenTrabajo.Encargado.IdUsuario));
                 cmd.Parameters.Add(new SqlParameter("@fk_rutCliente", ordenTrabajo.Cliente.RutCliente));
                 cmd.Parameters.Add(new SqlParameter("@fk_patente", ordenTrabajo.Vehiculo.Patente));
@@ -31,6 +32,8 @@ namespace CapaPersistencia
                 cmd.Parameters.Add(new SqlParameter("@prioridad", ordenTrabajo.Prioridad));
                 cmd.Parameters.Add(new SqlParameter("@observaciones", ordenTrabajo.Observaciones));
                 cmd.Parameters.Add(new SqlParameter("@estado", ordenTrabajo.Estado));
+                cmd.Parameters.Add(new SqlParameter("@iva", ordenTrabajo.Iva));
+                cmd.Parameters.Add(new SqlParameter("@total", ordenTrabajo.Total));
                 cmd.Parameters.Add("@new_identity", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                 int aux = cmd.ExecuteNonQuery();
@@ -70,15 +73,17 @@ namespace CapaPersistencia
                 SqlCommand cmd = new SqlCommand("sp_modificar_orden_trabajo", conectaBD.Conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@idUsuario", ordenTrabajo.FolioOrden));
+                cmd.Parameters.Add(new SqlParameter("@folioOrden", ordenTrabajo.FolioOrden));
                 cmd.Parameters.Add(new SqlParameter("@fk_idUsuario", ordenTrabajo.Encargado.IdUsuario));
                 cmd.Parameters.Add(new SqlParameter("@fk_rutCliente", ordenTrabajo.Cliente.RutCliente));
                 cmd.Parameters.Add(new SqlParameter("@fk_patente", ordenTrabajo.Vehiculo.Patente));
-                cmd.Parameters.Add(new SqlParameter("@fecha", ordenTrabajo.Fecha));
-                cmd.Parameters.Add(new SqlParameter("@prioridad", ordenTrabajo.FechaEntrega));
+                cmd.Parameters.Add(new SqlParameter("@fecha", ordenTrabajo.Fecha.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)));
+                cmd.Parameters.Add(new SqlParameter("@fechaEntrega", ordenTrabajo.FechaEntrega.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)));
+                cmd.Parameters.Add(new SqlParameter("@prioridad", ordenTrabajo.Prioridad));
                 cmd.Parameters.Add(new SqlParameter("@observaciones", ordenTrabajo.Observaciones));
                 cmd.Parameters.Add(new SqlParameter("@estado", ordenTrabajo.Estado));
-                cmd.Parameters.Add(new SqlParameter("@observaciones", ordenTrabajo.Observaciones));
+                cmd.Parameters.Add(new SqlParameter("@iva", ordenTrabajo.Iva));
+                cmd.Parameters.Add(new SqlParameter("@total", ordenTrabajo.Total));
 
                 int aux = cmd.ExecuteNonQuery();
 
@@ -174,6 +179,8 @@ namespace CapaPersistencia
                         ordenTrabajo.Prioridad = tablaOrdenesTrabajo.Rows[i]["prioridad"].ToString();
                         ordenTrabajo.Observaciones = tablaOrdenesTrabajo.Rows[i]["observaciones"].ToString();
                         ordenTrabajo.Estado = tablaOrdenesTrabajo.Rows[i]["estado"].ToString();
+                        ordenTrabajo.Iva = double.Parse(tablaOrdenesTrabajo.Rows[i]["iva"].ToString());
+                        ordenTrabajo.Total = double.Parse(tablaOrdenesTrabajo.Rows[i]["total"].ToString());
 
                         DAOUsuario daoUsuario = new DAOUsuario();
                         ordenTrabajo.Encargado = daoUsuario.buscarUsuarioPorId(int.Parse(tablaOrdenesTrabajo.Rows[i]["fk_idUsuario"].ToString()));
@@ -295,6 +302,8 @@ namespace CapaPersistencia
                         ordenTrabajo.Prioridad = tablaOrdenesTrabajo.Rows[i]["prioridad"].ToString();
                         ordenTrabajo.Observaciones = tablaOrdenesTrabajo.Rows[i]["observaciones"].ToString();
                         ordenTrabajo.Estado = tablaOrdenesTrabajo.Rows[i]["estado"].ToString();
+                        ordenTrabajo.Iva = double.Parse(tablaOrdenesTrabajo.Rows[i]["iva"].ToString());
+                        ordenTrabajo.Total = double.Parse(tablaOrdenesTrabajo.Rows[i]["total"].ToString());
 
                         DAOUsuario daoUsuario = new DAOUsuario();
                         ordenTrabajo.Encargado = daoUsuario.buscarUsuarioPorId(int.Parse(tablaOrdenesTrabajo.Rows[i]["fk_idUsuario"].ToString()));
@@ -323,13 +332,14 @@ namespace CapaPersistencia
             }
         }
 
-        public OrdenTrabajo buscarOrdenTrabajoPorPatente(string patente)
+        public OrdenTrabajo buscarOrdenTrabajoPorFolioYPatente(int folioOrden, string patente)
         {
             ConexionBD conectaBD = new ConexionBD();
 
             try
             {
-                string querySelect = "SELECT * FROM orden_trabajo WHERE fk_patente = '" + patente + "'";
+                string querySelect = "SELECT * FROM orden_trabajo WHERE " +
+                    "folioOrden = " + folioOrden + " AND fk_patente = '" + patente + "'";
                 //cambiar por sp 
 
                 conectaBD.abrirConexion();
@@ -354,6 +364,8 @@ namespace CapaPersistencia
                         ordenTrabajo.Prioridad = tablaOrdenesTrabajo.Rows[i]["prioridad"].ToString();
                         ordenTrabajo.Observaciones = tablaOrdenesTrabajo.Rows[i]["observaciones"].ToString();
                         ordenTrabajo.Estado = tablaOrdenesTrabajo.Rows[i]["estado"].ToString();
+                        ordenTrabajo.Iva = double.Parse(tablaOrdenesTrabajo.Rows[i]["iva"].ToString());
+                        ordenTrabajo.Total = double.Parse(tablaOrdenesTrabajo.Rows[i]["total"].ToString());
 
                         DAOUsuario daoUsuario = new DAOUsuario();
                         ordenTrabajo.Encargado = daoUsuario.buscarUsuarioPorId(int.Parse(tablaOrdenesTrabajo.Rows[i]["fk_idUsuario"].ToString()));

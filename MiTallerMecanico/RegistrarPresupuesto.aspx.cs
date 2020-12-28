@@ -43,26 +43,6 @@ namespace MiTallerMecanico
             }
         }
 
-        protected void txtPatente_TextChanged(object sender, EventArgs e)
-        {
-            Vehiculo vehiculo = new Vehiculo();
-
-            NEGVehiculo negVehiculo = new NEGVehiculo();
-
-            vehiculo = negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text);
-
-            if (vehiculo.Cliente != null)
-            {
-                txtRutCliente.Text = vehiculo.Cliente.RutCliente;
-                SetFocus(txtFecha);
-            }
-            else
-            {
-                txtRutCliente.Text = "";
-                SetFocus(txtRutCliente);
-            }
-        }
-
         protected void btnAgregaServicio_Click(object sender, EventArgs e)
         {
             if (txtCantServicios.Text.Equals("") || txtValorServicio.Text.Equals(""))
@@ -152,15 +132,11 @@ namespace MiTallerMecanico
             bool flagRegistroDetPresupuesto = false;
             int idPresupuestoInsertado = 0;
 
+            //CODIGO PARA REGISTRAR EL ENCABEZADO DEL PRESUPUESTO
             EncabezadoPresupuesto encPresupuesto = new EncabezadoPresupuesto();
 
-
-            NEGCliente negCliente = new NEGCliente();
-            NEGVehiculo negVehiculo = new NEGVehiculo();
-
-
-            encPresupuesto.Cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
-            encPresupuesto.Vehiculo = negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text.ToUpper());
+            encPresupuesto.RutCliente = txtRutCliente.Text;
+            encPresupuesto.Patente =txtPatente.Text.ToUpper();
             encPresupuesto.Fecha = DateTime.Parse(txtFecha.Text);
             encPresupuesto.Iva = double.Parse(txtMontoIVA.Text);
             encPresupuesto.Total = double.Parse(txtMontoTotal.Text);
@@ -168,8 +144,7 @@ namespace MiTallerMecanico
             NEGEncabezadoPresupuesto negEncPresupuesto = new NEGEncabezadoPresupuesto();
             flagRegistroEncPresupuesto = negEncPresupuesto.NEGRegistrarEncPresupuesto(encPresupuesto, out idPresupuestoInsertado);
 
-            //CODIGO PARA INSERTAR EL DETALLE DE PRESUPUESTO, NO FUNCIONA DE MOMENTO
-            //POR ALGUNA RAZON EL SP NO ESTA INSERTANDO LOS DATOS 
+            //CODIGO PARA INSERTAR EL DETALLE DE PRESUPUESTO
 
             if (gvSeleccion.Rows.Count != 0)
             {

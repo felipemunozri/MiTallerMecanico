@@ -106,7 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ConsultarCliente.aspx" />
-    <Content Include="ConsultarMiVehiculo.aspx" />
     <Content Include="ConsultarOrdenTrabajo.aspx" />
     <Content Include="ConsultarPresupuesto.aspx" />
     <Content Include="ConsultarRepuesto.aspx" />
@@ -120,6 +119,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="ConsultarServicio.aspx" />
+    <Content Include="ConusltarMiVehiculo.aspx" />
     <Content Include="EliminarOrdenTrabajo.aspx" />
     <Content Include="EliminarPresupuesto.aspx" />
     <Content Include="favicon.ico" />
@@ -621,13 +621,6 @@
     <Compile Include="ConsultarCliente.aspx.designer.cs">
       <DependentUpon>ConsultarCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConsultarMiVehiculo.aspx.cs">
-      <DependentUpon>ConsultarMiVehiculo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ConsultarMiVehiculo.aspx.designer.cs">
-      <DependentUpon>ConsultarMiVehiculo.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ConsultarOrdenTrabajo.aspx.cs">
       <DependentUpon>ConsultarOrdenTrabajo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -676,6 +669,13 @@
     </Compile>
     <Compile Include="ConsultarServicio.aspx.designer.cs">
       <DependentUpon>ConsultarServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConusltarMiVehiculo.aspx.cs">
+      <DependentUpon>ConusltarMiVehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConusltarMiVehiculo.aspx.designer.cs">
+      <DependentUpon>ConusltarMiVehiculo.aspx</DependentUpon>
     </Compile>
     <Compile Include="EliminarOrdenTrabajo.aspx.cs">
       <DependentUpon>EliminarOrdenTrabajo.aspx</DependentUpon>

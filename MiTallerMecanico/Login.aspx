@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
@@ -30,18 +30,46 @@
     </nav>
 
     <div class="container w-100 py-4 px-5 shadow-lg my-5 rounded">
-        <h1 class="text-center display-4 my-4">Iniciar Sesión</h1>
+        <h1 class="text-center display-4 my-4">¡Binevenido a Mi Taller Mecánico!</h1>
         <br />
 
         <form id="form1" runat="server">
-            <div class="w-50 my-auto mx-auto">
-                <asp:Label ID="lblNomUsuario" runat="server" Text="Usuario:"></asp:Label>
-                <asp:TextBox ID="txtNomUsuario" class="form-control" required runat="server"></asp:TextBox><br />
 
-                <asp:Label ID="lblPassUsuario" runat="server" Text="Contraseña:"></asp:Label>
-                <asp:TextBox ID="txtPassUsuario" class="form-control" required TextMode="Password" runat="server"></asp:TextBox><br />
+            <div class="row">
+                <div class="col-md-6 p-3 shadow-sm rounded">
+                    <h4>Si eres Cliente:</h4>
+                    <br />
 
-                <asp:Button ID="btnIngresar" class="btn btn-lg btn-primary btn-block mb-3" OnClick="btnIngresar_Click" runat="server" Text="Ingresar" />
+                    <div class="row h-75">
+                        <div class="col align-self-center">
+                            <h5 class="text-center">Consulta el estado de tu Vehículo ingresando aquí</h5>
+                            <br />
+
+                            <div>
+                                <a href="ConusltarMiVehiculo.aspx" class="btn btn-lg btn-block w-75 mx-auto btn-success mb-3" role="button">Consultar</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 py-3 px-5 shadow-sm rounded">
+                    <h4>Si eres Usuario:</h4>
+                    <br />
+
+                    <h5 class="text-center">Inicia Sesión</h5>
+                    <br />
+
+                    <div class="w-100 my-auto mx-auto">
+                        <asp:Label ID="lblNomUsuario" runat="server" Text="Usuario:"></asp:Label>
+                        <asp:TextBox ID="txtNomUsuario" class="form-control" required runat="server"></asp:TextBox><br />
+
+                        <asp:Label ID="lblPassUsuario" runat="server" Text="Contraseña:"></asp:Label>
+                        <asp:TextBox ID="txtPassUsuario" class="form-control" required TextMode="Password" runat="server"></asp:TextBox><br />
+
+                        <asp:Button ID="btnIngresar" class="btn btn-lg btn-primary btn-block mb-3" OnClick="btnIngresar_Click" runat="server" Text="Ingresar" />
+                    </div>
+                </div>
             </div>
 
             <div class="container body-content">

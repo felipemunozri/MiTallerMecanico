@@ -44,11 +44,9 @@ namespace MiTallerMecanico
 
                 tablaSeleccion.Columns.Add("Codigo");
                 tablaSeleccion.Columns.Add("Servicio o Repuesto");
-                /*no se estan ocupando pero creo que deberian
                 tablaSeleccion.Columns.Add("Valor unitario");
                 tablaSeleccion.Columns.Add("Cantidad");
                 tablaSeleccion.Columns.Add("Subtotal");
-                */
                 Session["dtSeleccion"] = tablaSeleccion;
             }
         }
@@ -73,18 +71,29 @@ namespace MiTallerMecanico
                     Usuario usuario = new Usuario();
                     usuario = negUsuario.NEGBuscarUsuarioPorId(ordenTrabajo.Encargado.IdUsuario);
 
-                    dpNomUsuario.DataTextField = usuario.NomUsuario;
-                    dpNomUsuario.DataValueField = usuario.IdUsuario.ToString();
-                    txtPatente.Text = ordenTrabajo.Vehiculo.Patente;
-                    txtRutCliente.Text = ordenTrabajo.Cliente.RutCliente;
+                    dpNomUsuario.SelectedValue = usuario.IdUsuario.ToString();
                     txtFecha.Text = ordenTrabajo.Fecha.ToString("yyyy-MM-dd");
                     txtFechaEntrega.Text = ordenTrabajo.FechaEntrega.ToString("yyyy-MM-dd");
-                    dpPrioridad.DataTextField = ordenTrabajo.Prioridad;
+                    dpPrioridad.SelectedValue = ordenTrabajo.Prioridad;
                     txtObservaciones.Text = ordenTrabajo.Observaciones;
-                    dpEstado.DataTextField = ordenTrabajo.Estado;
-                    //los montos no se estan insertando en las ordenes de trabajo actualmente, pero creo que deberian!
-                    //txtMontoIVA.Text = 
-                    //txtMontoTotal.Text = 
+                    dpEstado.SelectedValue = ordenTrabajo.Estado;
+
+                    txtPatente.Text = ordenTrabajo.Vehiculo.Patente;
+                    txtMarca.Text = ordenTrabajo.Vehiculo.Marca;
+                    txtModelo.Text = ordenTrabajo.Vehiculo.Modelo;
+                    txtTipoVehiculo.Text = ordenTrabajo.Vehiculo.TipoVehiculo;
+                    txtAno.Text = ordenTrabajo.Vehiculo.Ano.ToString();
+                    txtKilometraje.Text = ordenTrabajo.Vehiculo.Kilometraje.ToString();
+
+                    txtRutCliente.Text = ordenTrabajo.Cliente.RutCliente;
+                    txtNomCliente.Text = ordenTrabajo.Cliente.NomCliente;
+                    txtApeCliente.Text = ordenTrabajo.Cliente.ApeCliente;
+                    txtDirecCliente.Text = ordenTrabajo.Cliente.DirecCliente;
+                    txtTelCliente.Text = ordenTrabajo.Cliente.TelCliente.ToString();
+                    txtMailCliente.Text = ordenTrabajo.Cliente.MailCliente;
+
+                    txtMontoIVA.Text = ordenTrabajo.Iva.ToString("N2");
+                    txtMontoTotal.Text = ordenTrabajo.Total.ToString("N2");
 
                     NEGDetalleOrden negDetalleOrden = new NEGDetalleOrden();
 
@@ -132,23 +141,22 @@ namespace MiTallerMecanico
             {
                 int idServicio = int.Parse(dpSelecServicio.SelectedValue);
                 string nomServicio = dpSelecServicio.SelectedItem.Text;
-                //int cantServicio = int.Parse(txtCantServicios.Text);
-                //int valorServicio = int.Parse(txtValorServicio.Text);
+                int cantServicio = int.Parse(txtCantServicios.Text);
+                int valorServicio = int.Parse(txtValorServicio.Text);
 
-                //int subTotal = cantServicio * valorServicio;
+                int subTotal = cantServicio * valorServicio;
 
-                ((DataTable)Session["dtSeleccion"]).Rows.Add(idServicio, nomServicio /*, valorServicio, cantServicio, subTotal*/);
+                ((DataTable)Session["dtSeleccion"]).Rows.Add(idServicio, nomServicio, valorServicio, cantServicio, subTotal);
 
                 gvSeleccion.DataSource = (DataTable)Session["dtSeleccion"];
                 gvSeleccion.DataBind();
 
-                /*los montos no se estan insertando en las ordenes de trabajo actualmente, pero creo que deberian!
                 double montoIVA = double.Parse(txtMontoIVA.Text) / 0.19;
                 montoIVA = montoIVA + subTotal;
 
                 txtMontoIVA.Text = (montoIVA * 0.19).ToString();
                 txtMontoTotal.Text = (montoIVA + double.Parse(txtMontoIVA.Text)).ToString();
-                */
+
                 SetFocus(gvSeleccion);
             }
         }
@@ -164,23 +172,22 @@ namespace MiTallerMecanico
             {
                 int idRepuesto = int.Parse(dpSelecRepuesto.SelectedValue);
                 string nomRepuesto = dpSelecRepuesto.SelectedItem.Text;
-                //int cantRepuesto = int.Parse(txtCantRepuestos.Text);
-                //int valorRepuesto = int.Parse(txtValorRepuesto.Text);
+                int cantRepuesto = int.Parse(txtCantRepuestos.Text);
+                int valorRepuesto = int.Parse(txtValorRepuesto.Text);
 
-                //int subTotal = cantRepuesto * valorRepuesto;
+                int subTotal = cantRepuesto * valorRepuesto;
 
-                ((DataTable)Session["dtSeleccion"]).Rows.Add(idRepuesto, nomRepuesto /*, valorRepuesto, cantRepuesto, subTotal*/);
+                ((DataTable)Session["dtSeleccion"]).Rows.Add(idRepuesto, nomRepuesto, valorRepuesto, cantRepuesto, subTotal);
 
                 gvSeleccion.DataSource = (DataTable)Session["dtSeleccion"];
                 gvSeleccion.DataBind();
 
-                /*los montos no se estan insertando en las ordenes de trabajo actualmente, pero creo que deberian!
                 double montoIVA = double.Parse(txtMontoIVA.Text) / 0.19;
                 montoIVA = montoIVA + subTotal;
 
                 txtMontoIVA.Text = (montoIVA * 0.19).ToString();
                 txtMontoTotal.Text = (montoIVA + double.Parse(txtMontoIVA.Text)).ToString();
-                */
+
                 SetFocus(gvSeleccion);
             }
         }
@@ -189,7 +196,6 @@ namespace MiTallerMecanico
         {
             GridViewRow filaSeleccionada = gvSeleccion.SelectedRow;
 
-            /*los montos no se estan insertando en las ordenes de trabajo actualmente, pero creo que deberian!
             string subTotal = filaSeleccionada.Cells[5].Text;
 
             double montoIVA = double.Parse(txtMontoIVA.Text) / 0.19;
@@ -197,7 +203,7 @@ namespace MiTallerMecanico
 
             txtMontoIVA.Text = (montoIVA * 0.19).ToString();
             txtMontoTotal.Text = (montoIVA + double.Parse(txtMontoIVA.Text)).ToString();
-            */
+
             int fila = filaSeleccionada.RowIndex;
             ((DataTable)Session["dtSeleccion"]).Rows.RemoveAt(fila);
 
@@ -213,6 +219,7 @@ namespace MiTallerMecanico
             bool flagRegistroDetalleOrden = false;
             int idOrdenInsertada = 0;
 
+            //CODIGO PARA MODIFICAR LA ORDEN DE TRABAJO
             OrdenTrabajo ordenTrabajo = new OrdenTrabajo();
 
             NEGUsuario negUsuario = new NEGUsuario();
@@ -229,10 +236,9 @@ namespace MiTallerMecanico
             ordenTrabajo.Estado = dpEstado.SelectedValue; //podria ser txtbox o el estado podria venir de una tabla en bd??
 
             NEGOrdenTrabajo negOrdenTrabajo = new NEGOrdenTrabajo();
-            flagRegistroOrden = negOrdenTrabajo.NEGRegistrarOrdenTrabajo(ordenTrabajo, out idOrdenInsertada);
+            flagRegistroOrden = negOrdenTrabajo.NEGModificarOrdenTrabajo(ordenTrabajo);
 
-            //CODIGO PARA INSERTAR EL DETALLE DE LA ORDEN DE TRABAJO, NO FUNCIONA DE MOMENTO
-            //POR ALGUNA RAZON EL SP NO ESTA INSERTANDO LOS DATOS 
+            //CODIGO PARA MODIFICAR EL DETALLE DE LA ORDEN DE TRABAJO
 
             if (gvSeleccion.Rows.Count != 0)
             {
@@ -246,12 +252,12 @@ namespace MiTallerMecanico
                     detalleOrden.OrdenTrabajo = negOrdenTrabajo.NEGBuscarOrdenTrabajoPorFolio(idOrdenInsertada);
                     detalleOrden.Servicio = negServicio.NEGBuscarServicioPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
                     detalleOrden.Repuesto = negRepuesto.NEGBuscarRepuestoPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
-                    //detlleOrden.CantServicio = int.Parse(gvSeleccion.Rows[i].Cells[3].Text);
-                    //detalleOrden.CantRepuesto = int.Parse(gvSeleccion.Rows[i].Cells[3].Text);
-                    //detalleOrden.Subtotal = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
+                    detalleOrden.CantServicio = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
+                    detalleOrden.CantRepuesto = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
+                    detalleOrden.SubTotal = int.Parse(gvSeleccion.Rows[i].Cells[5].Text);
 
                     NEGDetalleOrden negDetalleOrden = new NEGDetalleOrden();
-                    flagRegistroDetalleOrden = negDetalleOrden.NEGRegistrarDetOrden(detalleOrden);
+                    flagRegistroDetalleOrden = negDetalleOrden.NEGModificarDetOrden(detalleOrden);
                 }
             }
             else
