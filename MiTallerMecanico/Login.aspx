@@ -30,7 +30,7 @@
     </nav>
 
     <div class="container w-100 py-4 px-5 shadow-lg my-5 rounded">
-        <h1 class="text-center display-4 my-4">¡Binevenido a Mi Taller Mecánico!</h1>
+        <h1 class="text-center display-4 my-4">¡Bienvenido a Mi Taller Mecánico!</h1>
         <br />
 
         <form id="form1" runat="server">
