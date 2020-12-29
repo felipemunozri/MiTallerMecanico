@@ -1,8 +1,8 @@
 USE TALLER_MECANICO
 
--- Procedimiento Almacenado para crear detalle de una orden trabajo en la tabla detalle_orden
+-- Procedimiento Almacenado para modificar detalle de una orden trabajo en la tabla detalle_orden
 GO
-CREATE PROCEDURE sp_registrar_detalle_orden @fk_folioOrden INT, 
+CREATE PROCEDURE sp_modificar_detalle_orden @fk_folioOrden INT, 
                                             @fk_idServicio INT, 
                                             @fk_idRepuesto INT,
 											@cantidadServicio INT,
@@ -22,6 +22,10 @@ AS
         END
             ELSE
             BEGIN
+				-- primero se borra el detalle de la orden
+				DELETE detalle_orden
+				WHERE fk_folioOrden = @fk_folioOrden
+				-- ahora se vuelve a insertar
                 -- si no existe el idServicio pasado al sp lo cambiará a NULL antes de insertar
                 IF NOT EXISTS
                 (
@@ -78,6 +82,6 @@ AS
 						 @subTotal
                         )
                 END
-                PRINT 'Confirmación: Orden de Trabajo registrada correctamente.'
+                PRINT 'Confirmación: Orden de Trabajo modificada correctamente.'
         END
     END

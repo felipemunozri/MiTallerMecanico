@@ -217,7 +217,6 @@ namespace MiTallerMecanico
         {
             bool flagRegistroOrden = false;
             bool flagRegistroDetalleOrden = false;
-            int idOrdenInsertada = 0;
 
             //CODIGO PARA MODIFICAR LA ORDEN DE TRABAJO
             OrdenTrabajo ordenTrabajo = new OrdenTrabajo();
@@ -226,6 +225,7 @@ namespace MiTallerMecanico
             NEGCliente negCliente = new NEGCliente();
             NEGVehiculo negVehiculo = new NEGVehiculo();
 
+            ordenTrabajo.FolioOrden = int.Parse(txtBuscarOrdenTrabajo.Text);
             ordenTrabajo.Encargado = negUsuario.NEGBuscarUsuarioPorId(int.Parse(dpNomUsuario.SelectedValue));
             ordenTrabajo.Cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
             ordenTrabajo.Vehiculo = negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text.ToUpper());
@@ -234,9 +234,14 @@ namespace MiTallerMecanico
             ordenTrabajo.Prioridad = dpPrioridad.SelectedValue; //podria venir de una tabla en bd??
             ordenTrabajo.Observaciones = txtObservaciones.Text;
             ordenTrabajo.Estado = dpEstado.SelectedValue; //podria ser txtbox o el estado podria venir de una tabla en bd??
+            ordenTrabajo.Iva = double.Parse(txtMontoIVA.Text);
+            ordenTrabajo.Total = double.Parse(txtMontoTotal.Text);
 
             NEGOrdenTrabajo negOrdenTrabajo = new NEGOrdenTrabajo();
             flagRegistroOrden = negOrdenTrabajo.NEGModificarOrdenTrabajo(ordenTrabajo);
+
+            NEGDetalleOrden negDetalleOrden = new NEGDetalleOrden();
+            negDetalleOrden.NEGEliminarDetOrden(ordenTrabajo);
 
             //CODIGO PARA MODIFICAR EL DETALLE DE LA ORDEN DE TRABAJO
 
@@ -249,15 +254,14 @@ namespace MiTallerMecanico
                     NEGServicio negServicio = new NEGServicio();
                     NEGRepuesto negRepuesto = new NEGRepuesto();
 
-                    detalleOrden.OrdenTrabajo = negOrdenTrabajo.NEGBuscarOrdenTrabajoPorFolio(idOrdenInsertada);
+                    detalleOrden.OrdenTrabajo = negOrdenTrabajo.NEGBuscarOrdenTrabajoPorFolio(int.Parse(txtBuscarOrdenTrabajo.Text));
                     detalleOrden.Servicio = negServicio.NEGBuscarServicioPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
                     detalleOrden.Repuesto = negRepuesto.NEGBuscarRepuestoPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
                     detalleOrden.CantServicio = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
                     detalleOrden.CantRepuesto = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
                     detalleOrden.SubTotal = int.Parse(gvSeleccion.Rows[i].Cells[5].Text);
 
-                    NEGDetalleOrden negDetalleOrden = new NEGDetalleOrden();
-                    flagRegistroDetalleOrden = negDetalleOrden.NEGModificarDetOrden(detalleOrden);
+                    flagRegistroDetalleOrden = negDetalleOrden.NEGRegistrarDetOrden(detalleOrden);
                 }
             }
             else

@@ -19,6 +19,7 @@ namespace MiTallerMecanico
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             NEGOrdenTrabajo negOrdenTrabajo = new NEGOrdenTrabajo();
+            NEGDetalleOrden negDetOrden = new NEGDetalleOrden();
 
             OrdenTrabajo ordenTrabajo = new OrdenTrabajo();
 
@@ -26,9 +27,12 @@ namespace MiTallerMecanico
 
             if (ordenTrabajo.Cliente != null)
             {
-                if (negOrdenTrabajo.NEGEliminarOrdenTrabajo(ordenTrabajo))
+                if (negDetOrden.NEGEliminarDetOrden(ordenTrabajo))
                 {
-                    Response.Write("<script>alert('Orden de Trabajo eliminada correctamente!')</script>");
+                    if (negOrdenTrabajo.NEGEliminarOrdenTrabajo(ordenTrabajo))
+                    {
+                        Response.Write("<script>alert('Orden de Trabajo eliminada correctamente!')</script>");
+                    }
                 }
                 else
                 {

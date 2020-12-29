@@ -19,6 +19,7 @@ namespace MiTallerMecanico
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             NEGEncabezadoPresupuesto negEncPresupuesto = new NEGEncabezadoPresupuesto();
+            NEGDetallePresupuesto negDetPresupuesto = new NEGDetallePresupuesto();
 
             EncabezadoPresupuesto encPresupuesto = new EncabezadoPresupuesto();
 
@@ -26,9 +27,12 @@ namespace MiTallerMecanico
 
             if (encPresupuesto.RutCliente != null)
             {
-                if (negEncPresupuesto.NEGEliminarEncPresupuesto(encPresupuesto))
+                if (negDetPresupuesto.NEGEliminarDetPresupuesto(encPresupuesto))
                 {
-                    Response.Write("<script>alert('Presupuesto eliminado correctamente!')</script>");
+                    if (negEncPresupuesto.NEGEliminarEncPresupuesto(encPresupuesto))
+                    {
+                        Response.Write("<script>alert('Presupuesto eliminado correctamente!')</script>");
+                    }
                 }
                 else
                 {

@@ -53,7 +53,49 @@ namespace CapaPersistencia
             }
         }
 
-        public bool modificarDetPresupuesto(DetallePresupuesto detPresupuesto)
+        //public bool modificarDetPresupuesto(DetallePresupuesto detPresupuesto)
+        //{
+        //    ConexionBD conectaBD = new ConexionBD();
+
+        //    try
+        //    {
+        //        conectaBD.abrirConexion();
+
+        //        SqlCommand cmd = new SqlCommand("sp_modificar_detalle_presupuesto", conectaBD.Conexion);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+
+        //        cmd.Parameters.Add(new SqlParameter("@fk_folioEncabezado", detPresupuesto.EncabezadoPresupuesto.FolioEncabezado));
+        //        cmd.Parameters.Add(new SqlParameter("@fk_idServicio", detPresupuesto.Servicio.IdServicio));
+        //        cmd.Parameters.Add(new SqlParameter("@fk_idRepuesto", detPresupuesto.Repuesto.IdRepuesto));
+        //        cmd.Parameters.Add(new SqlParameter("@cantidadServicio", detPresupuesto.CantServicio));
+        //        cmd.Parameters.Add(new SqlParameter("@cantidadRepuesto", detPresupuesto.CantRepuesto));
+        //        cmd.Parameters.Add(new SqlParameter("@subTotal", detPresupuesto.SubTotal));
+
+        //        int aux = cmd.ExecuteNonQuery();
+
+        //        conectaBD.cerrarConexion();
+
+        //        if (aux > 0)
+        //        {
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string err = ex.Message;
+        //        return false;
+        //    }
+        //    finally
+        //    {
+        //        conectaBD.cerrarConexion();
+        //    }
+        //}
+
+        public bool eliminarDetPresupuesto(EncabezadoPresupuesto encPresupuesto)
         {
             ConexionBD conectaBD = new ConexionBD();
 
@@ -61,57 +103,10 @@ namespace CapaPersistencia
             {
                 conectaBD.abrirConexion();
 
-                SqlCommand cmd = new SqlCommand("sp_modificar_detalle_presupuesto", conectaBD.Conexion);
+                SqlCommand cmd = new SqlCommand("sp_eliminar_detalle_presupuesto", conectaBD.Conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@folioDetalle", detPresupuesto.FolioDetalle));
-                cmd.Parameters.Add(new SqlParameter("@fk_folioEncabezado", detPresupuesto.EncabezadoPresupuesto.FolioEncabezado));
-                cmd.Parameters.Add(new SqlParameter("@fk_idServicio", detPresupuesto.Servicio.IdServicio));
-                cmd.Parameters.Add(new SqlParameter("@fk_idRepuesto", detPresupuesto.Repuesto.IdRepuesto));
-                cmd.Parameters.Add(new SqlParameter("@cantidadServicio", detPresupuesto.CantServicio));
-                cmd.Parameters.Add(new SqlParameter("@cantidadRepuesto", detPresupuesto.CantRepuesto));
-                cmd.Parameters.Add(new SqlParameter("@subTotal", detPresupuesto.SubTotal));
-
-                int aux = cmd.ExecuteNonQuery();
-
-                conectaBD.cerrarConexion();
-
-                if (aux > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                string err = ex.Message;
-                return false;
-            }
-            finally
-            {
-                conectaBD.cerrarConexion();
-            }
-        }
-
-        public bool eliminarDetPresupuesto(DetallePresupuesto detPresupuesto)
-        {
-            ConexionBD conectaBD = new ConexionBD();
-
-            try
-            {
-                string queryDelete = "DELETE FROM detalle_presupuesto WHERE folioDetalle = " + detPresupuesto.FolioDetalle;
-                //cambiar por sp
-
-                conectaBD.abrirConexion();
-
-                SqlDataAdapter sqlAdaptador = new SqlDataAdapter(queryDelete, conectaBD.Conexion);
-
-                conectaBD.abrirConexion();
-
-                SqlCommand cmd = new SqlCommand(queryDelete, conectaBD.Conexion);
+                cmd.Parameters.Add(new SqlParameter("@fk_folioEncabezado", encPresupuesto.FolioEncabezado));
 
                 int aux = cmd.ExecuteNonQuery();
 

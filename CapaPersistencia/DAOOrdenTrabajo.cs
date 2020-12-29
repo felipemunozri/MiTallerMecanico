@@ -117,7 +117,7 @@ namespace CapaPersistencia
             {
                 conectaBD.abrirConexion();
 
-                SqlCommand cmd = new SqlCommand("sp_eliminar_orden_trabajo_y_detalle", conectaBD.Conexion);
+                SqlCommand cmd = new SqlCommand("sp_eliminar_orden_trabajo", conectaBD.Conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.Add(new SqlParameter("@folioOrden", ordenTrabajo.FolioOrden));

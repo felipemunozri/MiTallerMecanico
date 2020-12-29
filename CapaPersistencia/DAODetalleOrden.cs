@@ -54,7 +54,50 @@ namespace CapaPersistencia
             }
         }
 
-        public bool modificarDetOrden(DetalleOrden detOrden)
+        //public bool modificarDetOrden(DetalleOrden detOrden)
+        //{
+        //    ConexionBD conectaBD = new ConexionBD();
+
+        //    try
+        //    {
+        //        conectaBD.abrirConexion();
+
+        //        SqlCommand cmd = new SqlCommand("sp_modificar_detalle_orden", conectaBD.Conexion);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+
+        //        cmd.Parameters.Add(new SqlParameter("@fk_folioOrden", detOrden.OrdenTrabajo.FolioOrden));
+        //        cmd.Parameters.Add(new SqlParameter("@fk_idServicio", detOrden.Servicio.IdServicio));
+        //        cmd.Parameters.Add(new SqlParameter("@fk_idRepuesto", detOrden.Repuesto.IdRepuesto));
+        //        cmd.Parameters.Add(new SqlParameter("@cantidadServicio", detOrden.CantServicio));
+        //        cmd.Parameters.Add(new SqlParameter("@cantidadRepuesto", detOrden.CantRepuesto));
+        //        cmd.Parameters.Add(new SqlParameter("@subTotal", detOrden.SubTotal));
+
+        //        int aux = cmd.ExecuteNonQuery();
+
+        //        conectaBD.cerrarConexion();
+
+        //        if (aux > 0)
+        //        {
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string err = ex.Message;
+        //        return false;
+        //    }
+        //    finally
+        //    {
+        //        conectaBD.cerrarConexion();
+        //    }
+        //}
+
+        public bool eliminarDetOrden(OrdenTrabajo ordenTrabajo)
         {
             ConexionBD conectaBD = new ConexionBD();
 
@@ -62,16 +105,10 @@ namespace CapaPersistencia
             {
                 conectaBD.abrirConexion();
 
-                SqlCommand cmd = new SqlCommand("sp_modificar_detalle_orden", conectaBD.Conexion);
+                SqlCommand cmd = new SqlCommand("sp_eliminar_detalle_orden", conectaBD.Conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@folioDetalleOrden", detOrden.FolioDetalleOrden));
-                cmd.Parameters.Add(new SqlParameter("@fk_folioOrden", detOrden.OrdenTrabajo.FolioOrden));
-                cmd.Parameters.Add(new SqlParameter("@fk_idServicio", detOrden.Servicio.IdServicio));
-                cmd.Parameters.Add(new SqlParameter("@fk_idRepuesto", detOrden.Repuesto.IdRepuesto));
-                cmd.Parameters.Add(new SqlParameter("@cantidadServicio", detOrden.CantServicio));
-                cmd.Parameters.Add(new SqlParameter("@cantidadRepuesto", detOrden.CantRepuesto));
-                cmd.Parameters.Add(new SqlParameter("@subTotal", detOrden.SubTotal));
+                cmd.Parameters.Add(new SqlParameter("@fk_folioOrden", ordenTrabajo.FolioOrden));
 
                 int aux = cmd.ExecuteNonQuery();
 
@@ -85,49 +122,6 @@ namespace CapaPersistencia
                 {
                     return false;
                 }
-
-            }
-            catch (Exception ex)
-            {
-                string err = ex.Message;
-                return false;
-            }
-            finally
-            {
-                conectaBD.cerrarConexion();
-            }
-        }
-
-        public bool eliminarDetOrden(DetalleOrden detOrden)
-        {
-            ConexionBD conectaBD = new ConexionBD();
-
-            try
-            {
-                string queryDelete = "DELETE FROM detalle_orden WHERE folioDetalleOrden = " + detOrden.FolioDetalleOrden;
-                //cambiar por sp
-
-                conectaBD.abrirConexion();
-
-                SqlDataAdapter sqlAdaptador = new SqlDataAdapter(queryDelete, conectaBD.Conexion);
-
-                conectaBD.abrirConexion();
-
-                SqlCommand cmd = new SqlCommand(queryDelete, conectaBD.Conexion);
-
-                int aux = cmd.ExecuteNonQuery();
-
-                conectaBD.cerrarConexion();
-
-                if (aux > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
             }
             catch (Exception ex)
             {

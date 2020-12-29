@@ -17,16 +17,16 @@ namespace CapaNegocio
             return daoDetPresupuesto.registrarDetPresupuesto(detPresupuesto);
         }
 
-        public bool NEGModificarDetPresupuesto(DetallePresupuesto detPresupuesto)
-        {
-            DAODetallePresupuesto daoDetPresupuesto = new DAODetallePresupuesto();
-            return daoDetPresupuesto.modificarDetPresupuesto(detPresupuesto);
-        }
+        //public bool NEGModificarDetPresupuesto(DetallePresupuesto detPresupuesto)
+        //{
+        //    DAODetallePresupuesto daoDetPresupuesto = new DAODetallePresupuesto();
+        //    return daoDetPresupuesto.modificarDetPresupuesto(detPresupuesto);
+        //}
 
-        public bool NEGEliminarDetPresupuesto(DetallePresupuesto detPresupuesto)
+        public bool NEGEliminarDetPresupuesto(EncabezadoPresupuesto encPresupuesto)
         {
             DAODetallePresupuesto daoDetPresupuesto = new DAODetallePresupuesto();
-            return daoDetPresupuesto.eliminarDetPresupuesto(detPresupuesto);
+            return daoDetPresupuesto.eliminarDetPresupuesto(encPresupuesto);
         }
 
         public List<DetallePresupuesto> NEGListarTodosLosDetPresupuesto()

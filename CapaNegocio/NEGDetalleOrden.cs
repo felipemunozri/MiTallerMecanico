@@ -17,16 +17,16 @@ namespace CapaNegocio
             return daoDetOrden.registrarDetOrden(detOrden);
         }
 
-        public bool NEGModificarDetOrden(DetalleOrden detOrden)
-        {
-            DAODetalleOrden daoDetOrden = new DAODetalleOrden();
-            return daoDetOrden.modificarDetOrden(detOrden);
-        }
+        //public bool NEGModificarDetOrden(DetalleOrden detOrden)
+        //{
+        //    DAODetalleOrden daoDetOrden = new DAODetalleOrden();
+        //    return daoDetOrden.modificarDetOrden(detOrden);
+        //}
 
-        public bool NEGEliminarDetOrden(DetalleOrden detOrden)
+        public bool NEGEliminarDetOrden(OrdenTrabajo ordenTrabajo)
         {
             DAODetalleOrden daoDetOrden = new DAODetalleOrden();
-            return daoDetOrden.eliminarDetOrden(detOrden);
+            return daoDetOrden.eliminarDetOrden(ordenTrabajo);
         }
 
         public List<DetalleOrden> NEGListarTodosLosDetOrden()

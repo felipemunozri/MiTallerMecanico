@@ -187,11 +187,11 @@ namespace MiTallerMecanico
         {
             bool flagRegistroEncPresupuesto = false;
             bool flagRegistroDetPresupuesto = false;
-            int idPresupuestoInsertado = 0;
 
             //CODIGO PARA MODIFICAR EL ENCABEZADO DEL PRESUPUESTO
             EncabezadoPresupuesto encPresupuesto = new EncabezadoPresupuesto();
 
+            encPresupuesto.FolioEncabezado = int.Parse(txtBuscarPresupuesto.Text);
             encPresupuesto.RutCliente = txtRutCliente.Text;
             encPresupuesto.Patente = txtPatente.Text.ToUpper();
             encPresupuesto.Fecha = DateTime.Parse(txtFecha.Text);
@@ -201,6 +201,8 @@ namespace MiTallerMecanico
             NEGEncabezadoPresupuesto negEncPresupuesto = new NEGEncabezadoPresupuesto();
             flagRegistroEncPresupuesto = negEncPresupuesto.NEGModificarEncPresupuesto(encPresupuesto);
 
+            NEGDetallePresupuesto negDetpresupuesto = new NEGDetallePresupuesto();
+            negDetpresupuesto.NEGEliminarDetPresupuesto(encPresupuesto);
             //CODIGO PARA MODIFICAR EL DETALLE DEL PRESUPUESTO 
 
             if (gvSeleccion.Rows.Count != 0)
@@ -212,15 +214,14 @@ namespace MiTallerMecanico
                     NEGServicio negServicio = new NEGServicio();
                     NEGRepuesto negRepuesto = new NEGRepuesto();
 
-                    detPresupuesto.EncabezadoPresupuesto = negEncPresupuesto.NEGBuscarEncPresupuestoPorFolio(idPresupuestoInsertado);
+                    detPresupuesto.EncabezadoPresupuesto = negEncPresupuesto.NEGBuscarEncPresupuestoPorFolio(int.Parse(txtBuscarPresupuesto.Text));
                     detPresupuesto.Servicio = negServicio.NEGBuscarServicioPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
                     detPresupuesto.Repuesto = negRepuesto.NEGBuscarRepuestoPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
                     detPresupuesto.CantServicio = int.Parse(gvSeleccion.Rows[i].Cells[3].Text);
                     detPresupuesto.CantRepuesto = int.Parse(gvSeleccion.Rows[i].Cells[3].Text);
                     detPresupuesto.SubTotal = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
 
-                    NEGDetallePresupuesto negDetpresupuesto = new NEGDetallePresupuesto();
-                    flagRegistroDetPresupuesto = negDetpresupuesto.NEGModificarDetPresupuesto(detPresupuesto);
+                    flagRegistroDetPresupuesto = negDetpresupuesto.NEGRegistrarDetPresupuesto(detPresupuesto);
                 }
             }
             else

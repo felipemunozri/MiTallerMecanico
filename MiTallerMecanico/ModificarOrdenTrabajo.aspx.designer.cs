@@ -465,15 +465,6 @@ namespace MiTallerMecanico
         protected global::System.Web.UI.WebControls.TextBox txtCantRepuestos;
 
         /// <summary>
-        /// Control btnAgregaRepuesto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregaRepuesto;
-
-        /// <summary>
         /// Control lblValorRepuesto.
         /// </summary>
         /// <remarks>
@@ -490,6 +481,15 @@ namespace MiTallerMecanico
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtValorRepuesto;
+
+        /// <summary>
+        /// Control btnAgregaRepuesto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregaRepuesto;
 
         /// <summary>
         /// Control gvSeleccion.

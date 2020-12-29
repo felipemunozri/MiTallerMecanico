@@ -69,8 +69,8 @@ namespace CapaPersistencia
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.Add(new SqlParameter("@folioEncabezado", encPresupuesto.FolioEncabezado));
-                cmd.Parameters.Add(new SqlParameter("@fk_rutCliente", encPresupuesto.RutCliente));
-                cmd.Parameters.Add(new SqlParameter("@fk_patente", encPresupuesto.Patente));
+                cmd.Parameters.Add(new SqlParameter("@rutCliente", encPresupuesto.RutCliente));
+                cmd.Parameters.Add(new SqlParameter("@patente", encPresupuesto.Patente));
                 cmd.Parameters.Add(new SqlParameter("@fecha", encPresupuesto.Fecha.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)));
                 cmd.Parameters.Add(new SqlParameter("@iva", encPresupuesto.Iva));
                 cmd.Parameters.Add(new SqlParameter("@total", encPresupuesto.Total));
@@ -107,7 +107,7 @@ namespace CapaPersistencia
             {
                 conectaBD.abrirConexion();
 
-                SqlCommand cmd = new SqlCommand("sp_eliminar_encabezado_y_detalle_presupuesto", conectaBD.Conexion);
+                SqlCommand cmd = new SqlCommand("sp_eliminar_encabezado_presupuesto", conectaBD.Conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.Add(new SqlParameter("@folioEncabezado", encPresupuesto.FolioEncabezado));

@@ -218,15 +218,17 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM cliente WHERE rutCliente = '" + rutCliente + "'";
-                //cambiar por sp
-
                 conectaBD.abrirConexion();
 
-                SqlDataAdapter sqlAdaptador = new SqlDataAdapter(querySelect, conectaBD.Conexion);
+                SqlCommand cmd = new SqlCommand("sp_ver_cliente_por_rut", conectaBD.Conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@rutCliente", rutCliente));
+
+                SqlDataAdapter sqlAdaptador = new SqlDataAdapter();
+                sqlAdaptador.SelectCommand = cmd;
 
                 DataTable tablaClientes = new DataTable();
-
                 sqlAdaptador.Fill(tablaClientes);
 
                 conectaBD.cerrarConexion();
@@ -237,7 +239,6 @@ namespace CapaPersistencia
 
                     for (int i = 0; i < tablaClientes.Rows.Count; i++)
                     {
-
                         cliente.RutCliente = tablaClientes.Rows[i]["rutCliente"].ToString();
                         cliente.NomCliente = tablaClientes.Rows[i]["nombreCliente"].ToString();
                         cliente.ApeCliente = tablaClientes.Rows[i]["apellidoCliente"].ToString();
@@ -253,8 +254,9 @@ namespace CapaPersistencia
                     return new Cliente();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                string err = ex.Message;
                 return new Cliente();
             }
             finally

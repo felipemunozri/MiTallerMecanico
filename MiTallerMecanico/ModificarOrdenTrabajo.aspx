@@ -149,12 +149,12 @@
                 <asp:Label ID="lblCantRepuestos" runat="server" Text="Cantidad:"></asp:Label>
                 <asp:TextBox ID="txtCantRepuestos" CssClass="form-control" TextMode="Number" min="1" runat="server"></asp:TextBox>
             </div>
-            <div class="col-md-3">
-                <asp:Button ID="btnAgregaRepuesto" CssClass="btn btn-block btn-primary  mt-4" OnClick="btnAgregaRepuesto_Click" runat="server" Text="Añadir" />
-            </div>
              <div class="col-md-3">
                 <asp:Label ID="lblValorRepuesto" runat="server" Text="Valor unitario:"></asp:Label>
                 <asp:TextBox ID="txtValorRepuesto" placeholder="$" CssClass="form-control" TextMode="Number" min="0" runat="server"></asp:TextBox>
+            </div>
+            <div class="col-md-3">
+                <asp:Button ID="btnAgregaRepuesto" CssClass="btn btn-block btn-primary  mt-4" OnClick="btnAgregaRepuesto_Click" runat="server" Text="Añadir" />
             </div>
         </div>
         <br />
@@ -178,7 +178,7 @@
         <asp:Label ID="lblMontoTotal" runat="server" Text="Monto Total:"></asp:Label>
         <asp:TextBox ID="txtMontoTotal" Text="0" required ReadOnly="true" CssClass="form-control" runat="server"></asp:TextBox><br />
 
-        <asp:Button ID="btnModificarOrdenTrabajo" CssClass="btn btn-lg btn-block btn-primary mb-3" OnClick="btnModificarOrdenTrabajo_Click" runat="server" Text="Registrar" />
+        <asp:Button ID="btnModificarOrdenTrabajo" CssClass="btn btn-lg btn-block btn-primary mb-3" OnClick="btnModificarOrdenTrabajo_Click" runat="server" Text="Modificar" />
 
     </div>  
 </asp:Content>
