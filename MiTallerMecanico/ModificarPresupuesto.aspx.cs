@@ -217,9 +217,9 @@ namespace MiTallerMecanico
                     detPresupuesto.EncabezadoPresupuesto = negEncPresupuesto.NEGBuscarEncPresupuestoPorFolio(int.Parse(txtBuscarPresupuesto.Text));
                     detPresupuesto.Servicio = negServicio.NEGBuscarServicioPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
                     detPresupuesto.Repuesto = negRepuesto.NEGBuscarRepuestoPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
-                    detPresupuesto.CantServicio = int.Parse(gvSeleccion.Rows[i].Cells[3].Text);
-                    detPresupuesto.CantRepuesto = int.Parse(gvSeleccion.Rows[i].Cells[3].Text);
-                    detPresupuesto.SubTotal = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
+                    detPresupuesto.CantServicio = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
+                    detPresupuesto.CantRepuesto = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
+                    detPresupuesto.SubTotal = int.Parse(gvSeleccion.Rows[i].Cells[5].Text);
 
                     flagRegistroDetPresupuesto = negDetpresupuesto.NEGRegistrarDetPresupuesto(detPresupuesto);
                 }
