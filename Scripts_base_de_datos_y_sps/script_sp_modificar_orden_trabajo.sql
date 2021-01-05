@@ -11,8 +11,8 @@ CREATE PROCEDURE sp_modificar_orden_trabajo @folioOrden    INT,
                                             @prioridad     VARCHAR(50), 
                                             @observaciones VARCHAR(200), 
                                             @estado        VARCHAR(20), 
-                                            @iva           DECIMAL(18, 4), 
-                                            @total         DECIMAL(18, 4)
+                                            @iva           DECIMAL(18, 2), 
+                                            @total         DECIMAL(18, 2)
 AS
     BEGIN
         UPDATE orden_trabajo

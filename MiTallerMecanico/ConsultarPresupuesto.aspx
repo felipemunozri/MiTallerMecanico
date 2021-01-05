@@ -13,10 +13,10 @@
                 <asp:Label ID="lblCampo" runat="server" Text="Campo:"></asp:Label>
                 <asp:DropDownList ID="dpCampo" CssClass="form-control" runat="server">
                     <asp:ListItem Value="folioEncabezado" Text="ID de Presupuesto" />
-                    <asp:ListItem Value="fk_rutCliente" Text="Rut Cliente" />
-                    <asp:ListItem Value="fk_patente" Text="Patente" />
+                    <asp:ListItem Value="rutCliente" Text="Rut Cliente" />
+                    <asp:ListItem Value="patente" Text="Patente" />
                     <asp:ListItem Value="fecha" Text="Fecha" />
-                    <asp:ListItem Value="iva" Text="Valor Iva" />
+                    <asp:ListItem Value="iva" Text="IVA" />
                     <asp:ListItem Value="total" Text="Total" />
                 </asp:DropDownList>
             </div>
@@ -29,8 +29,15 @@
         <hr />
 
         <div class="table-responsive">
-            <asp:GridView ID="gvResultado" AutoGenerateColumns="true" CssClass="table table-sm table-secondary" EmptyDataText="No se han encontrado registros!" runat="server">
-            
+            <asp:GridView ID="gvResultado" AutoGenerateColumns="false" CssClass="table table-sm table-secondary" EmptyDataText="No se han encontrado registros!" runat="server">
+            <Columns>
+                <asp:BoundField DataField="folioEncabezado" HeaderText="ID presupuesto" SortExpression="folioEncabezado" />
+                <asp:BoundField DataField="rutCliente" HeaderText="Rut del cliente" SortExpression="rutCliente" />
+                <asp:BoundField DataField="patente" HeaderText="Patente" SortExpression="patente" />
+                <asp:BoundField DataField="fecha" HeaderText="Fecha de creación" SortExpression="fecha" />
+                <asp:BoundField DataField="iva" HeaderText="IVA" SortExpression="iva" />
+                <asp:BoundField DataField="total" HeaderText="Total" SortExpression="total" />
+            </Columns>
             </asp:GridView>
         </div>
         <br />

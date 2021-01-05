@@ -3,7 +3,8 @@ USE TALLER_MECANICO
 -- Procedimiento Almacenado para modificar servicio en tabla servicio
 GO
 CREATE PROCEDURE sp_modificar_servicio @idServicio     INT, 
-                                       @nombreServicio VARCHAR(200)
+                                       @nombreServicio VARCHAR(200),
+									   @valorServicio DECIMAL(18, 2)
 AS
     BEGIN
         SET NOCOUNT OFF
@@ -17,7 +18,8 @@ AS
             BEGIN
                 UPDATE servicio
                   SET 
-                      nombreServicio = @nombreServicio
+                      nombreServicio = @nombreServicio,
+					  valorServicio = @valorServicio
                 WHERE idServicio = @idServicio
                 PRINT 'Confirmación: Servicio modificado correctamente.'
         END

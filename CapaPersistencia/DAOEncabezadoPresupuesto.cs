@@ -142,7 +142,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM encabezado_presupuesto";
+                string querySelect = "SELECT * FROM vw_encabezados_presupuesto";
                 //cambiar por sp
 
                 conectaBD.abrirConexion();
@@ -196,8 +196,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM encabezado_presupuesto";
-                //cambiar por sp
+                string querySelect = "SELECT * FROM vw_encabezados_presupuesto";
 
                 conectaBD.abrirConexion();
 
@@ -227,7 +226,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM encabezado_presupuesto " +
+                string querySelect = "SELECT * FROM vw_encabezados_presupuesto " +
                     "WHERE " + campo + " LIKE '%" + filtro + "%'";
                 //cambiar por sp
 
@@ -259,7 +258,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM encabezado_presupuesto WHERE folioEncabezado = " + folioEncabezado;
+                string querySelect = "SELECT * FROM vw_encabezados_presupuesto WHERE folioEncabezado = " + folioEncabezado;
                 //cambiar por sp
 
                 conectaBD.abrirConexion();

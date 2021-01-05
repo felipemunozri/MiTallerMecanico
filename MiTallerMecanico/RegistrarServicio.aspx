@@ -5,9 +5,13 @@
         <br />
 
         <div class="row">
-            <div class="col col-md-12">
+            <div class="col col-md-6">
                 <asp:Label ID="lblNombreServicio" runat="server" Text="Nombre servicio:"></asp:Label>
                 <asp:TextBox ID="txtNombreServicio" CssClass="form-control" required runat="server"></asp:TextBox><br />
+            </div>
+            <div class="col col-md-6">
+                <asp:Label ID="lblValorServicio" runat="server" Text="Valor (sugerido) servicio:"></asp:Label>
+                <asp:TextBox ID="txtValorServicio" TextMode="Number" min="0" max="99999999" CssClass="form-control" required runat="server"></asp:TextBox><br />
             </div>
         </div>
 

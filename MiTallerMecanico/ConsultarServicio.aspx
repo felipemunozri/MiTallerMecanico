@@ -13,7 +13,8 @@
                 <asp:Label ID="lblCampo" runat="server" Text="Campo:"></asp:Label>
                 <asp:DropDownList ID="dpCampo" CssClass="form-control" runat="server">
                     <asp:ListItem Value="idServicio" Text="ID de Servicio" />
-                    <asp:ListItem Value="nombreServicio" Text="Nombre" />
+                    <asp:ListItem Value="nombreServicio" Text="Nombre de servicio" />
+                    <asp:ListItem Value="valorServicio" Text="Valor de servicio" />
                 </asp:DropDownList>
             </div>
             <div class="col-md-4">
@@ -25,8 +26,12 @@
         <hr />
 
         <div class="table-responsive">
-            <asp:GridView ID="gvResultado" AutoGenerateColumns="true" CssClass="table table-sm table-secondary" EmptyDataText="No se han encontrado registros!" runat="server">
-            
+            <asp:GridView ID="gvResultado" AutoGenerateColumns="false" CssClass="table table-sm table-secondary" EmptyDataText="No se han encontrado registros!" runat="server">
+            <Columns>
+                <asp:BoundField DataField="idServicio" HeaderText="ID del servicio" SortExpression="idServicio" />
+                <asp:BoundField DataField="nombreServicio" HeaderText="Nombre del servicio" SortExpression="nombreServicio" />
+                <asp:BoundField DataField="valorServicio" HeaderText="Valor del servicio" SortExpression="valorServicio" />
+            </Columns>
             </asp:GridView>
         </div>
         <br />

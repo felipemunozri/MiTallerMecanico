@@ -65,7 +65,7 @@
                         <asp:TextBox ID="txtNomUsuario" class="form-control" required runat="server"></asp:TextBox><br />
 
                         <asp:Label ID="lblPassUsuario" runat="server" Text="Contraseña:"></asp:Label>
-                        <asp:TextBox ID="txtPassUsuario" class="form-control" required TextMode="Password" runat="server"></asp:TextBox><br />
+                        <asp:TextBox ID="txtPassUsuario" class="form-control" required TextMode="Password" runat="server" MaxLength="8"></asp:TextBox><br />
 
                         <asp:Button ID="btnIngresar" class="btn btn-lg btn-primary btn-block mb-3" OnClick="btnIngresar_Click" runat="server" Text="Ingresar" />
                     </div>

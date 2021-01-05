@@ -25,8 +25,11 @@
         <hr />
 
         <div class="table-responsive">
-            <asp:GridView ID="gvResultado" AutoGenerateColumns="true" CssClass="table table-sm table-secondary" EmptyDataText="No se han encontrado registros!" runat="server">
-            
+            <asp:GridView ID="gvResultado" AutoGenerateColumns="false" CssClass="table table-sm table-secondary" EmptyDataText="No se han encontrado registros!" runat="server">
+            <Columns>
+                <asp:BoundField DataField="idTipoUsuario" HeaderText="ID Tipo de Usuario" SortExpression="idTipoUsuario" />
+                <asp:BoundField DataField="cargo" HeaderText="Cargo" SortExpression="cargo" />
+            </Columns>
             </asp:GridView>
         </div>
         <br />

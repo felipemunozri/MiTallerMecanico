@@ -50,6 +50,7 @@ namespace MiTallerMecanico
 
             servicio.IdServicio = int.Parse(txtBuscarServicio.Text);
             servicio.NomServicio = txtNombreServicio.Text;
+            servicio.ValorServicio = double.Parse(txtValorServicio.Text);
 
             if (negServicio.NEGModificarServicio(servicio))
             {

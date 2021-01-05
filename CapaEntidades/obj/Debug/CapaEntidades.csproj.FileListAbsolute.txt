@@ -9,3 +9,4 @@ C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\bin\Debug
 C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\obj\Debug\CapaEntidades.csproj.CoreCompileInputs.cache
 C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\obj\Debug\CapaEntidades.dll
 C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\obj\Debug\CapaEntidades.pdb
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\obj\Debug\CapaEntidades.csprojAssemblyReference.cache

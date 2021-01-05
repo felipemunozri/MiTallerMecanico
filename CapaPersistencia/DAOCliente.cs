@@ -101,7 +101,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM cliente";
+                string querySelect = "SELECT * FROM vw_clientes";
                 //cambiar por sp
 
                 conectaBD.abrirConexion();
@@ -155,8 +155,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM cliente";
-                //cambiar por sp
+                string querySelect = "SELECT * FROM vw_clientes";
 
                 conectaBD.abrirConexion();
 
@@ -186,7 +185,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM cliente " +
+                string querySelect = "SELECT * FROM vw_clientes " +
                     "WHERE " + campo + " LIKE '%" + filtro + "%'";
                 //cambiar por sp
 

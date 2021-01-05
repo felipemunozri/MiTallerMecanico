@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-6">
                 <asp:Label ID="lblBuscarVehiculo" runat="server" Text="Buscar vehículo por Patente:"></asp:Label>
-                <asp:TextBox ID="txtBuscarVehiculo" CssClass="form-control" required runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtBuscarVehiculo" CssClass="form-control" required runat="server" MaxLength="6"></asp:TextBox>
             </div>
             <div class="col-md-6">
                 <asp:Button ID="btnBuscar" formnovalidate CssClass="btn btn-block btn-primary mt-4" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
@@ -21,10 +21,10 @@
         <div class="row">
             <div class="col col-md-6">
                 <asp:Label ID="lblRutCliente" runat="server" Text="Rut Dueño:"></asp:Label>
-                <asp:TextBox ID="txtRutCliente" CssClass="form-control" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtRutCliente" CssClass="form-control" required runat="server" MaxLength="10"></asp:TextBox><br />
 
                 <asp:Label ID="lblPatente" runat="server" Text="Patente:"></asp:Label>
-                <asp:TextBox ID="txtPatente" CssClass="form-control" runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtPatente" CssClass="form-control" runat="server" MaxLength="6"></asp:TextBox><br />
 
                 <asp:Label ID="lblMarca" runat="server" Text="Marca:"></asp:Label>
                 <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server"></asp:TextBox><br />
@@ -37,7 +37,7 @@
                 <asp:TextBox ID="txtTipoVehiculo" CssClass="form-control" required runat="server"></asp:TextBox><br />
 
                 <asp:Label ID="lblAno" runat="server" Text="Año:"></asp:Label>
-                <asp:TextBox ID="txtAno" CssClass="form-control" runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtAno" TextMode="Number" min="1000" max="9999" CssClass="form-control" runat="server"></asp:TextBox><br />
                 
                 <asp:Label ID="lblKilometraje" runat="server" Text="Kilometraje:"></asp:Label>
                 <asp:TextBox ID="txtKilometraje" CssClass="form-control" runat="server"></asp:TextBox><br />

@@ -23,6 +23,7 @@ namespace MiTallerMecanico
             NEGServicio negServicio = new NEGServicio();
 
             servicio.NomServicio = txtNombreServicio.Text;
+            servicio.ValorServicio = double.Parse(txtValorServicio.Text);
 
             if (negServicio.NEGRegistarServicio(servicio))
             {

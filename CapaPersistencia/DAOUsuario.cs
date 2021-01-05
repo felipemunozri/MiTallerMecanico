@@ -141,7 +141,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM usuario";
+                string querySelect = "SELECT * FROM vw_usuarios";
                 //cambiar por sp
 
                 conectaBD.abrirConexion();
@@ -195,8 +195,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM usuario";
-                //cambiar por sp
+                string querySelect = "SELECT * FROM vw_usuarios";
 
                 conectaBD.abrirConexion();
 
@@ -226,7 +225,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM usuario " +
+                string querySelect = "SELECT * FROM vw_usuarios " +
                     "WHERE " + campo + " LIKE '%" + filtro + "%'";
                 //cambiar por sp
 
@@ -258,7 +257,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM usuario WHERE idUsuario = " + idUsuario;
+                string querySelect = "SELECT * FROM vw_usuarios WHERE idUsuario = " + idUsuario;
                 //cambiar por sp
 
                 conectaBD.abrirConexion();
@@ -310,7 +309,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM Usuario WHERE " +
+                string querySelect = "SELECT * FROM vw_usuarios WHERE " +
                     "nombreUsuario = '" + usuario.NomUsuario + "' AND " +
                     "passUsuario  = '" + usuario.PassUsuario + "'";
                 //cambiar por sp

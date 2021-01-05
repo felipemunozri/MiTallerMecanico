@@ -6,8 +6,8 @@ CREATE PROCEDURE sp_modificar_encabezado_presupuesto @folioEncabezado INT,
                                                      @rutCliente      VARCHAR(10), 
                                                      @patente         VARCHAR(6), 
                                                      @fecha           DATE, 
-                                                     @iva             DECIMAL(18, 4), 
-                                                     @total           DECIMAL(18, 4)
+                                                     @iva             DECIMAL(18, 2), 
+                                                     @total           DECIMAL(18, 2)
 AS
     BEGIN
         UPDATE encabezado_presupuesto

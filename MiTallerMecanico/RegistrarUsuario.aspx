@@ -13,7 +13,7 @@
                 <asp:TextBox ID="txtNomUsuario" CssClass="form-control" required runat="server"></asp:TextBox><br />
 
                 <asp:Label ID="lblPassUsuario" runat="server" Text="Contraseña:"></asp:Label>
-                <asp:TextBox ID="txtPassUsuario" TextMode="Password" CssClass="form-control" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtPassUsuario" TextMode="Password" CssClass="form-control" required runat="server" MaxLength="8"></asp:TextBox><br />
             </div>
         </div>
 

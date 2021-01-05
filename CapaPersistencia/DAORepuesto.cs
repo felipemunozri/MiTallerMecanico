@@ -134,9 +134,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM repuesto";
-
-                //string querySelect = "EXEC sp_listado_repuestos";
+                string querySelect = "SELECT * FROM vw_repuestos";
 
                 conectaBD.abrirConexion();
 
@@ -185,8 +183,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM repuesto";
-                //cambiar por sp
+                string querySelect = "SELECT * FROM vw_repuestos";
 
                 conectaBD.abrirConexion();
 
@@ -216,7 +213,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM repuesto " +
+                string querySelect = "SELECT * FROM vw_repuestos " +
                     "WHERE " + campo + " LIKE '%" + filtro + "%'";
                 //cambiar por sp
 
@@ -247,7 +244,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM repuesto WHERE idRepuesto = " + idRepuesto;
+                string querySelect = "SELECT * FROM vw_repuestos WHERE idRepuesto = " + idRepuesto;
                 //cambiar por sp
 
                 conectaBD.abrirConexion();
@@ -293,7 +290,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM repuesto " +
+                string querySelect = "SELECT * FROM vw_repuestos " +
                     "WHERE nombreRepuesto LIKE '%" + nomRepuesto + "%'";
 
                 SqlDataAdapter sqlAdpater = new SqlDataAdapter(querySelect, conectaBD.Conexion);

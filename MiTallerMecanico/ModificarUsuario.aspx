@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-6">
                 <asp:Label ID="lblBuscarUsuario" runat="server" Text="Buscar Usuario por ID:"></asp:Label>
-                <asp:TextBox ID="txtBuscarUsuario" TextMode="Number"  min="1" CssClass="form-control" required runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtBuscarUsuario" TextMode="Number"  min="1" max="99999999" CssClass="form-control" required runat="server"></asp:TextBox>
             </div>
             <div class="col-md-6">
                 <asp:Button ID="btnBuscar" formnovalidate CssClass="btn btn-block btn-primary mt-4" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
@@ -27,7 +27,7 @@
                 <asp:TextBox ID="txtNomUsuario" CssClass="form-control" required runat="server"></asp:TextBox><br />
 
                 <asp:Label ID="lblPassUsuario" runat="server" Text="Contraseña:"></asp:Label>
-                <asp:TextBox ID="txtPassUsuario" TextMode="Password" CssClass="form-control" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtPassUsuario" TextMode="Password" CssClass="form-control" required runat="server" MaxLength="8"></asp:TextBox><br />
             </div>
         </div>
 

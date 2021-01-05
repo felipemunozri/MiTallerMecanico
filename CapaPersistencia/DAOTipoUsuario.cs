@@ -137,7 +137,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM tipo_usuario";
+                string querySelect = "SELECT * FROM vw_tipos_usuario";
                 //cambiar por sp
 
                 conectaBD.abrirConexion();
@@ -187,8 +187,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM tipo_usuario";
-                //cambiar por sp
+                string querySelect = "SELECT * FROM vw_tipos_usuario";
 
                 conectaBD.abrirConexion();
 
@@ -218,7 +217,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM tipo_usuario " +
+                string querySelect = "SELECT * FROM vw_tipos_usuario " +
                     "WHERE " + campo + " LIKE '%" + filtro + "%'";
                 //cambiar por sp
 
@@ -250,7 +249,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM tipo_usuario WHERE idTipoUsuario = " + idTipoUsuario;
+                string querySelect = "SELECT * FROM vw_tipos_usuario WHERE idTipoUsuario = " + idTipoUsuario;
                 //cambiar por sp
 
                 conectaBD.abrirConexion();

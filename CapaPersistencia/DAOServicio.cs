@@ -23,6 +23,7 @@ namespace CapaPersistencia
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.Add(new SqlParameter("@nombreServicio", servicio.NomServicio));
+                cmd.Parameters.Add(new SqlParameter("@valorServicio", servicio.ValorServicio));
 
                 int aux = cmd.ExecuteNonQuery();
 
@@ -62,6 +63,7 @@ namespace CapaPersistencia
 
                 cmd.Parameters.Add(new SqlParameter("@idServicio", servicio.IdServicio));
                 cmd.Parameters.Add(new SqlParameter("@nombreServicio", servicio.NomServicio));
+                cmd.Parameters.Add(new SqlParameter("@valorServicio", servicio.ValorServicio));
 
                 int aux = cmd.ExecuteNonQuery();
 
@@ -137,7 +139,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM servicio";
+                string querySelect = "SELECT * FROM vw_servicios";
                 //cambiar por sp
 
                 conectaBD.abrirConexion();
@@ -160,6 +162,7 @@ namespace CapaPersistencia
 
                         servicio.IdServicio = int.Parse(tablaServicios.Rows[i]["idServicio"].ToString());
                         servicio.NomServicio = tablaServicios.Rows[i]["nombreServicio"].ToString();
+                        servicio.ValorServicio = double.Parse(tablaServicios.Rows[i]["valorServicio"].ToString());
 
                         listaServicios.Add(servicio);
                     }
@@ -188,8 +191,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM servicio";
-                //cambiar por sp
+                string querySelect = "SELECT * FROM vw_servicios";
 
                 conectaBD.abrirConexion();
 
@@ -219,7 +221,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM servicio " +
+                string querySelect = "SELECT * FROM vw_servicios " +
                     "WHERE " + campo + " LIKE '%" + filtro + "%'";
                 //cambiar por sp
 
@@ -251,7 +253,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM servicio WHERE idServicio = " + idServicio;
+                string querySelect = "SELECT * FROM vw_servicios WHERE idServicio = " + idServicio;
                 //reemplazar por sp
 
                 conectaBD.abrirConexion();
@@ -272,6 +274,7 @@ namespace CapaPersistencia
                     {
                         servicio.IdServicio = int.Parse(tablaServicios.Rows[i]["idServicio"].ToString());
                         servicio.NomServicio = tablaServicios.Rows[i]["nombreServicio"].ToString();
+                        servicio.ValorServicio = double.Parse(tablaServicios.Rows[i]["valorServicio"].ToString());
                     }
 
                     return servicio;

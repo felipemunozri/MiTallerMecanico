@@ -78,8 +78,33 @@ namespace MiTallerMecanico
             }
             else
             {
-                txtRutCliente.Text = "";
-                SetFocus(txtRutCliente);
+                limpiarCamposVehiculo();
+                SetFocus(txtMarca);
+            }
+        }
+
+        protected void txtRutCliente_TextChanged(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();
+
+            NEGCliente negCliente = new NEGCliente();
+
+            cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
+
+            if (cliente.NomCliente != null)
+            {
+                txtNomCliente.Text = cliente.NomCliente;
+                txtApeCliente.Text = cliente.ApeCliente;
+                txtDirecCliente.Text = cliente.DirecCliente;
+                txtTelCliente.Text = cliente.TelCliente.ToString();
+                txtMailCliente.Text = cliente.MailCliente;
+
+                SetFocus(dpSelecServicio);
+            }
+            else
+            {
+                limpiarCamposCliente();
+                SetFocus(txtNomCliente);
             }
         }
 
@@ -264,9 +289,22 @@ namespace MiTallerMecanico
             }
         }
 
-        private void limpiarcampos()
+        private void limpiarCamposVehiculo()
         {
-            //FALTA IMPLEMENTAR
+            txtMarca.Text = "";
+            txtModelo.Text = "";
+            txtTipoVehiculo.Text = "";
+            txtAno.Text = "";
+            txtKilometraje.Text = "";
+        }
+
+        private void limpiarCamposCliente()
+        {
+            txtNomCliente.Text = "";
+            txtApeCliente.Text = "";
+            txtDirecCliente.Text = "";
+            txtTelCliente.Text = "";
+            txtMailCliente.Text = "";
         }
     }
 }

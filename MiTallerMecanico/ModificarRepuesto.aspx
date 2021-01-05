@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-6">
                 <asp:Label ID="lblBuscarRepuesto" runat="server" Text="Buscar Repuesto por ID:"></asp:Label>
-                <asp:TextBox ID="txtBuscarRepuesto" TextMode="Number"  min="1" CssClass="form-control" required runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtBuscarRepuesto" TextMode="Number"  min="1" max="99999999" CssClass="form-control" required runat="server"></asp:TextBox>
             </div>
             <div class="col-md-6">
                 <asp:Button ID="btnBuscar" formnovalidate CssClass="btn btn-block btn-primary mt-4" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />

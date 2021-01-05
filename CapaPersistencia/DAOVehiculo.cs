@@ -103,8 +103,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM vehiculo";
-                //cambiar por sp
+                string querySelect = "SELECT * FROM vw_vehiculos";
 
                 conectaBD.abrirConexion();
 
@@ -161,8 +160,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM vehiculo";
-                //cambiar por sp
+                string querySelect = "SELECT * FROM vw_vehiculos";
 
                 conectaBD.abrirConexion();
 
@@ -176,8 +174,9 @@ namespace CapaPersistencia
 
                 return tablaVehiculos;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                string err = ex.Message;
                 return new DataTable();
             }
             finally
@@ -192,10 +191,9 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM vehiculo " +
+                string querySelect = "SELECT * FROM vw_vehiculos " +
                     "WHERE " + campo + " LIKE '%" + filtro + "%'";
-                //cambiar por sp
-
+                
                 conectaBD.abrirConexion();
 
                 SqlDataAdapter sqlAdaptador = new SqlDataAdapter(querySelect, conectaBD.Conexion);
@@ -208,8 +206,9 @@ namespace CapaPersistencia
 
                 return tablaVehiculos;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                string err = ex.Message;
                 return new DataTable();
             }
             finally
@@ -224,7 +223,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM vehiculo WHERE patente = '" + patente + "'";
+                string querySelect = "SELECT * FROM vw_vehiculos WHERE patente = '" + patente + "'";
                 //cambiar por sp
 
                 conectaBD.abrirConexion();
@@ -244,7 +243,6 @@ namespace CapaPersistencia
                     for (int i = 0; i < tablaVehiculos.Rows.Count; i++)
                     {
                         vehiculo.Patente = tablaVehiculos.Rows[i]["patente"].ToString();
-                        
                         vehiculo.TipoVehiculo = tablaVehiculos.Rows[i]["tipoVehiculo"].ToString();
                         vehiculo.Marca = tablaVehiculos.Rows[i]["marca"].ToString();
                         vehiculo.Modelo = tablaVehiculos.Rows[i]["modelo"].ToString();
@@ -262,8 +260,9 @@ namespace CapaPersistencia
                     return new Vehiculo();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                string err = ex.Message;
                 return new Vehiculo();
             }
             finally

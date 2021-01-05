@@ -7,7 +7,7 @@ CREATE PROCEDURE sp_registrar_detalle_orden @fk_folioOrden INT,
                                             @fk_idRepuesto INT,
 											@cantidadServicio INT,
 											@cantidadRepuesto INT,
-											@subTotal         DECIMAL(18, 4)
+											@subTotal         DECIMAL(18, 2)
 AS
     BEGIN
         SET NOCOUNT OFF

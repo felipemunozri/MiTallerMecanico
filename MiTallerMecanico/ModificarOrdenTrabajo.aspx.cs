@@ -56,7 +56,6 @@ namespace MiTallerMecanico
             if (txtBuscarOrdenTrabajo.Text.Equals(""))
             {
                 Response.Write("<script>alert('Debe ingresar un valor de ID!')</script>");
-                limpiarCampos();
             }
             else
             {
@@ -105,30 +104,66 @@ namespace MiTallerMecanico
                 else
                 {
                     Response.Write("<script>alert('No existe un documento para el valor de ID ingresado!')</script>");
-                    limpiarCampos();
                 }
             }
         }
 
-        protected void txtPatente_TextChanged(object sender, EventArgs e)
-        {
-            Vehiculo vehiculo = new Vehiculo();
+        //protected void txtPatente_TextChanged(object sender, EventArgs e)
+        //{
+        //    Vehiculo vehiculo = new Vehiculo();
 
-            NEGVehiculo negVehiculo = new NEGVehiculo();
+        //    NEGVehiculo negVehiculo = new NEGVehiculo();
 
-            vehiculo = negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text);
+        //    vehiculo = negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text);
 
-            if (vehiculo.Cliente != null)
-            {
-                txtRutCliente.Text = vehiculo.Cliente.RutCliente;
-                SetFocus(txtFecha);
-            }
-            else
-            {
-                txtRutCliente.Text = "";
-                SetFocus(txtRutCliente);
-            }
-        }
+        //    if (vehiculo.Cliente != null)
+        //    {
+        //        txtMarca.Text = vehiculo.Marca;
+        //        txtModelo.Text = vehiculo.Modelo;
+        //        txtTipoVehiculo.Text = vehiculo.TipoVehiculo;
+        //        txtAno.Text = vehiculo.Ano.ToString();
+        //        txtKilometraje.Text = vehiculo.Kilometraje.ToString();
+
+        //        txtRutCliente.Text = vehiculo.Cliente.RutCliente;
+        //        txtNomCliente.Text = vehiculo.Cliente.NomCliente;
+        //        txtApeCliente.Text = vehiculo.Cliente.ApeCliente;
+        //        txtDirecCliente.Text = vehiculo.Cliente.DirecCliente;
+        //        txtTelCliente.Text = vehiculo.Cliente.TelCliente.ToString();
+        //        txtMailCliente.Text = vehiculo.Cliente.MailCliente;
+
+        //        SetFocus(dpSelecServicio);
+        //    }
+        //    else
+        //    {
+        //        limpiarCamposVehiculo();
+        //        SetFocus(txtMarca);
+        //    }
+        //}
+
+        //protected void txtRutCliente_TextChanged(object sender, EventArgs e)
+        //{
+        //    Cliente cliente = new Cliente();
+
+        //    NEGCliente negCliente = new NEGCliente();
+
+        //    cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
+
+        //    if (cliente.NomCliente != null)
+        //    {
+        //        txtNomCliente.Text = cliente.NomCliente;
+        //        txtApeCliente.Text = cliente.ApeCliente;
+        //        txtDirecCliente.Text = cliente.DirecCliente;
+        //        txtTelCliente.Text = cliente.TelCliente.ToString();
+        //        txtMailCliente.Text = cliente.MailCliente;
+
+        //        SetFocus(dpSelecServicio);
+        //    }
+        //    else
+        //    {
+        //        limpiarCamposCliente();
+        //        SetFocus(txtNomCliente);
+        //    }
+        //}
 
         protected void btnAgregaServicio_Click(object sender, EventArgs e)
         {
@@ -280,9 +315,22 @@ namespace MiTallerMecanico
             }
         }
 
-        private void limpiarCampos()
+        private void limpiarCamposVehiculo()
         {
-            //FALTA IMPLEMENTAR!!!
+            txtMarca.Text = "";
+            txtModelo.Text = "";
+            txtTipoVehiculo.Text = "";
+            txtAno.Text = "";
+            txtKilometraje.Text = "";
+        }
+
+        private void limpiarCamposCliente()
+        {
+            txtNomCliente.Text = "";
+            txtApeCliente.Text = "";
+            txtDirecCliente.Text = "";
+            txtTelCliente.Text = "";
+            txtMailCliente.Text = "";
         }
     }
 }

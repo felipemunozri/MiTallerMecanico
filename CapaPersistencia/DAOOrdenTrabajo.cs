@@ -152,7 +152,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM orden_trabajo";
+                string querySelect = "SELECT * FROM vw_ordenes_trabajo";
                 //cambiar por sp
 
                 conectaBD.abrirConexion();
@@ -214,8 +214,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM orden_trabajo";
-                //cambiar por sp
+                string querySelect = "SELECT * FROM vw_ordenes_trabajo";
 
                 conectaBD.abrirConexion();
 
@@ -245,7 +244,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM orden_trabajo " +
+                string querySelect = "SELECT * FROM vw_ordenes_trabajo " +
                     "WHERE " + campo + " LIKE '%" + filtro + "%'";
                 //cambiar por sp
 
@@ -277,7 +276,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM orden_trabajo WHERE folioOrden = " + folioOrden;
+                string querySelect = "SELECT * FROM vw_ordenes_trabajo WHERE folioOrden = " + folioOrden;
                 //cambiar por sp 
 
                 conectaBD.abrirConexion();
@@ -338,7 +337,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM orden_trabajo WHERE " +
+                string querySelect = "SELECT * FROM vw_ordenes_trabajo WHERE " +
                     "folioOrden = " + folioOrden + " AND fk_patente = '" + patente + "'";
                 //cambiar por sp 
 

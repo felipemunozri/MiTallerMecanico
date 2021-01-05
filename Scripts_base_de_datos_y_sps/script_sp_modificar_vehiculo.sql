@@ -8,7 +8,7 @@ CREATE PROCEDURE sp_modificar_vehiculo @patente       VARCHAR(6),
                                        @marca         VARCHAR(50), 
                                        @modelo        VARCHAR(50), 
                                        @ano           INT, 
-                                       @kilometraje   DECIMAL(18, 4)
+                                       @kilometraje   DECIMAL(18, 2)
 AS
     BEGIN
         SET NOCOUNT OFF

@@ -30,8 +30,16 @@
         <hr />
 
         <div class="table-responsive">
-            <asp:GridView ID="gvResultado" AutoGenerateColumns="true" CssClass="table table-sm table-secondary" EmptyDataText="No se han encontrado registros!" runat="server">
-            
+            <asp:GridView ID="gvResultado" AutoGenerateColumns="false" CssClass="table table-sm table-secondary" EmptyDataText="No se han encontrado registros!" runat="server">
+            <Columns>
+                <asp:BoundField DataField="patente" HeaderText="Patente" SortExpression="patente" />
+                <asp:BoundField DataField="fk_rutCliente" HeaderText="Rut del cliente" SortExpression="fk_rutCliente" />
+                <asp:BoundField DataField="tipoVehiculo" HeaderText="Tipo de vehículo" SortExpression="tipoVehiculo" />
+                <asp:BoundField DataField="marca" HeaderText="Marca" SortExpression="marca" />
+                <asp:BoundField DataField="modelo" HeaderText="Modelo" SortExpression="modelo" />
+                <asp:BoundField DataField="ano" HeaderText="Año" SortExpression="ano"/>
+                <asp:BoundField DataField="kilometraje" HeaderText="Kilometraje" SortExpression="kilometraje" />
+            </Columns>
             </asp:GridView>
         </div>
         <br />

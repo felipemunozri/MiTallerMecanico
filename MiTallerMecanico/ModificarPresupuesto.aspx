@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-6">
                 <asp:Label ID="lblBuscarPresupuesto" runat="server" Text="Buscar Presupuesto por ID:"></asp:Label>
-                <asp:TextBox ID="txtBuscarPresupuesto" TextMode="Number"  min="1" CssClass="form-control" required runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtBuscarPresupuesto" TextMode="Number"  min="1" max="99999999" CssClass="form-control" required runat="server"></asp:TextBox>
             </div>
             <div class="col-md-6">
                 <asp:Button ID="btnBuscar" formnovalidate CssClass="btn btn-block btn-primary mt-4" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
@@ -24,10 +24,10 @@
         <div class="row">
             <div class="col col-md-12">
                 <asp:Label ID="lblPatente" runat="server" Text="Patente vehículo:"></asp:Label>
-                <asp:TextBox ID="txtPatente" AutoPostBack="true" OnTextChanged="txtPatente_TextChanged"  CssClass="form-control" required runat="server" MaxLength="6"></asp:TextBox><br />
+                <asp:TextBox ID="txtPatente" AutoPostBack="true" OnTextChanged="txtPatente_TextChanged" CssClass="form-control" required runat="server" MaxLength="6"></asp:TextBox><br />
 
                  <asp:Label ID="lblRutCliente" runat="server" Text="Rut cliente:"></asp:Label>
-                <asp:TextBox ID="txtRutCliente" CssClass="form-control" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtRutCliente" CssClass="form-control" required runat="server" MaxLength="10"></asp:TextBox><br />
 
                 <asp:Label ID="lblFecha" runat="server" Text="Fecha:"></asp:Label>
                 <asp:TextBox ID="txtFecha" CssClass="form-control" TextMode="Date" required runat="server"></asp:TextBox><br />
@@ -47,11 +47,11 @@
             </div>
             <div class="col-md-3 mb-4">
                 <asp:Label ID="lblCantServicios" runat="server" Text="Cantidad:"></asp:Label>
-                <asp:TextBox ID="txtCantServicios" CssClass="form-control" TextMode="Number" min="1" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCantServicios" CssClass="form-control" TextMode="Number" min="1" max="999" runat="server"></asp:TextBox>
             </div>
             <div class="col-md-3">
                 <asp:Label ID="lblValorServicio" runat="server" Text="Valor unitario:"></asp:Label>
-                <asp:TextBox ID="txtValorServicio" placeholder="$" CssClass="form-control" TextMode="Number" min="0" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtValorServicio" placeholder="$" CssClass="form-control" TextMode="Number" min="0" max="99999999" runat="server"></asp:TextBox>
             </div>
             <div class="col-md-3">
                 <asp:Button ID="btnAgregaServicio" CssClass="btn btn-block btn-primary mt-4" OnClick="btnAgregaServicio_Click" runat="server" Text="Añadir" />
@@ -70,11 +70,11 @@
             </div>
             <div class="col-md-3 mb-4">
                 <asp:Label ID="lblCantRepuestos" runat="server" Text="Cantidad:"></asp:Label>
-                <asp:TextBox ID="txtCantRepuestos" CssClass="form-control" TextMode="Number" min="1" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCantRepuestos" CssClass="form-control" TextMode="Number" min="1" max="999" runat="server"></asp:TextBox>
             </div>
             <div class="col-md-3">
                 <asp:Label ID="lblValorRepuesto" runat="server" Text="Valor unitario:"></asp:Label>
-                <asp:TextBox ID="txtValorRepuesto" placeholder="$" CssClass="form-control" TextMode="Number" min="0" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtValorRepuesto" placeholder="$" CssClass="form-control" TextMode="Number" min="0" max="99999999" runat="server"></asp:TextBox>
             </div>
             <div class="col-md-3">
                 <asp:Button ID="btnAgregaRepuesto" CssClass="btn btn-block btn-primary  mt-4" OnClick="btnAgregaRepuesto_Click" runat="server" Text="Añadir" />
@@ -100,8 +100,13 @@
 
         <asp:Label ID="lblMontoTotal" runat="server" Text="Monto Total:"></asp:Label>
         <asp:TextBox ID="txtMontoTotal" Text="0" required ReadOnly="true" CssClass="form-control" runat="server"></asp:TextBox><br />
+        <hr />
 
-        <asp:Button ID="btnModificarPresupuesto" CssClass="btn btn-lg btn-block btn-primary mb-3" OnClick="btnModificarPresupuesto_Click" runat="server" Text="Modificar" />
+        <asp:Button ID="btnModificarPresupuesto" CssClass="btn btn-lg btn-block btn-primary mb-3" OnClick="btnModificarPresupuesto_Click" runat="server" Text="Modificar" /><br />
+
+        <button type="button" class="btn btn-lg btn-block btn-success mb-3" onclick="window.print()">Imprimir</button><br />
+
+        <%--<a href="ModificarPresupuesto.aspx" role="button" class="btn btn-lg btn-block btn-danger mb-3">Limpiar formulario</a>--%>
 
     </div>   
 </asp:Content>

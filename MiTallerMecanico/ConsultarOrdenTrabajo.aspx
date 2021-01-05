@@ -21,6 +21,8 @@
                     <asp:ListItem Value="prioridad" Text="Prioridad" />
                     <asp:ListItem Value="observaciones" Text="Observaciones" />
                     <asp:ListItem Value="estado" Text="Estado" />
+                    <asp:ListItem Value="iva" Text="IVA" />
+                    <asp:ListItem Value="total" Text="Total" />
                 </asp:DropDownList>
             </div>
             <div class="col-md-4">
@@ -32,8 +34,20 @@
         <hr />
 
         <div class="table-responsive">
-            <asp:GridView ID="gvResultado" AutoGenerateColumns="true" CssClass="table table-sm table-secondary" EmptyDataText="No se han encontrado registros!" runat="server">
-            
+            <asp:GridView ID="gvResultado" AutoGenerateColumns="false" CssClass="table table-sm table-secondary" EmptyDataText="No se han encontrado registros!" runat="server">
+            <Columns>
+                <asp:BoundField DataField="folioOrden" HeaderText="ID Orden de Trabajo" SortExpression="folioOrden" />
+                <asp:BoundField DataField="fk_idUsuario" HeaderText="ID Usuario" SortExpression="fk_idUsuario" />
+                <asp:BoundField DataField="fk_rutCliente" HeaderText="Rut del cliente" SortExpression="fk_rutCliente" />
+                <asp:BoundField DataField="fk_patente" HeaderText="Patente" SortExpression="fk_patente" />
+                <asp:BoundField DataField="fecha" HeaderText="Fecha de creación" SortExpression="fecha" />
+                <asp:BoundField DataField="fechaEntrega" HeaderText="Fecha de entrega" SortExpression="fechaEntrega" />
+                <asp:BoundField DataField="prioridad" HeaderText="Prioridad" SortExpression="prioridad" />
+                <asp:BoundField DataField="observaciones" HeaderText="Observaciones" SortExpression="observaciones" />
+                <asp:BoundField DataField="estado" HeaderText="Estado" SortExpression="estado" />
+                <asp:BoundField DataField="iva" HeaderText="IVA" SortExpression="iva" />
+                <asp:BoundField DataField="total" HeaderText="Total" SortExpression="total" />
+            </Columns>
             </asp:GridView>
         </div>
         <br />
