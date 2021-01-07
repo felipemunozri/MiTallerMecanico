@@ -34,5 +34,7 @@
         </div>
         <br />
 
+        <asp:Button ID="btnExportar" CssClass="btn btn-block btn-primary mt-4" OnClick="btnExportar_Click" runat="server" Text="Exportar a Excel" />
+
     </div>
 </asp:Content>

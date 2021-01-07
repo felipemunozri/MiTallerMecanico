@@ -35,6 +35,7 @@
                     <asp:ListItem Value="Ingresado" Text="Vehículo Ingresado" Selected></asp:ListItem>
                     <asp:ListItem Value="En reparacion" Text="Vehículo en Reparacion"></asp:ListItem>
                     <asp:ListItem Value="Listo para retiro" Text="Vehículo listo para Retiro"></asp:ListItem>
+                    <asp:ListItem Value="Entregado" Text="Vehículo Entregado"></asp:ListItem>
                 </asp:DropDownList><br />
             </div>
         </div>

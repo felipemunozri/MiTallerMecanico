@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidades
 {
-    class Validacion
+    public class Validacion
     {
         public bool validarRut(string rut)
         {
@@ -16,7 +16,7 @@ namespace CapaEntidades
             {
                 rut = rut.ToUpper();
                 rut = rut.Replace(".", "");
-                rut = rut.Replace("-", "");
+                //rut = rut.Replace("-", "");
                 int rutAux = int.Parse(rut.Substring(0, rut.Length - 1));
 
                 char dv = char.Parse(rut.Substring(rut.Length - 1, 1));
@@ -31,8 +31,9 @@ namespace CapaEntidades
                     validacion = true;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                string err = ex.Message;
             }
             return validacion;
         }
