@@ -62,7 +62,7 @@
 
                     <div class="w-100 my-auto mx-auto">
                         <asp:Label ID="lblNomUsuario" runat="server" Text="Usuario:"></asp:Label>
-                        <asp:TextBox ID="txtNomUsuario" class="form-control" required runat="server"></asp:TextBox><br />
+                        <asp:TextBox ID="txtNomUsuario" class="form-control" required runat="server" MaxLength="50"></asp:TextBox><br />
 
                         <asp:Label ID="lblPassUsuario" runat="server" Text="Contraseña:"></asp:Label>
                         <asp:TextBox ID="txtPassUsuario" class="form-control" required TextMode="Password" runat="server" MaxLength="8"></asp:TextBox><br />

@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col col-md-12">
                 <asp:Label ID="lblNombreRepuesto" runat="server" Text="Nombre repuesto:"></asp:Label>
-                <asp:TextBox ID="txtNombreRepuesto" CssClass="form-control" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtNombreRepuesto" CssClass="form-control" required runat="server" MaxLength="100"></asp:TextBox><br />
             </div>
         </div>
 

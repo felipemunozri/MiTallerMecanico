@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col col-md-12">
                 <asp:Label ID="lblCargo" runat="server" Text="Cargo usuario:"></asp:Label>
-                <asp:TextBox ID="txtCargo" CssClass="form-control" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtCargo" CssClass="form-control" required runat="server" MaxLength="50"></asp:TextBox><br />
             </div>
         </div>
 

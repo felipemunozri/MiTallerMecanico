@@ -24,7 +24,7 @@
                 <asp:DropDownList ID="dpTipoUsuario" CssClass="form-control" runat="server"></asp:DropDownList><br />
 
                 <asp:Label ID="lblNomUsuario" runat="server" Text="Nombre usuario:"></asp:Label>
-                <asp:TextBox ID="txtNomUsuario" CssClass="form-control" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtNomUsuario" CssClass="form-control" required runat="server" MaxLength="50"></asp:TextBox><br />
 
                 <asp:Label ID="lblPassUsuario" runat="server" Text="Contraseña:"></asp:Label>
                 <asp:TextBox ID="txtPassUsuario" TextMode="Password" CssClass="form-control" required runat="server" MaxLength="8"></asp:TextBox><br />

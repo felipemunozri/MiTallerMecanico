@@ -27,20 +27,20 @@
                 <asp:TextBox ID="txtPatente" CssClass="form-control" runat="server" MaxLength="6"></asp:TextBox><br />
 
                 <asp:Label ID="lblMarca" runat="server" Text="Marca:"></asp:Label>
-                <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server" MaxLength="50"></asp:TextBox><br />
 
                 <asp:Label ID="lblModelo" runat="server" Text="Modelo:"></asp:Label>
-                <asp:TextBox ID="txtModelo" CssClass="form-control" runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtModelo" CssClass="form-control" runat="server" MaxLength="50"></asp:TextBox><br />
             </div>
             <div class="col col-md-6">
                 <asp:Label ID="lblTipoVehiculo" runat="server" Text="Tipo de Vehículo:"></asp:Label>
-                <asp:TextBox ID="txtTipoVehiculo" CssClass="form-control" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtTipoVehiculo" CssClass="form-control" required runat="server" MaxLength="50"></asp:TextBox><br />
 
                 <asp:Label ID="lblAno" runat="server" Text="Año:"></asp:Label>
                 <asp:TextBox ID="txtAno" TextMode="Number" min="1000" max="9999" CssClass="form-control" runat="server"></asp:TextBox><br />
                 
                 <asp:Label ID="lblKilometraje" runat="server" Text="Kilometraje:"></asp:Label>
-                <asp:TextBox ID="txtKilometraje" CssClass="form-control" runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtKilometraje" TextMode="Number" CssClass="form-control" min="0" step=".1" max="99999999.99" runat="server"></asp:TextBox><br />
             </div>
         </div>
 

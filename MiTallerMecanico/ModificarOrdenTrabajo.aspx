@@ -66,20 +66,20 @@
                 <asp:TextBox ID="txtPatente" AutoPostBack="true" CssClass="form-control" runat="server" MaxLength="6"></asp:TextBox><br />
 
                 <asp:Label ID="lblMarca" runat="server" Text="Marca:"></asp:Label>
-                <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server" MaxLength="50"></asp:TextBox><br />
 
                 <asp:Label ID="lblModelo" runat="server" Text="Modelo:"></asp:Label>
-                <asp:TextBox ID="txtModelo" CssClass="form-control" runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtModelo" CssClass="form-control" runat="server" MaxLength="50"></asp:TextBox><br />
             </div>
             <div class="col col-md-6">
                 <asp:Label ID="lblTipoVehiculo" runat="server" Text="Tipo de Vehículo:"></asp:Label>
-                <asp:TextBox ID="txtTipoVehiculo" CssClass="form-control" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtTipoVehiculo" CssClass="form-control" required runat="server" MaxLength="50"></asp:TextBox><br />
 
                 <asp:Label ID="lblAno" runat="server" Text="Año:"></asp:Label>
                 <asp:TextBox ID="txtAno" TextMode="Number" min="1000" max="9999" CssClass="form-control" runat="server"></asp:TextBox><br />
                 
                 <asp:Label ID="lblKilometraje" runat="server" Text="Kilometraje:"></asp:Label>
-                <asp:TextBox ID="txtKilometraje" CssClass="form-control" runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtKilometraje" TextMode="Number" CssClass="form-control" min="0" step=".1" max="99999999.99" runat="server"></asp:TextBox><br />
             </div>
         </div>
 
@@ -95,20 +95,20 @@
                 <asp:TextBox ID="txtRutCliente" AutoPostBack="true" CssClass="form-control" required runat="server" MaxLength="10"></asp:TextBox><br />
 
                 <asp:Label ID="lblNomCliente" runat="server" Text="Nombre cliente:"></asp:Label>
-                <asp:TextBox ID="txtNomCliente" CssClass="form-control" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtNomCliente" CssClass="form-control" required runat="server" MaxLength="35"></asp:TextBox><br />
 
                 <asp:Label ID="lblApeCliente" runat="server" Text="Apellido cliente:"></asp:Label>
-                <asp:TextBox ID="txtApeCliente" CssClass="form-control" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtApeCliente" CssClass="form-control" required runat="server" MaxLength="35"></asp:TextBox><br />
             </div>
             <div class="col col-md-6">
                 <asp:Label ID="lblDirecCliente" runat="server" Text="Dirección cliente:"></asp:Label>
-                <asp:TextBox ID="txtDirecCliente" CssClass="form-control" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtDirecCliente" CssClass="form-control" required runat="server" MaxLength="100"></asp:TextBox><br />
 
                 <asp:Label ID="lblTelCliente" runat="server" Text="Teléfono cliente:"></asp:Label>
                 <asp:TextBox ID="txtTelCliente" CssClass="form-control" TextMode="Number" min="0" max="999999999" required runat="server"></asp:TextBox><br />
 
                 <asp:Label ID="lblMailCliente" runat="server" Text="Mail cliente:"></asp:Label>
-                <asp:TextBox ID="txtMailCliente" CssClass="form-control" TextMode="Email" required runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="txtMailCliente" CssClass="form-control" TextMode="Email" required runat="server" MaxLength="50"></asp:TextBox><br />
             </div>
         </div>
 
