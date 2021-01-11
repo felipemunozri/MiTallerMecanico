@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <asp:Button ID="btnRegistrarRepuesto" CssClass="btn btn-lg btn-block btn-primary mb-3" OnClick="btnRegistrarRepuesto_Click" runat="server" Text="Registrar" />
+        <asp:Button ID="btnRegistrarRepuesto" CssClass="btn btn-lg btn-block btn-main mb-3" OnClick="btnRegistrarRepuesto_Click" runat="server" Text="Registrar" />
 
     </div>
 </asp:Content>

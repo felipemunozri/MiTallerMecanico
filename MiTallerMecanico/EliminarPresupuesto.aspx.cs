@@ -25,7 +25,7 @@ namespace MiTallerMecanico
 
             encPresupuesto = negEncPresupuesto.NEGBuscarEncPresupuestoPorFolio(int.Parse(txtfolioPrepuesto.Text));
 
-            if (encPresupuesto.RutCliente != null)
+            if (encPresupuesto.Cliente != null)
             {
                 if (negDetPresupuesto.NEGEliminarDetPresupuesto(encPresupuesto))
                 {

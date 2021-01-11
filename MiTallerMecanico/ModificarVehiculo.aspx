@@ -10,7 +10,7 @@
                 <asp:TextBox ID="txtBuscarVehiculo" CssClass="form-control" required runat="server" MaxLength="6"></asp:TextBox>
             </div>
             <div class="col-md-6">
-                <asp:Button ID="btnBuscar" formnovalidate CssClass="btn btn-block btn-primary mt-4" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
+                <asp:Button ID="btnBuscar" formnovalidate CssClass="btn btn-block btn-main mt-4" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
             </div>
         </div>
         <br />
@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col col-md-6">
                 <asp:Label ID="lblRutCliente" runat="server" Text="Rut Dueño:"></asp:Label>
-                <asp:TextBox ID="txtRutCliente" CssClass="form-control" required runat="server" MaxLength="10"></asp:TextBox><br />
+                <asp:TextBox ID="txtRutCliente" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtRutCliente_TextChanged" required runat="server" MaxLength="10"></asp:TextBox><br />
 
                 <asp:Label ID="lblPatente" runat="server" Text="Patente:"></asp:Label>
                 <asp:TextBox ID="txtPatente" CssClass="form-control" runat="server" MaxLength="6"></asp:TextBox><br />
@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <asp:Button ID="btnModificarVehiculo" CssClass="btn btn-lg btn-block btn-primary mb-3" OnClick="btnModificarVehiculo_Click" runat="server" Text="Modificar" />
+        <asp:Button ID="btnModificarVehiculo" CssClass="btn btn-lg btn-block btn-main mb-3" OnClick="btnModificarVehiculo_Click" runat="server" Text="Modificar" />
 
     </div>
 </asp:Content>

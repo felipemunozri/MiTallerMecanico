@@ -43,6 +43,75 @@ namespace MiTallerMecanico
             }
         }
 
+        protected void txtPatente_TextChanged(object sender, EventArgs e)
+        {
+            Vehiculo vehiculo = new Vehiculo();
+
+            NEGVehiculo negVehiculo = new NEGVehiculo();
+
+            vehiculo = negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text);
+
+            if (vehiculo.Cliente != null)
+            {
+                txtMarca.Text = vehiculo.Marca;
+                txtModelo.Text = vehiculo.Modelo;
+                txtTipoVehiculo.Text = vehiculo.TipoVehiculo;
+                txtAno.Text = vehiculo.Ano.ToString();
+                txtKilometraje.Text = vehiculo.Kilometraje.ToString();
+
+                txtRutCliente.Text = vehiculo.Cliente.RutCliente;
+                txtNomCliente.Text = vehiculo.Cliente.NomCliente;
+                txtApeCliente.Text = vehiculo.Cliente.ApeCliente;
+                txtDirecCliente.Text = vehiculo.Cliente.DirecCliente;
+                txtTelCliente.Text = vehiculo.Cliente.TelCliente.ToString();
+                txtMailCliente.Text = vehiculo.Cliente.MailCliente;
+
+                SetFocus(dpSelecServicio);
+            }
+            else
+            {
+                limpiarCamposVehiculo();
+                txtRutCliente.Text = "";
+                limpiarCamposCliente();
+                SetFocus(txtMarca);
+            }
+        }
+
+        protected void txtRutCliente_TextChanged(object sender, EventArgs e)
+        {
+            Validacion valida = new Validacion();
+
+            if (!valida.validarRut(txtRutCliente.Text))
+            {
+                Response.Write("<script>alert('Vuelva a ingresar el rut!')</script>");
+                txtRutCliente.Text = "";
+            }
+            else
+            {
+                Cliente cliente = new Cliente();
+
+                NEGCliente negCliente = new NEGCliente();
+
+                cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
+
+                if (cliente.NomCliente != null)
+                {
+                    txtNomCliente.Text = cliente.NomCliente;
+                    txtApeCliente.Text = cliente.ApeCliente;
+                    txtDirecCliente.Text = cliente.DirecCliente;
+                    txtTelCliente.Text = cliente.TelCliente.ToString();
+                    txtMailCliente.Text = cliente.MailCliente;
+
+                    SetFocus(dpSelecServicio);
+                }
+                else
+                {
+                    limpiarCamposCliente();
+                    SetFocus(txtNomCliente);
+                }
+            }
+        }
+
         protected void btnAgregaServicio_Click(object sender, EventArgs e)
         {
             if (txtCantServicios.Text.Equals("") || txtValorServicio.Text.Equals(""))
@@ -132,12 +201,49 @@ namespace MiTallerMecanico
             bool flagRegistroDetPresupuesto = false;
             int idPresupuestoInsertado = 0;
 
+            //CODIGO PARA REGISTRAR CLIENTE
+            Cliente cliente = new Cliente();
+
+            cliente.RutCliente = txtRutCliente.Text;
+            cliente.NomCliente = txtNomCliente.Text;
+            cliente.ApeCliente = txtApeCliente.Text;
+            cliente.DirecCliente = txtDirecCliente.Text;
+            cliente.TelCliente = int.Parse(txtTelCliente.Text);
+            cliente.MailCliente = txtMailCliente.Text;
+
+            NEGCliente negCliente = new NEGCliente();
+
+            if (negCliente.NEGBuscarClientePorRut(txtRutCliente.Text).NomCliente == null)
+            {
+                negCliente.NEGRegistarCliente(cliente);
+            }
+
+            //CODIGO PARA REGISTRAR VEHICULO
+            Vehiculo vehiculo = new Vehiculo();
+
+            vehiculo.Patente = txtPatente.Text.ToUpper();
+            vehiculo.Cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
+            vehiculo.TipoVehiculo = txtTipoVehiculo.Text.ToUpper();
+            vehiculo.Marca = txtMarca.Text.ToUpper();
+            vehiculo.Modelo = txtModelo.Text.ToUpper();
+            vehiculo.Ano = int.Parse(txtAno.Text);
+            vehiculo.Kilometraje = double.Parse(txtKilometraje.Text);
+
+            NEGVehiculo negVehiculo = new NEGVehiculo();
+
+            if (negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text).Patente == null)
+            {
+                negVehiculo.NEGRegistrarVehiculo(vehiculo);
+            }
+
             //CODIGO PARA REGISTRAR EL ENCABEZADO DEL PRESUPUESTO
             EncabezadoPresupuesto encPresupuesto = new EncabezadoPresupuesto();
 
-            encPresupuesto.RutCliente = txtRutCliente.Text;
-            encPresupuesto.Patente =txtPatente.Text.ToUpper();
+            encPresupuesto.Cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
+            encPresupuesto.Vehiculo = negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text.ToUpper());
             encPresupuesto.Fecha = DateTime.Parse(txtFecha.Text);
+            encPresupuesto.Observaciones = txtObservaciones.Text;
+            encPresupuesto.Estado = dpEstado.SelectedValue; //podria ser txtbox o el estado podria venir de una tabla en bd??
             encPresupuesto.Iva = double.Parse(txtMontoIVA.Text);
             encPresupuesto.Total = double.Parse(txtMontoTotal.Text);
 
@@ -182,9 +288,22 @@ namespace MiTallerMecanico
             }
         }
 
-        private void limpiarcampos()
+        private void limpiarCamposVehiculo()
         {
-            //FALTA IMPLEMENTAR
+            txtMarca.Text = "";
+            txtModelo.Text = "";
+            txtTipoVehiculo.Text = "";
+            txtAno.Text = "";
+            txtKilometraje.Text = "";
+        }
+
+        private void limpiarCamposCliente()
+        {
+            txtNomCliente.Text = "";
+            txtApeCliente.Text = "";
+            txtDirecCliente.Text = "";
+            txtTelCliente.Text = "";
+            txtMailCliente.Text = "";
         }
     }
 }

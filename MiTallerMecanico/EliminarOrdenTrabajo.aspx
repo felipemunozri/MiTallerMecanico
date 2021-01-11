@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <asp:Label ID="lblFolioOrden" runat="server" Text="ID de Orden de Trabajo:"></asp:Label>
-                <asp:TextBox ID="txtFolioOrden" TextMode="Number"  min="1" max="99999999" CssClass="form-control" required runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtFolioOrden" TextMode="Number"  min="1" max="2147483647" CssClass="form-control" required runat="server"></asp:TextBox>
             </div>
             <div class="col-md-12">
                  <asp:Button ID="btnEliminar" CssClass="btn btn-lg btn-block btn-danger mt-4" OnClick="btnEliminar_Click" runat="server" Text="Eliminar" />

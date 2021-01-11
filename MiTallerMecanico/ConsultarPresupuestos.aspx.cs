@@ -15,7 +15,7 @@ namespace MiTallerMecanico
         {
             NEGEncabezadoPresupuesto negEncPresupuesto = new NEGEncabezadoPresupuesto();
 
-            gvResultado.DataSource = negEncPresupuesto.NEGTablaTodosEncPresupuesto();
+            gvResultado.DataSource = negEncPresupuesto.NEGTablaTodosLosEncPresupuesto();
             gvResultado.DataBind();
         }
 
@@ -28,6 +28,8 @@ namespace MiTallerMecanico
 
             gvResultado.DataSource = negEncPresupuesto.NEGTablaEncPresupuestoFiltrados(campo, filtro);
             gvResultado.DataBind();
+
+            SetFocus(gvResultado);
         }
 
         protected void btnExportar_Click(object sender, EventArgs e)

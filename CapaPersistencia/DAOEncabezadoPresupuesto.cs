@@ -24,9 +24,11 @@ namespace CapaPersistencia
                 SqlCommand cmd = new SqlCommand("sp_registrar_encabezado_presupuesto", conectaBD.Conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@rutCliente", encPresupuesto.RutCliente));
-                cmd.Parameters.Add(new SqlParameter("@patente", encPresupuesto.Patente));
+                cmd.Parameters.Add(new SqlParameter("@fk_rutCliente", encPresupuesto.Cliente.RutCliente));
+                cmd.Parameters.Add(new SqlParameter("@fk_patente", encPresupuesto.Vehiculo.Patente));
                 cmd.Parameters.Add(new SqlParameter("@fecha", encPresupuesto.Fecha.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)));
+                cmd.Parameters.Add(new SqlParameter("@observaciones", encPresupuesto.Observaciones));
+                cmd.Parameters.Add(new SqlParameter("@estado", encPresupuesto.Estado));
                 cmd.Parameters.Add(new SqlParameter("@iva", encPresupuesto.Iva));
                 cmd.Parameters.Add(new SqlParameter("@total", encPresupuesto.Total));
                 cmd.Parameters.Add("@new_identity", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -69,9 +71,11 @@ namespace CapaPersistencia
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.Add(new SqlParameter("@folioEncabezado", encPresupuesto.FolioEncabezado));
-                cmd.Parameters.Add(new SqlParameter("@rutCliente", encPresupuesto.RutCliente));
-                cmd.Parameters.Add(new SqlParameter("@patente", encPresupuesto.Patente));
+                cmd.Parameters.Add(new SqlParameter("@fk_rutCliente", encPresupuesto.Cliente.RutCliente));
+                cmd.Parameters.Add(new SqlParameter("@fk_patente", encPresupuesto.Vehiculo.Patente));
                 cmd.Parameters.Add(new SqlParameter("@fecha", encPresupuesto.Fecha.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)));
+                cmd.Parameters.Add(new SqlParameter("@observaciones", encPresupuesto.Observaciones));
+                cmd.Parameters.Add(new SqlParameter("@estado", encPresupuesto.Estado));
                 cmd.Parameters.Add(new SqlParameter("@iva", encPresupuesto.Iva));
                 cmd.Parameters.Add(new SqlParameter("@total", encPresupuesto.Total));
 
@@ -164,11 +168,17 @@ namespace CapaPersistencia
                         EncabezadoPresupuesto encPresupuesto = new EncabezadoPresupuesto();
 
                         encPresupuesto.FolioEncabezado = int.Parse(tablaEncPresupuesto.Rows[i]["folioEncabezado"].ToString());
-                        encPresupuesto.RutCliente = tablaEncPresupuesto.Rows[i]["rutCliente"].ToString();
-                        encPresupuesto.Patente = tablaEncPresupuesto.Rows[i]["patente"].ToString();
                         encPresupuesto.Fecha = DateTime.Parse(tablaEncPresupuesto.Rows[i]["fecha"].ToString());
+                        encPresupuesto.Observaciones = tablaEncPresupuesto.Rows[i]["observaciones"].ToString();
+                        encPresupuesto.Estado = tablaEncPresupuesto.Rows[i]["estado"].ToString();
                         encPresupuesto.Iva = double.Parse(tablaEncPresupuesto.Rows[i]["iva"].ToString());
                         encPresupuesto.Total = double.Parse(tablaEncPresupuesto.Rows[i]["total"].ToString());
+
+                        DAOCliente daoCliente = new DAOCliente();
+                        encPresupuesto.Cliente = daoCliente.buscarClientePorRut(tablaEncPresupuesto.Rows[i]["fk_rutCliente"].ToString());
+
+                        DAOVehiculo daoVehiculo = new DAOVehiculo();
+                        encPresupuesto.Vehiculo = daoVehiculo.buscarVehiculoPorPatente(tablaEncPresupuesto.Rows[i]["fk_patente"].ToString());
 
                         listaEncPresupuesto.Add(encPresupuesto);
                     }
@@ -278,11 +288,17 @@ namespace CapaPersistencia
                     for (int i = 0; i < tablaEncPresupuesto.Rows.Count; i++)
                     {
                         encPresupuesto.FolioEncabezado = int.Parse(tablaEncPresupuesto.Rows[i]["folioEncabezado"].ToString());
-                        encPresupuesto.RutCliente = tablaEncPresupuesto.Rows[i]["rutCliente"].ToString();
-                        encPresupuesto.Patente = tablaEncPresupuesto.Rows[i]["patente"].ToString();
                         encPresupuesto.Fecha = DateTime.Parse(tablaEncPresupuesto.Rows[i]["fecha"].ToString());
+                        encPresupuesto.Observaciones = tablaEncPresupuesto.Rows[i]["observaciones"].ToString();
+                        encPresupuesto.Estado = tablaEncPresupuesto.Rows[i]["estado"].ToString();
                         encPresupuesto.Iva = double.Parse(tablaEncPresupuesto.Rows[i]["iva"].ToString());
                         encPresupuesto.Total = double.Parse(tablaEncPresupuesto.Rows[i]["total"].ToString());
+
+                        DAOCliente daoCliente = new DAOCliente();
+                        encPresupuesto.Cliente = daoCliente.buscarClientePorRut(tablaEncPresupuesto.Rows[i]["fk_rutCliente"].ToString());
+
+                        DAOVehiculo daoVehiculo = new DAOVehiculo();
+                        encPresupuesto.Vehiculo = daoVehiculo.buscarVehiculoPorPatente(tablaEncPresupuesto.Rows[i]["fk_patente"].ToString());
                     }
 
                     return encPresupuesto;

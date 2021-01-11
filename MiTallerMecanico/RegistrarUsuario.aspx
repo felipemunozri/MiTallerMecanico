@@ -7,7 +7,11 @@
         <div class="row">
             <div class="col col-md-12">
                 <asp:Label ID="lblTipoUsuario" runat="server" Text="Tipo usuario:"></asp:Label>
-                <asp:DropDownList ID="dpTipoUsuario" CssClass="form-control" runat="server"></asp:DropDownList><br />
+                <asp:DropDownList ID="dpTipoUsuario" CssClass="form-control" AppendDataBoundItems="true" required runat="server">
+                        <Items>
+                           <asp:ListItem Text="- - Seleccionar" Value="" Selected="True" />
+                       </Items>
+                </asp:DropDownList><br />
 
                 <asp:Label ID="lblNomUsuario" runat="server" Text="Nombre usuario:"></asp:Label>
                 <asp:TextBox ID="txtNomUsuario" CssClass="form-control" required runat="server" MaxLength="50"></asp:TextBox><br />
@@ -17,7 +21,7 @@
             </div>
         </div>
 
-        <asp:Button ID="btnRegistrarUsuario" CssClass="btn btn-lg btn-block btn-primary mb-3" OnClick="btnRegistrarUsuario_Click" runat="server" Text="Registrar" />
+        <asp:Button ID="btnRegistrarUsuario" CssClass="btn btn-lg btn-block btn-main mb-3" OnClick="btnRegistrarUsuario_Click" runat="server" Text="Registrar" />
 
     </div>
 </asp:Content>

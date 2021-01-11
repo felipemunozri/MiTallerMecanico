@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col col-md-6">
                 <asp:Label ID="lblRutCliente" runat="server" Text="Rut cliente:"></asp:Label>
-                <asp:TextBox ID="txtRutCliente" CssClass="form-control" required runat="server" MaxLength="10"></asp:TextBox><br />
+                <asp:TextBox ID="txtRutCliente" AutoPostBack="true" OnTextChanged="txtRutCliente_TextChanged" CssClass="form-control" required runat="server" MaxLength="10"></asp:TextBox><br />
 
                 <asp:Label ID="lblNomCliente" runat="server" Text="Nombre cliente:"></asp:Label>
                 <asp:TextBox ID="txtNomCliente" CssClass="form-control" required runat="server" MaxLength="35"></asp:TextBox><br />
@@ -22,12 +22,12 @@
                 <asp:Label ID="lblTelCliente" runat="server" Text="Teléfono cliente:"></asp:Label>
                 <asp:TextBox ID="txtTelCliente" CssClass="form-control" TextMode="Number" min="0" max="999999999" required runat="server" MaxLength="9"></asp:TextBox><br />
 
-                <asp:Label ID="lblMailCliente" runat="server" Text="Mail cliente:"></asp:Label>
+                <asp:Label ID="lblMailCliente" runat="server" Text="Email cliente:"></asp:Label>
                 <asp:TextBox ID="txtMailCliente" TextMode="Email" CssClass="form-control" required runat="server" MaxLength="50"></asp:TextBox><br />
             </div>
         </div>
 
-        <asp:Button ID="btnRegistrarCliente" CssClass="btn btn-lg btn-block btn-primary mb-3" OnClick="btnRegistrarCliente_Click" runat="server" Text="Registrar" />
+        <asp:Button ID="btnRegistrarCliente" CssClass="btn btn-lg btn-block btn-main mb-3" OnClick="btnRegistrarCliente_Click" runat="server" Text="Registrar" />
 
     </div>
 </asp:Content>

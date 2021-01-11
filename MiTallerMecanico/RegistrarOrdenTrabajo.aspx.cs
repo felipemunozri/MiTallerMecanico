@@ -79,32 +79,44 @@ namespace MiTallerMecanico
             else
             {
                 limpiarCamposVehiculo();
+                txtRutCliente.Text = "";
+                limpiarCamposCliente();
                 SetFocus(txtMarca);
             }
         }
 
         protected void txtRutCliente_TextChanged(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
+            Validacion valida = new Validacion();
 
-            NEGCliente negCliente = new NEGCliente();
-
-            cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
-
-            if (cliente.NomCliente != null)
+            if (!valida.validarRut(txtRutCliente.Text))
             {
-                txtNomCliente.Text = cliente.NomCliente;
-                txtApeCliente.Text = cliente.ApeCliente;
-                txtDirecCliente.Text = cliente.DirecCliente;
-                txtTelCliente.Text = cliente.TelCliente.ToString();
-                txtMailCliente.Text = cliente.MailCliente;
-
-                SetFocus(dpSelecServicio);
+                Response.Write("<script>alert('Vuelva a ingresar el rut!')</script>");
+                txtRutCliente.Text = "";
             }
             else
             {
-                limpiarCamposCliente();
-                SetFocus(txtNomCliente);
+                Cliente cliente = new Cliente();
+
+                NEGCliente negCliente = new NEGCliente();
+
+                cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
+
+                if (cliente.NomCliente != null)
+                {
+                    txtNomCliente.Text = cliente.NomCliente;
+                    txtApeCliente.Text = cliente.ApeCliente;
+                    txtDirecCliente.Text = cliente.DirecCliente;
+                    txtTelCliente.Text = cliente.TelCliente.ToString();
+                    txtMailCliente.Text = cliente.MailCliente;
+
+                    SetFocus(dpSelecServicio);
+                }
+                else
+                {
+                    limpiarCamposCliente();
+                    SetFocus(txtNomCliente);
+                }
             }
         }
 

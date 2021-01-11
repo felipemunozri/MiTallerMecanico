@@ -104,66 +104,21 @@ namespace MiTallerMecanico
                 else
                 {
                     Response.Write("<script>alert('No existe un documento para el valor de ID ingresado!')</script>");
+                    limpiarCampos();
                 }
             }
         }
 
-        //protected void txtPatente_TextChanged(object sender, EventArgs e)
-        //{
-        //    Vehiculo vehiculo = new Vehiculo();
+        protected void txtRutCliente_TextChanged(object sender, EventArgs e)
+        {
+            Validacion valida = new Validacion();
 
-        //    NEGVehiculo negVehiculo = new NEGVehiculo();
-
-        //    vehiculo = negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text);
-
-        //    if (vehiculo.Cliente != null)
-        //    {
-        //        txtMarca.Text = vehiculo.Marca;
-        //        txtModelo.Text = vehiculo.Modelo;
-        //        txtTipoVehiculo.Text = vehiculo.TipoVehiculo;
-        //        txtAno.Text = vehiculo.Ano.ToString();
-        //        txtKilometraje.Text = vehiculo.Kilometraje.ToString();
-
-        //        txtRutCliente.Text = vehiculo.Cliente.RutCliente;
-        //        txtNomCliente.Text = vehiculo.Cliente.NomCliente;
-        //        txtApeCliente.Text = vehiculo.Cliente.ApeCliente;
-        //        txtDirecCliente.Text = vehiculo.Cliente.DirecCliente;
-        //        txtTelCliente.Text = vehiculo.Cliente.TelCliente.ToString();
-        //        txtMailCliente.Text = vehiculo.Cliente.MailCliente;
-
-        //        SetFocus(dpSelecServicio);
-        //    }
-        //    else
-        //    {
-        //        limpiarCamposVehiculo();
-        //        SetFocus(txtMarca);
-        //    }
-        //}
-
-        //protected void txtRutCliente_TextChanged(object sender, EventArgs e)
-        //{
-        //    Cliente cliente = new Cliente();
-
-        //    NEGCliente negCliente = new NEGCliente();
-
-        //    cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
-
-        //    if (cliente.NomCliente != null)
-        //    {
-        //        txtNomCliente.Text = cliente.NomCliente;
-        //        txtApeCliente.Text = cliente.ApeCliente;
-        //        txtDirecCliente.Text = cliente.DirecCliente;
-        //        txtTelCliente.Text = cliente.TelCliente.ToString();
-        //        txtMailCliente.Text = cliente.MailCliente;
-
-        //        SetFocus(dpSelecServicio);
-        //    }
-        //    else
-        //    {
-        //        limpiarCamposCliente();
-        //        SetFocus(txtNomCliente);
-        //    }
-        //}
+            if (!valida.validarRut(txtRutCliente.Text))
+            {
+                Response.Write("<script>alert('Vuelva a ingresar el rut!')</script>");
+                txtRutCliente.Text = "";
+            }
+        }
 
         protected void btnAgregaServicio_Click(object sender, EventArgs e)
         {
@@ -315,22 +270,40 @@ namespace MiTallerMecanico
             }
         }
 
-        private void limpiarCamposVehiculo()
+        private void limpiarCampos()
         {
+            dpNomUsuario.SelectedValue = "";
+            dpPrioridad.SelectedValue = "";
+            dpEstado.SelectedValue = "";
+            txtFecha.Text = "";
+            txtFechaEntrega.Text = "";
+            txtObservaciones.Text = "";
+            txtPatente.Text = "";
             txtMarca.Text = "";
             txtModelo.Text = "";
             txtTipoVehiculo.Text = "";
             txtAno.Text = "";
             txtKilometraje.Text = "";
-        }
-
-        private void limpiarCamposCliente()
-        {
+            txtRutCliente.Text = "";
             txtNomCliente.Text = "";
             txtApeCliente.Text = "";
             txtDirecCliente.Text = "";
             txtTelCliente.Text = "";
             txtMailCliente.Text = "";
+
+            if (gvSeleccion.Rows.Count != 0)
+            {
+                for (int i = 0; i < gvSeleccion.Rows.Count; i++)
+                {
+                    ((DataTable)Session["dtSeleccion"]).Rows.RemoveAt(i);
+
+                    gvSeleccion.DataSource = (DataTable)Session["dtSeleccion"];
+                    gvSeleccion.DataBind();
+                }
+            }
+
+            txtMontoIVA.Text = "0";
+            txtMontoTotal.Text = "0";
         }
     }
 }

@@ -105,20 +105,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ConsultarCliente.aspx" />
-    <Content Include="ConsultarOrdenTrabajo.aspx" />
-    <Content Include="ConsultarPresupuesto.aspx" />
-    <Content Include="ConsultarRepuesto.aspx" />
-    <Content Include="ConsultarTipoUsuario.aspx" />
-    <Content Include="ConsultarUsuario.aspx" />
-    <Content Include="ConsultarVehiculo.aspx" />
+    <Content Include="ConsultarClientes.aspx" />
+    <Content Include="ConsultarOrdenesTrabajo.aspx" />
+    <Content Include="ConsultarPresupuestos.aspx" />
+    <Content Include="ConsultarRepuestos.aspx" />
+    <Content Include="ConsultarTiposUsuario.aspx" />
+    <Content Include="ConsultarUsuarios.aspx" />
+    <Content Include="ConsultarVehiculos.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
-    <Content Include="ConsultarServicio.aspx" />
+    <Content Include="ConsultarServicios.aspx" />
     <Content Include="ConusltarMiVehiculo.aspx" />
     <Content Include="EliminarOrdenTrabajo.aspx" />
     <Content Include="EliminarPresupuesto.aspx" />
@@ -138,12 +138,14 @@
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="libman.json" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="ModificarCliente.aspx" />
+    <Content Include="ModificarOrdenTrabajo_mecanico.aspx" />
     <Content Include="ModificarOrdenTrabajo.aspx" />
     <Content Include="ModificarPresupuesto.aspx" />
     <Content Include="ModificarRepuesto.aspx" />
@@ -583,6 +585,7 @@
     <Content Include="Scripts\jqueryui\themes\vader\jquery-ui.min.css" />
     <Content Include="Scripts\jqueryui\themes\vader\theme.css" />
     <Content Include="Scripts\jqueryui\themes\vader\theme.min.css" />
+    <Content Include="Scripts\jspdf.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
@@ -614,61 +617,61 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="ConsultarCliente.aspx.cs">
-      <DependentUpon>ConsultarCliente.aspx</DependentUpon>
+    <Compile Include="ConsultarClientes.aspx.cs">
+      <DependentUpon>ConsultarClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConsultarCliente.aspx.designer.cs">
-      <DependentUpon>ConsultarCliente.aspx</DependentUpon>
+    <Compile Include="ConsultarClientes.aspx.designer.cs">
+      <DependentUpon>ConsultarClientes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConsultarOrdenTrabajo.aspx.cs">
-      <DependentUpon>ConsultarOrdenTrabajo.aspx</DependentUpon>
+    <Compile Include="ConsultarOrdenesTrabajo.aspx.cs">
+      <DependentUpon>ConsultarOrdenesTrabajo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConsultarOrdenTrabajo.aspx.designer.cs">
-      <DependentUpon>ConsultarOrdenTrabajo.aspx</DependentUpon>
+    <Compile Include="ConsultarOrdenesTrabajo.aspx.designer.cs">
+      <DependentUpon>ConsultarOrdenesTrabajo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConsultarPresupuesto.aspx.cs">
-      <DependentUpon>ConsultarPresupuesto.aspx</DependentUpon>
+    <Compile Include="ConsultarPresupuestos.aspx.cs">
+      <DependentUpon>ConsultarPresupuestos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConsultarPresupuesto.aspx.designer.cs">
-      <DependentUpon>ConsultarPresupuesto.aspx</DependentUpon>
+    <Compile Include="ConsultarPresupuestos.aspx.designer.cs">
+      <DependentUpon>ConsultarPresupuestos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConsultarRepuesto.aspx.cs">
-      <DependentUpon>ConsultarRepuesto.aspx</DependentUpon>
+    <Compile Include="ConsultarRepuestos.aspx.cs">
+      <DependentUpon>ConsultarRepuestos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConsultarRepuesto.aspx.designer.cs">
-      <DependentUpon>ConsultarRepuesto.aspx</DependentUpon>
+    <Compile Include="ConsultarRepuestos.aspx.designer.cs">
+      <DependentUpon>ConsultarRepuestos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConsultarTipoUsuario.aspx.cs">
-      <DependentUpon>ConsultarTipoUsuario.aspx</DependentUpon>
+    <Compile Include="ConsultarTiposUsuario.aspx.cs">
+      <DependentUpon>ConsultarTiposUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConsultarTipoUsuario.aspx.designer.cs">
-      <DependentUpon>ConsultarTipoUsuario.aspx</DependentUpon>
+    <Compile Include="ConsultarTiposUsuario.aspx.designer.cs">
+      <DependentUpon>ConsultarTiposUsuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConsultarUsuario.aspx.cs">
-      <DependentUpon>ConsultarUsuario.aspx</DependentUpon>
+    <Compile Include="ConsultarUsuarios.aspx.cs">
+      <DependentUpon>ConsultarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConsultarUsuario.aspx.designer.cs">
-      <DependentUpon>ConsultarUsuario.aspx</DependentUpon>
+    <Compile Include="ConsultarUsuarios.aspx.designer.cs">
+      <DependentUpon>ConsultarUsuarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConsultarVehiculo.aspx.cs">
-      <DependentUpon>ConsultarVehiculo.aspx</DependentUpon>
+    <Compile Include="ConsultarVehiculos.aspx.cs">
+      <DependentUpon>ConsultarVehiculos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConsultarVehiculo.aspx.designer.cs">
-      <DependentUpon>ConsultarVehiculo.aspx</DependentUpon>
+    <Compile Include="ConsultarVehiculos.aspx.designer.cs">
+      <DependentUpon>ConsultarVehiculos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConsultarServicio.aspx.cs">
-      <DependentUpon>ConsultarServicio.aspx</DependentUpon>
+    <Compile Include="ConsultarServicios.aspx.cs">
+      <DependentUpon>ConsultarServicios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConsultarServicio.aspx.designer.cs">
-      <DependentUpon>ConsultarServicio.aspx</DependentUpon>
+    <Compile Include="ConsultarServicios.aspx.designer.cs">
+      <DependentUpon>ConsultarServicios.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConusltarMiVehiculo.aspx.cs">
       <DependentUpon>ConusltarMiVehiculo.aspx</DependentUpon>
@@ -714,6 +717,13 @@
     </Compile>
     <Compile Include="ModificarCliente.aspx.designer.cs">
       <DependentUpon>ModificarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarOrdenTrabajo_mecanico.aspx.cs">
+      <DependentUpon>ModificarOrdenTrabajo_mecanico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarOrdenTrabajo_mecanico.aspx.designer.cs">
+      <DependentUpon>ModificarOrdenTrabajo_mecanico.aspx</DependentUpon>
     </Compile>
     <Compile Include="ModificarOrdenTrabajo.aspx.cs">
       <DependentUpon>ModificarOrdenTrabajo.aspx</DependentUpon>
@@ -839,6 +849,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

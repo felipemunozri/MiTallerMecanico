@@ -16,6 +16,17 @@ namespace MiTallerMecanico
 
         }
 
+        protected void txtRutCliente_TextChanged(object sender, EventArgs e)
+        {
+            Validacion valida = new Validacion();
+
+            if (!valida.validarRut(txtRutCliente.Text))
+            {
+                Response.Write("<script>alert('Vuelva a ingresar el rut!')</script>");
+                txtRutCliente.Text = "";
+            }
+        }
+
         protected void btnRegistrarVehiculo_Click(object sender, EventArgs e)
         {
             Vehiculo vehiculo = new Vehiculo();

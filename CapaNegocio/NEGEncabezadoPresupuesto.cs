@@ -35,7 +35,7 @@ namespace CapaNegocio
             return daoEncPresupuesto.listarTodosLosEncPresupuesto();
         }
 
-        public DataTable NEGTablaTodosEncPresupuesto()
+        public DataTable NEGTablaTodosLosEncPresupuesto()
         {
             DAOEncabezadoPresupuesto daoEncPresupuesto = new DAOEncabezadoPresupuesto();
             return daoEncPresupuesto.tablaTodosLosEncPresupuesto();

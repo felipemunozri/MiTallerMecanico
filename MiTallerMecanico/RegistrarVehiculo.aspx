@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col col-md-6">
                 <asp:Label ID="lblRutCliente" runat="server" Text="Rut Dueño:"></asp:Label>
-                <asp:TextBox ID="txtRutCliente" CssClass="form-control" required runat="server" MaxLength="10"></asp:TextBox><br />
+                <asp:TextBox ID="txtRutCliente" AutoPostBack="true" OnTextChanged="txtRutCliente_TextChanged" CssClass="form-control" required runat="server" MaxLength="10"></asp:TextBox><br />
 
                 <asp:Label ID="lblPatente" runat="server" Text="Patente:"></asp:Label>
                 <asp:TextBox ID="txtPatente" CssClass="form-control" runat="server" MaxLength="6"></asp:TextBox><br />
@@ -30,7 +30,7 @@
             </div>
         </div>
 
-        <asp:Button ID="btnRegistrarVehiculo" CssClass="btn btn-lg btn-block btn-primary mb-3" OnClick="btnRegistrarVehiculo_Click" runat="server" Text="Registrar" />
+        <asp:Button ID="btnRegistrarVehiculo" CssClass="btn btn-lg btn-block btn-main mb-3" OnClick="btnRegistrarVehiculo_Click" runat="server" Text="Registrar" />
 
     </div>
 </asp:Content>

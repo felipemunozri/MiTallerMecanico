@@ -21,21 +21,18 @@ namespace MiTallerMecanico
             Response.Redirect("Login.aspx");
         }
 
-        public bool filtarMenuNavegacionSegunTipoUsuario(string nombreMenu)
+        public bool filtarMenuNavegacionSegunTipoUsuario()
         {
             int idTipoUsuario = ((Usuario)Session["usuarioConectado"]).TipoUsuario.IdTipoUsuario;
 
-            if (nombreMenu == "menuAdmin")
-            {
-                if (idTipoUsuario == 3)
-                    return false;
+            if (idTipoUsuario == 1) 
+            { 
+                return true;
             }
-            else if (nombreMenu == "menuMecanico")
-            {
-                if (idTipoUsuario == 1 || idTipoUsuario == 2)
-                    return false;
+            else
+            { 
+                return false;
             }
-            return true;
         }
     }
 }

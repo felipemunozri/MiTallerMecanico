@@ -37,27 +37,34 @@
 
             <div class="row">
                 <div class="col-md-6 p-3 shadow-sm rounded">
-                    <h4>Si eres Cliente:</h4>
+                    <h3>Si eres Cliente:</h3>
                     <br />
 
-                    <div class="row h-75">
+<%--                    <div class="row h-75">
                         <div class="col align-self-center">
-                            <h5 class="text-center">Consulta el estado de tu Vehículo ingresando aquí</h5>
+                            <h5 class="w-75 mx-auto text-center">Consulta el estado de tu Vehículo ingresando aquí</h5>
                             <br />
 
                             <div>
-                                <a href="ConusltarMiVehiculo.aspx" class="btn btn-lg btn-block w-75 mx-auto btn-success mb-3" role="button">Consultar</a>
+                                <a href="ConusltarMiVehiculo.aspx" class="btn btn-lg btn-block w-75 mx-auto btn-main mb-3" role="button">Consultar</a>
                             </div>
                             
                         </div>
-                    </div>
+                    </div>--%>
+
+                    <h5 class="w-75 display-4 mx-auto text-center">Consulta el estado de tu Vehículo aquí <span class="morado_hover">&#x21E3;</span></h5>
+                    <br />
+
+
+                    <a href="ConusltarMiVehiculo.aspx" class="btn btn-lg btn-block w-75 mx-auto btn-main mb-3" role="button">Consultar</a>
+
 
                 </div>
                 <div class="col-md-6 py-3 px-5 shadow-sm rounded">
-                    <h4>Si eres Usuario:</h4>
+                    <h3 style="margin-left: -25px;">Si eres Usuario:</h3>
                     <br />
 
-                    <h5 class="text-center">Inicia Sesión</h5>
+                    <h4 class="text-center">Inicia Sesión</h4>
                     <br />
 
                     <div class="w-100 my-auto mx-auto">
@@ -67,7 +74,7 @@
                         <asp:Label ID="lblPassUsuario" runat="server" Text="Contraseña:"></asp:Label>
                         <asp:TextBox ID="txtPassUsuario" class="form-control" required TextMode="Password" runat="server" MaxLength="8"></asp:TextBox><br />
 
-                        <asp:Button ID="btnIngresar" class="btn btn-lg btn-primary btn-block mb-3" OnClick="btnIngresar_Click" runat="server" Text="Ingresar" />
+                        <asp:Button ID="btnIngresar" class="btn btn-lg btn-main btn-block mb-3" OnClick="btnIngresar_Click" runat="server" Text="Ingresar" />
                     </div>
                 </div>
             </div>

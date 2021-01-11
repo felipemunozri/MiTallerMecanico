@@ -39,14 +39,11 @@ namespace MiTallerMecanico
                     txtIdOrden.Text = ordenTrabajo.FolioOrden.ToString();
                     txtRutCliente.Text = ordenTrabajo.Cliente.RutCliente;
                     txtPatente.Text = ordenTrabajo.Vehiculo.Patente;
-                    txtMarca.Text = ordenTrabajo.Vehiculo.Marca;
-                    txtModelo.Text = ordenTrabajo.Vehiculo.Modelo;
-                    txtTipoVehiculo.Text = ordenTrabajo.Vehiculo.TipoVehiculo;
-                    txtAno.Text = ordenTrabajo.Vehiculo.Ano.ToString();
-                    txtKilometraje.Text = ordenTrabajo.Vehiculo.Kilometraje.ToString("N2");
+                    txtValorOrden.Text = "$" +  ordenTrabajo.Total.ToString();
                     txtEstado.Text = ordenTrabajo.Estado;
 
-                    txtEstado.BackColor = Color.FromArgb(127, 255, 0);
+                    txtEstado.ForeColor = Color.White;
+                    txtEstado.BackColor = Color.FromArgb(40, 167, 69);
                     SetFocus(txtEstado);
                 }
                 else
@@ -62,11 +59,6 @@ namespace MiTallerMecanico
             txtIdOrden.Text = "";
             txtRutCliente.Text = "";
             txtPatente.Text = "";
-            txtMarca.Text = "";
-            txtModelo.Text = "";
-            txtTipoVehiculo.Text = "";
-            txtAno.Text = "";
-            txtKilometraje.Text = "";
             txtEstado.Text = "";
             txtEstado.BackColor = Color.Empty;
         }

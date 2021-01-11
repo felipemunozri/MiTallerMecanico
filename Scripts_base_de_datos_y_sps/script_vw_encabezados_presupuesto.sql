@@ -5,9 +5,11 @@ GO
 CREATE VIEW vw_encabezados_presupuesto
 AS
      SELECT folioEncabezado, 
-            rutCliente, 
-            patente, 
-            fecha, 
+            fk_rutCliente, 
+            fk_patente, 
+            fecha,
+			observaciones,
+			estado,
             iva, 
             total
      FROM encabezado_presupuesto

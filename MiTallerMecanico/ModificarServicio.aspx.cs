@@ -33,6 +33,7 @@ namespace MiTallerMecanico
                 if (servicio.NomServicio != null)
                 {
                     txtNombreServicio.Text = servicio.NomServicio;
+                    txtValorServicio.Text = servicio.ValorServicio.ToString();
                 }
                 else
                 {

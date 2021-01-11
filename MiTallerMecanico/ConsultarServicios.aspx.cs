@@ -9,13 +9,13 @@ using System.Web.UI.WebControls;
 
 namespace MiTallerMecanico
 {
-    public partial class ConsultarCliente : System.Web.UI.Page
+    public partial class ConusltarServicio : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            NEGCliente negCliente = new NEGCliente();
+            NEGServicio negServicio = new NEGServicio();
 
-            gvResultado.DataSource = negCliente.NEGTablaTodosLosClientes();
+            gvResultado.DataSource = negServicio.NEGTablaTodosLosServicios();
             gvResultado.DataBind();
         }
 
@@ -24,10 +24,12 @@ namespace MiTallerMecanico
             string filtro = txtFiltro.Text;
             string campo = dpCampo.SelectedValue.ToString();
 
-            NEGCliente negCliente = new NEGCliente();
+            NEGServicio negServicio = new NEGServicio();
 
-            gvResultado.DataSource = negCliente.NEGTablaClientesFiltrados(campo, filtro);
+            gvResultado.DataSource = negServicio.NEGTablaServiciosFiltrados(campo, filtro);
             gvResultado.DataBind();
+
+            SetFocus(gvResultado);
         }
 
         protected void btnExportar_Click(object sender, EventArgs e)

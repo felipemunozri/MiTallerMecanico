@@ -1,15 +1,15 @@
-﻿<%@ Page Title="Consultar Orden de Trabajo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultarOrdenTrabajo.aspx.cs" Inherits="MiTallerMecanico.ConsultarOrdenTrabajo" %>
+﻿<%@ Page Title="Consultar Ordenes de Trabajo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultarOrdenesTrabajo.aspx.cs" Inherits="MiTallerMecanico.ConsultarOrdenTrabajo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container w-100 py-4 px-5 shadow-lg mb-5 rounded">
-        <h1 class="display-4 mt-4 mb-5">·Consultar Orden de Trabajo</h1>
+        <h1 class="display-4 mt-4 mb-5">·Consultar Ordenes de Trabajo</h1>
         <br />
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 pb-3">
                 <asp:Label ID="lblFiltro" runat="server" Text="Filtrar por:"></asp:Label>
                 <asp:TextBox ID="txtFiltro" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 pb-3">
                 <asp:Label ID="lblCampo" runat="server" Text="Campo:"></asp:Label>
                 <asp:DropDownList ID="dpCampo" CssClass="form-control" runat="server">
                     <asp:ListItem Value="folioOrden" Text="ID Orden de Trabajo" />
@@ -25,8 +25,8 @@
                     <asp:ListItem Value="total" Text="Total" />
                 </asp:DropDownList>
             </div>
-            <div class="col-md-4">
-                 <asp:Button ID="btnFiltrar" CssClass="btn btn-block btn-primary mt-4" OnClick="btnFiltrar_Click" runat="server" Text="Filtrar" />
+            <div class="col-md-4 pb-3">
+                 <asp:Button ID="btnFiltrar" CssClass="btn btn-block btn-main mt-4" OnClick="btnFiltrar_Click" runat="server" Text="Filtrar" />
             </div>
         </div>
         <br />
@@ -52,7 +52,7 @@
         </div>
         <br />
 
-        <asp:Button ID="btnExportar" CssClass="btn btn-block btn-primary mt-4" OnClick="btnExportar_Click" runat="server" Text="Exportar a Excel" />
+        <asp:Button ID="btnExportar" CssClass="btn btn-lg btn-block btn-success mt-4" OnClick="btnExportar_Click" runat="server" Text="Exportar a Excel" />
 
     </div>
 </asp:Content>

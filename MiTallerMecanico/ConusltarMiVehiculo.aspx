@@ -35,20 +35,20 @@
 
         <form id="form1" runat="server">
 
-            <h4>Ingrese el ID de su Orden de Trabajo y la Patente de su Vehículo:</h4>
+            <h3>-Ingrese el ID de su Orden de Trabajo y la Patente de su Vehículo:</h3>
             <br />
 
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 pb-3">
                     <asp:Label ID="lblBuscarOrden" runat="server" Text="ID Orden de Trabajo:"></asp:Label>
                     <asp:TextBox ID="txtBuscarOrden" TextMode="Number" min="1" CssClass="form-control" required runat="server"></asp:TextBox>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 pb-3">
                     <asp:Label ID="lblBuscarVehiculo" runat="server" Text="Patente:"></asp:Label>
                     <asp:TextBox ID="txtBuscarVehiculo" CssClass="form-control" required runat="server"></asp:TextBox>
                 </div>
-                <div class="col-md-4">
-                    <asp:Button ID="btnBuscar" formnovalidate CssClass="btn btn-block btn-primary mt-4" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
+                <div class="col-md-4 pb-3">
+                    <asp:Button ID="btnBuscar" formnovalidate CssClass="btn btn-block btn-main mt-4" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
                 </div>
             </div>
             <br />
@@ -56,39 +56,31 @@
             <hr />
             <br />
 
-            <h4>Información de su Orden de Trabajo:</h4>
+            <h3>-Información de su Vehículo:</h3>
             <br />
 
             <div class="row">
-                <div class="col col-md-6">
+                <div class="col col-md-12">
                     <asp:Label ID="lblIdOrden" runat="server" Text="ID Orden de Trabajo:"></asp:Label>
                     <asp:TextBox ID="txtIdOrden" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox><br />
 
-                    <asp:Label ID="lblRutCliente" runat="server" Text="Rut Dueño:"></asp:Label>
+                    <asp:Label ID="lblRutCliente" runat="server" Text="Rut Cliente:"></asp:Label>
                     <asp:TextBox ID="txtRutCliente" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox><br />
 
                     <asp:Label ID="lblPatente" runat="server" Text="Patente:"></asp:Label>
                     <asp:TextBox ID="txtPatente" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox><br />
 
-                    <asp:Label ID="lblMarca" runat="server" Text="Marca:"></asp:Label>
-                    <asp:TextBox ID="txtMarca" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox><br />
-
-                    <asp:Label ID="lblModelo" runat="server" Text="Modelo:"></asp:Label>
-                    <asp:TextBox ID="txtModelo" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox><br />
-                </div>
-                <div class="col col-md-6">
-                    <asp:Label ID="lblTipoVehiculo" runat="server" Text="Tipo de Vehículo:"></asp:Label>
-                    <asp:TextBox ID="txtTipoVehiculo" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox><br />
-
-                    <asp:Label ID="lblAno" runat="server" Text="Año:"></asp:Label>
-                    <asp:TextBox ID="txtAno" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox><br />
-                
-                    <asp:Label ID="lblKilometraje" runat="server" Text="Kilometraje:"></asp:Label>
-                    <asp:TextBox ID="txtKilometraje" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox><br />
+                    <asp:Label ID="lblValorOrden" runat="server" Text="Valor Orden de Trabajo:"></asp:Label>
+                    <asp:TextBox ID="txtValorOrden" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox><br />
 
                     <asp:Label ID="lblEstado" runat="server" Text="Estado de su Vehículo:"></asp:Label>
-                    <asp:TextBox ID="txtEstado" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox><br />
+                    <asp:TextBox ID="txtEstado" Cssclass="form-control" ReadOnly="true" runat="server"></asp:TextBox><br />
+                    <br />
                 </div>
+            </div>
+
+            <div>
+                <a href="Login.aspx" class="btn btn-lg btn-block btn-main mb-3" role="button">Volver</a>
             </div>
 
         </form>

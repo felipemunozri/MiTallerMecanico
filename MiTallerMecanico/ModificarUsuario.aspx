@@ -7,10 +7,10 @@
         <div class="row">
             <div class="col-md-6">
                 <asp:Label ID="lblBuscarUsuario" runat="server" Text="Buscar Usuario por ID:"></asp:Label>
-                <asp:TextBox ID="txtBuscarUsuario" TextMode="Number"  min="1" max="99999999" CssClass="form-control" required runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtBuscarUsuario" TextMode="Number"  min="1" max="2147483647" CssClass="form-control" required runat="server"></asp:TextBox>
             </div>
             <div class="col-md-6">
-                <asp:Button ID="btnBuscar" formnovalidate CssClass="btn btn-block btn-primary mt-4" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
+                <asp:Button ID="btnBuscar" formnovalidate CssClass="btn btn-block btn-main mt-4" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
             </div>
         </div>
         <br />
@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <asp:Button ID="btnModificarUsuario" CssClass="btn btn-lg btn-block btn-primary mb-3" OnClick="btnModificarUsuario_Click" runat="server" Text="Modificar" />
+        <asp:Button ID="btnModificarUsuario" CssClass="btn btn-lg btn-block btn-main mb-3" OnClick="btnModificarUsuario_Click" runat="server" Text="Modificar" />
 
     </div>
 </asp:Content>

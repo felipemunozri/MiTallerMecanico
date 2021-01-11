@@ -4,8 +4,8 @@
         <h1 class="display-4 mt-4 mb-5">·Registrar Servicio</h1>
         <br />
 
-        <div class="row">
-            <div class="col col-md-6">
+        <div class="row align-items-end">
+            <div class="col col-md-6 ">
                 <asp:Label ID="lblNombreServicio" runat="server" Text="Nombre servicio:"></asp:Label>
                 <asp:TextBox ID="txtNombreServicio" CssClass="form-control" required runat="server" MaxLength="200"></asp:TextBox><br />
             </div>
@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <asp:Button ID="btnRegistrarServicio" CssClass="btn btn-lg btn-block btn-primary mb-3" OnClick="btnRegistrarServicio_Click" runat="server" Text="Registrar" />
+        <asp:Button ID="btnRegistrarServicio" CssClass="btn btn-lg btn-block btn-main mb-3" OnClick="btnRegistrarServicio_Click" runat="server" Text="Registrar" />
 
     </div>
 </asp:Content>
