@@ -30,6 +30,7 @@ h3, h4 {
 
 .texto-logo {
     font-size: 1.4rem;
+    font-weight: bold;
 }
 
 .btn-main {
@@ -44,6 +45,10 @@ h3, h4 {
     border-color: #322b5b;
 }
 
+.morado {
+    color: darkslateblue;
+}
+
 .morado_hover {
     color: #3a316f;
 }
@@ -56,7 +61,7 @@ h3, h4 {
 }
 
 @media print and (orientation: portrait) {
-    #MainContent_gvSeleccion {
+    .table-responsive {
         font-size: 12px;
         border: 1px solid black;
     }

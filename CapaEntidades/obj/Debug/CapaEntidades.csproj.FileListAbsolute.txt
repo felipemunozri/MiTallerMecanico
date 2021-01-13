@@ -6,6 +6,7 @@ E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\Cap
 E:\DOCUMENTOS\AIEP\TALLER INTEGADO DE PROYECTOS\Proyecto App Taller Mecanico\CapaEntidades\obj\Debug\CapaEntidades.pdb
 C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\bin\Debug\CapaEntidades.dll
 C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\bin\Debug\CapaEntidades.pdb
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\obj\Debug\CapaEntidades.csprojAssemblyReference.cache
 C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\obj\Debug\CapaEntidades.csproj.CoreCompileInputs.cache
 C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\obj\Debug\CapaEntidades.dll
 C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\obj\Debug\CapaEntidades.pdb

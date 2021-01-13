@@ -42,8 +42,19 @@
             </asp:GridView>
         </div>  
         <br />
-
-        <asp:Button ID="btnExportar" CssClass="btn btn-lg btn-block btn-success mt-4" OnClick="btnExportar_Click" runat="server" Text="Exportar a Excel" />
-
-    </div>
+        <% 
+            if (filtarBotonExcel())
+            {
+            %>
+                <asp:Button ID="btnExportar" CssClass="btn btn-lg btn-block btn-success mt-4" OnClick="btnExportar_Click" runat="server" Text="Exportar a Excel" />
+        <%
+            }
+            else
+            {
+            %>
+                <a href="Login.aspx" class="btn btn-lg btn-block btn-main mb-3" role="button">Volver</a>
+        <%
+            }
+            %>
+</div>
 </asp:Content>

@@ -1,4 +1,5 @@
-﻿using CapaNegocio;
+﻿using CapaEntidades;
+using CapaNegocio;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -56,6 +57,20 @@ namespace MiTallerMecanico
         public override void VerifyRenderingInServerForm(Control control)
         {
 
+        }
+
+        public bool filtarBotonExcel()
+        {
+            int idTipoUsuario = ((Usuario)Session["usuarioConectado"]).TipoUsuario.IdTipoUsuario;
+
+            if (idTipoUsuario == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

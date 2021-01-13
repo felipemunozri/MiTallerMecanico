@@ -18,7 +18,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,500&display=swap" rel="stylesheet">
 
     <%--CSS BOOTSTRAP 4.5.3--%>
-    <%-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">--%>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <%-- CUSTOM CSS --%>
@@ -26,7 +25,10 @@
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-xl shadow-lg p-3">
-        <a class="navbar-brand" href="#"><span class="texto-logo shadow-lg">Mi Taller Mecánico</span></a>
+        <a class="navbar-brand" href="#">
+            <img class="mx-1 mb-2" src="images/Logo-Taller6.png" alt="logo Mi Taller Mecánico" width="25" />
+            <span class="texto-logo shadow-lg">Mi Taller Mecánico</span>
+        </a>
     </nav>
 
     <div class="container w-100 py-4 px-5 shadow-lg my-5 rounded">
@@ -40,21 +42,8 @@
                     <h3>Si eres Cliente:</h3>
                     <br />
 
-<%--                    <div class="row h-75">
-                        <div class="col align-self-center">
-                            <h5 class="w-75 mx-auto text-center">Consulta el estado de tu Vehículo ingresando aquí</h5>
-                            <br />
-
-                            <div>
-                                <a href="ConusltarMiVehiculo.aspx" class="btn btn-lg btn-block w-75 mx-auto btn-main mb-3" role="button">Consultar</a>
-                            </div>
-                            
-                        </div>
-                    </div>--%>
-
                     <h5 class="w-75 display-4 mx-auto text-center">Consulta el estado de tu Vehículo aquí <span class="morado_hover">&#x21E3;</span></h5>
                     <br />
-
 
                     <a href="ConusltarMiVehiculo.aspx" class="btn btn-lg btn-block w-75 mx-auto btn-main mb-3" role="button">Consultar</a>
 

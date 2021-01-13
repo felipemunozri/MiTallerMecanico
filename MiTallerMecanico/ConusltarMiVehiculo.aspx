@@ -26,7 +26,10 @@
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-xl shadow-lg p-3">
-        <a class="navbar-brand" href="Login.aspx"><span class="texto-logo shadow-lg">Mi Taller Mecánico</span></a>
+        <a class="navbar-brand" href="Login.aspx">
+            <img class="mx-1 mb-2" src="images/Logo-Taller6.png" alt="logo Mi Taller Mecánico" width="25" />
+            <span class="texto-logo shadow-lg">Mi Taller Mecánico</span>
+        </a>
     </nav>
 
     <div class="container w-100 py-4 px-5 shadow-lg mb-5 rounded">

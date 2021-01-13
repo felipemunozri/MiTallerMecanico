@@ -25,7 +25,10 @@
 
     <%-- jsPDF --%>
     <script src="Scripts/jspdf.min.js"></script>
-    
+
+    <%-- jsPDF autotable --%>
+    <script src="Scripts/jspdf.plugin.autotable.min.js"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -34,6 +37,7 @@
         <div>
             <nav class="navbar navbar-dark navbar-expand-xl shadow p-3">
                 <a class="navbar-brand" href="Inicio.aspx">
+                    <img class="mx-1 mb-2" src="images/Logo-Taller6.png" alt="logo Mi Taller Mecánico" width="25">
                     <span class="texto-logo shadow-lg">Mi Taller Mecánico</span>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-principal">
@@ -60,7 +64,7 @@
                                         <a class="dropdown-item" href="RegistrarOrdenTrabajo.aspx">Registrar Orden de Trabajo</a>
                                         <a class="dropdown-item" href="ConsultarOrdenesTrabajo.aspx">Consultar Ordenes de Trabajo</a>
                                         <a class="dropdown-item" href="ModificarOrdenTrabajo.aspx">Modificar Orden de Trabajo</a>
-                                        <a class="dropdown-item" href="EliminarOrdenTrabajo.aspx">Eliminar Orden de Trabajo</a>
+                                        <%--<a class="dropdown-item" href="EliminarOrdenTrabajo.aspx">Eliminar Orden de Trabajo</a>--%>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -101,8 +105,8 @@
                                         <a class="dropdown-item" href="RegistrarUsuario.aspx">Registrar Usuario</a>
                                         <a class="dropdown-item" href="ConsultarUsuarios.aspx">Consultar Usuarios</a>
                                         <a class="dropdown-item" href="ModificarUsuario.aspx">Modificar Usuario</a>
-                                        <a class="dropdown-item" href="RegistrarTipoUsuario.aspx">Registrar Tipo Usuario</a>
-                                        <a class="dropdown-item" href="ConsultarTiposUsuario.aspx">Consultar Tipos Usuario</a>
+                                        <%--<a class="dropdown-item" href="RegistrarTipoUsuario.aspx">Registrar Tipo Usuario</a>
+                                        <a class="dropdown-item" href="ConsultarTiposUsuario.aspx">Consultar Tipos Usuario</a>--%>
                                     </div>
                                 </li>
                         <%
@@ -136,12 +140,133 @@
         <br />
 
         <div class="container body-content">
+
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
+            <%--
+            <footer class="page-footer text-center text-sm-left">
+                <div class="shell section-xs">
+                    <div class="range range-xs-center range-45">
+                        <div class="cell-sm-6 cell-lg-3">
+                            <h6>SOBRE NOSOTROS</h6>
+                            <hr class="divider divider-xs" />
+                            <div class="p">
+                                MiTallerMecánico provee servicios de mantención confiables
+                    a vehículos de todo tipo y marcas desde 2002.
+                            </div>
+                            <ul class="list-inline">
+                                <li>
+                                    <a
+                                        class="icon fa fa-facebook icon-circle icon-xs icon-white"
+                                        href="#"></a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="icon fa fa-twitter icon-circle icon-xs icon-white"
+                                        href="#"></a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="icon fa fa-google-plus icon-circle icon-xs icon-white"
+                                        href="#"></a>
+                                </li>
+                                <li>
+                                    <a
+                                        class="icon fa fa-instagram icon-circle icon-xs icon-white"
+                                        href="#"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="cell-sm-6 cell-lg-3">
+                            <h6>Links</h6>
+                            <hr class="divider divider-xs" />
+                            <ul class="list list-unstyled list-2-col">
+                                <li><a class="link link-footer" href="#">Sobre Nosotros</a></li>
+                                <li><a class="link link-footer" href="#">FAQ</a></li>
+                                <li><a class="link link-footer" href="#">Contacto</a></li>
+                                <li><a class="link link-footer" href="#">Precios</a></li>
+                                <li><a class="link link-footer" href="#">Blog</a></li>
+                                <li><a class="link link-footer" href="#">Privacidad</a></li>
+                                <li><a class="link link-footer" href="#">Recursos</a></li>
+                                <li><a class="link link-footer" href="#">Mapa del Sitio</a></li>
+                            </ul>
+                        </div>
+                        <div class="cell-sm-6 cell-lg-3">
+                            <h6>Cantáctenos</h6>
+                            <hr class="divider divider-xs" />
+                            <div
+                                class="unit unit-horizontal unit-middle unit-align-center unit-sm-align-left unit-spacing-xs">
+                                <div class="unit-left">
+                                    <span class="icon icon-footer fa-envelope"></span>
+                                </div>
+                                <div class="unit-body">
+                                    <a class="link link-white" href="mailto:#">info@MiTallerMecánico.org</a>
+                                </div>
+                            </div>
+                            <div
+                                class="unit unit-horizontal unit-top unit-align-center unit-sm-align-left unit-spacing-xs">
+                                <div class="unit-left">
+                                    <span class="icon icon-footer fa-phone"></span>
+                                </div>
+                                <div class="unit-body">
+                                    <a class="link link-white" href="callto:#">2 2123 4567</a>
+                                </div>
+                            </div>
+                            <div
+                                class="unit unit-horizontal unit-middle unit-align-center unit-sm-align-left unit-spacing-xs">
+                                <div class="unit-left">
+                                    <span class="icon icon-footer fa-map-marker"></span>
+                                </div>
+                                <div class="unit-body">
+                                    <a class="link link-white" href="#">Avenida Nosellama 2130,
+                                        <br />
+                                        Santiago, Chile</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell-sm-6 cell-lg-3">
+                            <h6>Suscripción</h6>
+                            <hr class="divider divider-xs" />
+                            <div class="p small">Suscribase a nuestra lista de clientes</div>
+                            <form
+                                class="rd-mailform form-subscribe"
+                                data-form-output="form-output-global"
+                                data-form-type="subscribe"
+                                method="post"
+                                action="bat/rd-mailform.php"
+                                novalidate="novalidate">
+                                <div class="form-group">
+                                    <input
+                                        class="form-input form-control-has-validation form-control-last-child"
+                                        placeholder="E-mail"
+                                        type="email"
+                                        name="email"
+                                        data-constraints="@Required @Email"
+                                        id="regula-generated-760623" /><span class="form-validation"></span>
+                                </div>
+                                <button class="button button-coral-red" type="submit">
+                                    Enviar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <section class="text-center copyright">
+                    <p>
+                        © <span id="copyright-year">2021</span> MiTallerMecánico.
+                <a class="link link-white" href="privacy-policy.html">Privacidad</a>
+                        <!-- {%FOOTER_LINK}-->
+                    </p>
+                </section>
+            </footer>
+              --%>
+            
             <footer class="text-center pt-3">
+
                 <p>&copy; <%: DateTime.Now.Year %> - Mi Taller Mecánico</p>
             </footer>
+                 
         </div>
 
     </form>

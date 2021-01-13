@@ -192,6 +192,8 @@ namespace MiTallerMecanico
         {
             bool flagRegistroEncPresupuesto = false;
             bool flagRegistroDetPresupuesto = false;
+            bool flagRegistroOrden = false;
+            bool flagRegistroDetalleOrden = false;
             int idOrdenInsertada = 0;
 
             //CODIGO PARA MODIFICAR EL ENCABEZADO DEL PRESUPUESTO
@@ -205,7 +207,7 @@ namespace MiTallerMecanico
             encPresupuesto.Vehiculo = negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text.ToUpper());
             encPresupuesto.Fecha = DateTime.Parse(txtFecha.Text);
             encPresupuesto.Observaciones = txtObservaciones.Text;
-            encPresupuesto.Estado = dpEstado.SelectedValue; //podria ser txtbox o el estado podria venir de una tabla en bd??
+            encPresupuesto.Estado = dpEstado.SelectedValue;
             encPresupuesto.Iva = double.Parse(txtMontoIVA.Text);
             encPresupuesto.Total = double.Parse(txtMontoTotal.Text);
 
@@ -240,57 +242,58 @@ namespace MiTallerMecanico
                 Response.Write("<script>alert('Debe ingresar al menos un servicio o repuesto antes de registar una orden de trabajo!')</script>");
             }
 
-            //if (dpEstado.SelectedValue.Equals("Aprobado"))
-            //{
-            //    //CODIGO PARA REGISTRAR ORDEN DE TRABAJO
+            if (dpEstado.SelectedValue.Equals("Aprobado"))
+            {
+                //CODIGO PARA REGISTRAR ORDEN DE TRABAJO
 
-            //    OrdenTrabajo ordenTrabajo = new OrdenTrabajo();
+                OrdenTrabajo ordenTrabajo = new OrdenTrabajo();
 
-            //    ordenTrabajo.Encargado = (Usuario)Session["usuarioConectado"];
-            //    ordenTrabajo.Cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
-            //    ordenTrabajo.Vehiculo = negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text.ToUpper());
-            //    ordenTrabajo.Fecha = DateTime.Parse(txtFecha.Text);
-            //    ordenTrabajo.FechaEntrega = DateTime.Parse(txtFecha.Text);
-            //    ordenTrabajo.Prioridad = ""; //podria venir de una tabla en bd??
-            //    ordenTrabajo.Observaciones = txtObservaciones.Text;
-            //    ordenTrabajo.Estado = dpEstado.SelectedValue; //podria ser txtbox o el estado podria venir de una tabla en bd??
-            //    ordenTrabajo.Iva = double.Parse(txtMontoIVA.Text);
-            //    ordenTrabajo.Total = double.Parse(txtMontoTotal.Text);
+                ordenTrabajo.Encargado = (Usuario)Session["usuarioConectado"];
+                ordenTrabajo.Cliente = negCliente.NEGBuscarClientePorRut(txtRutCliente.Text);
+                ordenTrabajo.Vehiculo = negVehiculo.NEGBuscarVehiculoPorPatente(txtPatente.Text.ToUpper());
+                ordenTrabajo.Fecha = DateTime.Parse(txtFecha.Text);
+                ordenTrabajo.FechaEntrega = DateTime.Parse(txtFecha.Text);
+                ordenTrabajo.Prioridad = ""; 
+                ordenTrabajo.Observaciones = txtObservaciones.Text;
+                ordenTrabajo.Estado = dpEstado.SelectedValue;
+                ordenTrabajo.Iva = double.Parse(txtMontoIVA.Text);
+                ordenTrabajo.Total = double.Parse(txtMontoTotal.Text);
 
-            //    NEGOrdenTrabajo negOrdenTrabajo = new NEGOrdenTrabajo();
-            //    negOrdenTrabajo.NEGRegistrarOrdenTrabajo(ordenTrabajo, out idOrdenInsertada);
+                NEGOrdenTrabajo negOrdenTrabajo = new NEGOrdenTrabajo();
+                flagRegistroOrden = negOrdenTrabajo.NEGRegistrarOrdenTrabajo(ordenTrabajo, out idOrdenInsertada);
 
-            //    //CODIGO PARA INSERTAR EL DETALLE DE LA ORDEN DE TRABAJO
+                //CODIGO PARA INSERTAR EL DETALLE DE LA ORDEN DE TRABAJO
 
-            //    if (gvSeleccion.Rows.Count != 0)
-            //    {
-            //        for (int i = 0; i < gvSeleccion.Rows.Count; i++)
-            //        {
-            //            DetalleOrden detalleOrden = new DetalleOrden();
+                if (gvSeleccion.Rows.Count != 0)
+                {
+                    for (int i = 0; i < gvSeleccion.Rows.Count; i++)
+                    {
+                        DetalleOrden detalleOrden = new DetalleOrden();
 
-            //            NEGServicio negServicio = new NEGServicio();
-            //            NEGRepuesto negRepuesto = new NEGRepuesto();
+                        NEGServicio negServicio = new NEGServicio();
+                        NEGRepuesto negRepuesto = new NEGRepuesto();
 
-            //            detalleOrden.OrdenTrabajo = negOrdenTrabajo.NEGBuscarOrdenTrabajoPorFolio(idOrdenInsertada);
-            //            detalleOrden.Servicio = negServicio.NEGBuscarServicioPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
-            //            detalleOrden.Repuesto = negRepuesto.NEGBuscarRepuestoPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
-            //            detalleOrden.CantServicio = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
-            //            detalleOrden.CantRepuesto = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
-            //            detalleOrden.SubTotal = int.Parse(gvSeleccion.Rows[i].Cells[5].Text);
+                        detalleOrden.OrdenTrabajo = negOrdenTrabajo.NEGBuscarOrdenTrabajoPorFolio(idOrdenInsertada);
+                        detalleOrden.Servicio = negServicio.NEGBuscarServicioPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
+                        detalleOrden.Repuesto = negRepuesto.NEGBuscarRepuestoPorId(int.Parse(gvSeleccion.Rows[i].Cells[1].Text));
+                        detalleOrden.CantServicio = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
+                        detalleOrden.CantRepuesto = int.Parse(gvSeleccion.Rows[i].Cells[4].Text);
+                        detalleOrden.SubTotal = int.Parse(gvSeleccion.Rows[i].Cells[5].Text);
 
-            //            NEGDetalleOrden negDetalleOrden = new NEGDetalleOrden();
-            //        }
-            //    }
-            //}
+                        NEGDetalleOrden negDetalleOrden = new NEGDetalleOrden();
+                        flagRegistroDetalleOrden = negDetalleOrden.NEGRegistrarDetOrden(detalleOrden);
+                    }
+                }
+            }
 
-            if (flagRegistroEncPresupuesto == true && flagRegistroDetPresupuesto == true)
+            if (flagRegistroEncPresupuesto == true && flagRegistroDetPresupuesto == true && flagRegistroOrden == true && flagRegistroDetalleOrden == true)
+            {
+                Response.Write("<script>alert('Presupuesto modificado y Orden de Trabajo creada! ID de Orden = " + idOrdenInsertada + ".')</script>");
+            }
+            else if (flagRegistroOrden == true && flagRegistroDetalleOrden == true)
             {
                 Response.Write("<script>alert('Presupuesto modificado correctamente!')</script>");
             }
-            //else if (dpEstado.SelectedValue.Equals("Aprobado"))
-            //{
-                //Response.Write("<script>alert('Presupuesto modificado y Orden de Trabajo creada! ID de Orden = " + idOrdenInsertada +) </script>");
-            //}
             else
             {
                 Response.Write("<script>alert('No se pudo modificar el Presupuesto!')</script>");

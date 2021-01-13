@@ -133,11 +133,19 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="images\Logo-Taller 2.png" />
     <Content Include="images\Logo-Taller-v2.png" />
     <Content Include="images\Logo-Taller.png" />
+    <Content Include="images\Logo-Taller2.png" />
+    <Content Include="images\Logo-Taller3.png" />
+    <Content Include="images\Logo-Taller4.png" />
+    <Content Include="images\Logo-Taller5.png" />
+    <Content Include="images\Logo-Taller6.png" />
+    <Content Include="images\logo_preview_rev_1.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="libman.json" />
+    <Content Include="Scripts\JavaScript.js" />
     <Content Include="WebForm1.aspx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -865,6 +873,7 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\jspdf.plugin.autotable.min.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
