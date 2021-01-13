@@ -1,4 +1,5 @@
-﻿using CapaNegocio;
+﻿using CapaEntidades;
+using CapaNegocio;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,7 +22,10 @@ namespace MiTallerMecanico
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            string filtro = txtFiltro.Text;
+            Validacion val = new Validacion();
+
+            string filtro = val.validarEspacios(txtFiltro.Text);
+            txtFiltro.Text = filtro;
             string campo = dpCampo.SelectedValue.ToString();
 
             NEGVehiculo negVehiculo = new NEGVehiculo();

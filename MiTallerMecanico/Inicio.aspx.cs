@@ -14,6 +14,11 @@ namespace MiTallerMecanico
         {
             string nombreUsuario = ((Usuario)Session["usuarioConectado"]).NomUsuario;
             lblNombreUsuario.Text = nombreUsuario;
+
+
+
+
+
         }
     }
 }

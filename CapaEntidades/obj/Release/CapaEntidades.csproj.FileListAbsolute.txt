@@ -1,0 +1,6 @@
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\bin\Release\CapaEntidades.dll
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\bin\Release\CapaEntidades.pdb
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\obj\Release\CapaEntidades.csprojAssemblyReference.cache
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\obj\Release\CapaEntidades.csproj.CoreCompileInputs.cache
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\obj\Release\CapaEntidades.dll
+C:\Users\felip\source\repos\Proyecto App Taller Mecanico\CapaEntidades\obj\Release\CapaEntidades.pdb

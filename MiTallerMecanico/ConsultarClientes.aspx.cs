@@ -22,7 +22,10 @@ namespace MiTallerMecanico
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            string filtro = txtFiltro.Text;
+            Validacion val = new Validacion();
+
+            string filtro = val.validarEspacios(txtFiltro.Text);
+            txtFiltro.Text = filtro;
             string campo = dpCampo.SelectedValue.ToString();
 
             NEGCliente negCliente = new NEGCliente();

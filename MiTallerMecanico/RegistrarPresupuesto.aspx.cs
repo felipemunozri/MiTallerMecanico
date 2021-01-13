@@ -280,7 +280,7 @@ namespace MiTallerMecanico
 
             if (flagRegistroEncPresupuesto == true && flagRegistroDetPresupuesto == true)
             {
-                Response.Write("<script>alert('Presupuesto registrado correctamente!')</script>");
+                Response.Write("<script>alert('Presupuesto registrado correctamente! ID de Presupuesto " + idPresupuestoInsertado + ".')</script>");
             }
             else
             {

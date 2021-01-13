@@ -23,10 +23,10 @@ namespace CapaNegocio
             return daoOrdenTrabajo.modificarOrdenTrabajo(ordenTrabajo);
         }
 
-        public bool NEGEliminarOrdenTrabajo(OrdenTrabajo ordenTrabajo)
+        public bool NEGAnularOrdenTrabajo(OrdenTrabajo ordenTrabajo)
         {
             DAOOrdenTrabajo daoOrdenTrabajo = new DAOOrdenTrabajo();
-            return daoOrdenTrabajo.eliminarOrdenTrabajo(ordenTrabajo);
+            return daoOrdenTrabajo.anularOrdenTrabajo(ordenTrabajo);
         }
 
         public List<OrdenTrabajo> NEGListarTodasLasOrdenesDeTrabajo()

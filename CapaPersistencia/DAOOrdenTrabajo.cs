@@ -109,7 +109,7 @@ namespace CapaPersistencia
             }
         }
 
-        public bool eliminarOrdenTrabajo(OrdenTrabajo ordenTrabajo)
+        public bool anularOrdenTrabajo(OrdenTrabajo ordenTrabajo)
         {
             ConexionBD conectaBD = new ConexionBD();
 
@@ -117,7 +117,7 @@ namespace CapaPersistencia
             {
                 conectaBD.abrirConexion();
 
-                SqlCommand cmd = new SqlCommand("sp_eliminar_orden_trabajo", conectaBD.Conexion);
+                SqlCommand cmd = new SqlCommand("sp_anular_orden_trabajo", conectaBD.Conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.Add(new SqlParameter("@folioOrden", ordenTrabajo.FolioOrden));
@@ -217,7 +217,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM vw_ordenes_trabajo";
+                string querySelect = "SELECT * FROM vw_ordenes_trabajo_y_nombre_usuario";
 
                 conectaBD.abrirConexion();
 
@@ -247,7 +247,7 @@ namespace CapaPersistencia
 
             try
             {
-                string querySelect = "SELECT * FROM vw_ordenes_trabajo " +
+                string querySelect = "SELECT * FROM vw_ordenes_trabajo_y_nombre_usuario" +
                     "WHERE " + campo + " LIKE '%" + filtro + "%'";
                 //cambiar por sp
 

@@ -1,0 +1,68 @@
+﻿html {
+    font-size: smaller;
+} 
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+    background-color: darkslateblue;
+}
+
+.navbar-collapse {
+    font-size: 1.1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    
+}
+
+h1 {
+    font-weight: 300;
+    color: #6d6e71;
+    font-size: 39px;
+}
+
+h3, h4 {
+    font-weight: lighter;
+}
+
+.texto-logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.btn-main {
+    color: #fff;
+    background-color: darkslateblue;
+    border-color: darkslateblue;
+}
+
+.btn-main:hover {
+    color: #fff;
+    background-color: #3a316f;
+    border-color: #322b5b;
+}
+
+.morado {
+    color: darkslateblue;
+}
+
+.morado_hover {
+    color: #3a316f;
+}
+
+.btn-more {
+    color: darkslateblue;
+    padding-bottom: 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+@media print and (orientation: portrait) {
+    .table-responsive {
+        font-size: 12px;
+        border: 1px solid black;
+    }
+}

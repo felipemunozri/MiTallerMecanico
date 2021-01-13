@@ -293,7 +293,7 @@ namespace MiTallerMecanico
 
             if (flagRegistroOrden == true && flagRegistroDetalleOrden == true)
             {
-                Response.Write("<script>alert('Orden de Trabajo registrada correctamente!')</script>");
+                Response.Write("<script>alert('Orden de Trabajo registrada correctamente! ID de Orden " + idOrdenInsertada + ".')</script>");
             }
             else
             {

@@ -2,7 +2,7 @@ USE TALLER_MECANICO
 
 -- Procedimiento Almacenado para crear vehiculo en tabla vehiculo
 GO
-ALTER PROCEDURE sp_registrar_vehiculo @patente       VARCHAR(6), 
+CREATE PROCEDURE sp_registrar_vehiculo @patente       VARCHAR(6), 
                                        @fk_rutCliente VARCHAR(10), 
                                        @tipoVehiculo  VARCHAR(50), 
                                        @marca         VARCHAR(50), 
