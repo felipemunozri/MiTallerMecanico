@@ -8,11 +8,15 @@
         <br />
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4 pb-3">
+                <asp:Label ID="lblBuscarOrden" runat="server" Text="ID Orden de Trabajo:"></asp:Label>
+                <asp:TextBox ID="txtBuscarOrden" TextMode="Number" min="1" CssClass="form-control" required runat="server"></asp:TextBox>
+            </div>
+            <div class="col-md-4 pb-3">
                 <asp:Label ID="lblBuscarVehiculo" runat="server" Text="Patente:"></asp:Label>
                 <asp:TextBox ID="txtBuscarVehiculo" CssClass="form-control" required runat="server" MaxLength="6"></asp:TextBox>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4 pb-3">
                 <asp:Button ID="btnBuscar" formnovalidate CssClass="btn btn-block btn-main mt-4" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
             </div>
         </div>

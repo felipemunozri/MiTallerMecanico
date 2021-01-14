@@ -396,14 +396,14 @@ namespace CapaPersistencia
             }
         }
 
-        public OrdenTrabajo buscarOrdenTrabajoPorPatenteYEstado(string patente)
+        public OrdenTrabajo buscarOrdenTrabajoPorFolioPatenteYEstado(int folioOrden, string patente)
         {
             ConexionBD conectaBD = new ConexionBD();
 
             try
             {
-                string querySelect = "SELECT * FROM vw_ordenes_trabajo WHERE " +
-                    "fk_patente = '" + patente + "' AND NOT estado = 'Listo para retiro' AND NOT estado = 'Entregado'";
+                string querySelect = "SELECT * FROM vw_ordenes_trabajo WHERE folioOrden = " + folioOrden + 
+                    " AND fk_patente = '" + patente + "' AND NOT estado = 'Listo para retiro' AND NOT estado = 'Entregado'";
 
                 conectaBD.abrirConexion();
 

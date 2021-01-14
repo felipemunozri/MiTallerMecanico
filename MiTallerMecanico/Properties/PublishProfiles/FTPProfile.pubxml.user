@@ -32,16 +32,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/13/2021 15:07:33</publishTime>
     </File>
     <File Include="bin/CapaNegocio.dll">
-      <publishTime>01/13/2021 15:07:34</publishTime>
+      <publishTime>01/14/2021 00:57:39</publishTime>
     </File>
     <File Include="bin/CapaNegocio.pdb">
-      <publishTime>01/13/2021 15:07:34</publishTime>
+      <publishTime>01/14/2021 00:57:39</publishTime>
     </File>
     <File Include="bin/CapaPersistencia.dll">
-      <publishTime>01/13/2021 15:07:34</publishTime>
+      <publishTime>01/14/2021 00:57:30</publishTime>
     </File>
     <File Include="bin/CapaPersistencia.pdb">
-      <publishTime>01/13/2021 15:07:34</publishTime>
+      <publishTime>01/14/2021 00:57:30</publishTime>
     </File>
     <File Include="bin/es/Microsoft.AspNet.FriendlyUrls.resources.dll">
       <publishTime>07/30/2013 16:01:46</publishTime>
@@ -68,10 +68,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/25/2012 10:48:56</publishTime>
     </File>
     <File Include="bin/MiTallerMecanico.dll">
-      <publishTime>01/13/2021 15:07:35</publishTime>
+      <publishTime>01/14/2021 00:57:43</publishTime>
     </File>
     <File Include="bin/MiTallerMecanico.pdb">
-      <publishTime>01/13/2021 15:07:35</publishTime>
+      <publishTime>01/14/2021 00:57:43</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>04/22/2019 00:06:16</publishTime>
@@ -335,7 +335,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/13/2021 13:16:49</publishTime>
     </File>
     <File Include="ModificarOrdenTrabajo_mecanico.aspx">
-      <publishTime>01/11/2021 15:24:46</publishTime>
+      <publishTime>01/13/2021 21:51:26</publishTime>
     </File>
     <File Include="ModificarPresupuesto.aspx">
       <publishTime>01/12/2021 14:09:35</publishTime>

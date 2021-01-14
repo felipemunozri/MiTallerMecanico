@@ -23,17 +23,20 @@ namespace MiTallerMecanico
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtBuscarVehiculo.Text.Equals(""))
+            if (txtBuscarOrden.Text.Equals("") || txtBuscarVehiculo.Text.Equals(""))
             {
-                Response.Write("<script>alert('Debe ingresar la Patente del vehículo!')</script>");
+                Response.Write("<script>alert('Debe ingresar el ID de Orden de Trabajo y la Patente del vehículo!')</script>");
                 limpiarCampos();
             }
             else
             {
+                int folioOrden = int.Parse(txtBuscarOrden.Text);
+                string patente = txtBuscarVehiculo.Text;
+
                 NEGOrdenTrabajo negOrdenTrabajo = new NEGOrdenTrabajo();
 
                 OrdenTrabajo ordenTrabajo = new OrdenTrabajo();
-                ordenTrabajo = negOrdenTrabajo.NEGBuscarOrdenTrabajoPorPatenteYEstado(txtBuscarVehiculo.Text);
+                ordenTrabajo = negOrdenTrabajo.NEGBuscarOrdenTrabajoPorFolioPatenteYEstado(folioOrden, patente);
 
                 if (ordenTrabajo.Cliente != null)
                 {
