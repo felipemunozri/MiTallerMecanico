@@ -3,13 +3,13 @@ Proyecto app web en asp.net C# para administración de un Taller Mecánico con c
 
 Permite la creación, consulta y modificación de:
 
--Presupuestos
--Órdenes de Trabajo
--Clientes
--Vehículos
--Servicios
--Repuestos
--Usuarios del sistema
+- Presupuestos
+- Órdenes de Trabajo
+- Clientes
+- Vehículos
+- Servicios
+- Repuestos
+- Usuarios del sistema
 
 Además, ofrece la posibilidad de exportar Presupuestos y Órdenes de Trabajo en formato PDF y exportar tablas de consultas en formato Excel.
 
